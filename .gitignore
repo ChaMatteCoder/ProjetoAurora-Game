@@ -1,0 +1,44 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Unity cache
+*.apk
+*.aab
+*.unitypackage
+
+# Crash reports
+sysinfo.txt
+
+# Other files to ignore
+*.log
+*.tmp
+*.claude
+*.codex
+*.bak
+*.backup
+*.venv
