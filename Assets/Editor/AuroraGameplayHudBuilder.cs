@@ -212,7 +212,7 @@ public static class AuroraGameplayHudBuilder
             new Vector2(0f, 1f),
             new Vector2(0f, 1f),
             new Vector2(34f, -28f),
-            new Vector2(470f, 132f),
+            new Vector2(520f, 132f),
             Panel);
         AddPanelChrome(panel.rectTransform);
 
@@ -223,7 +223,7 @@ public static class AuroraGameplayHudBuilder
             24f,
             TextAlignmentOptions.Left,
             new Vector2(22f, -12f),
-            new Vector2(435f, 48f),
+            new Vector2(474f, 48f),
             new Vector2(0f, 1f),
             new Vector2(0f, 1f),
             FontStyles.Bold,
@@ -235,8 +235,8 @@ public static class AuroraGameplayHudBuilder
             "Escape do setor",
             24f,
             TextAlignmentOptions.Left,
-            new Vector2(55f, -74f),
-            new Vector2(360f, 38f),
+            new Vector2(66f, -76f),
+            new Vector2(410f, 38f),
             new Vector2(0f, 1f),
             new Vector2(0f, 1f),
             FontStyles.Normal,
@@ -244,12 +244,13 @@ public static class AuroraGameplayHudBuilder
         Image objectiveIcon = CreateImage(
             "Objective Diamond",
             panel.transform,
-            new Vector2(26f, -80f),
-            new Vector2(17f, 17f),
+            new Vector2(42f, -95f),
+            new Vector2(18f, 18f),
             new Vector2(0f, 1f),
             new Vector2(0f, 1f),
             Cyan,
             null);
+        objectiveIcon.rectTransform.pivot = new Vector2(0.5f, 0.5f);
         objectiveIcon.rectTransform.localRotation = Quaternion.Euler(0f, 0f, 45f);
         Image objectiveIconCore = CreateImage(
             "Objective Diamond Core",
@@ -272,7 +273,7 @@ public static class AuroraGameplayHudBuilder
             new Vector2(0.5f, 1f),
             new Vector2(0.5f, 1f),
             new Vector2(0f, -26f),
-            new Vector2(365f, 82f),
+            new Vector2(420f, 82f),
             PanelStrong);
         AddPanelChrome(panel.rectTransform);
 
@@ -283,7 +284,7 @@ public static class AuroraGameplayHudBuilder
             23f,
             TextAlignmentOptions.Left,
             new Vector2(24f, -21f),
-            new Vector2(150f, 38f),
+            new Vector2(190f, 38f),
             new Vector2(0f, 1f),
             new Vector2(0f, 1f),
             FontStyles.Bold,
@@ -296,7 +297,7 @@ public static class AuroraGameplayHudBuilder
             Image segment = CreateImage(
                 "Integrity Segment " + (i + 1),
                 panel.transform,
-                new Vector2(215f + i * 48f, -19f),
+                new Vector2(250f + i * 48f, -19f),
                 new Vector2(36f, 42f),
                 new Vector2(0f, 1f),
                 new Vector2(0f, 1f),
@@ -317,7 +318,7 @@ public static class AuroraGameplayHudBuilder
             new Vector2(1f, 1f),
             new Vector2(1f, 1f),
             new Vector2(-34f, -28f),
-            new Vector2(520f, 128f),
+            new Vector2(560f, 128f),
             Panel);
         AddPanelChrome(panel.rectTransform);
 
@@ -328,7 +329,7 @@ public static class AuroraGameplayHudBuilder
             23f,
             TextAlignmentOptions.Left,
             new Vector2(25f, -14f),
-            new Vector2(150f, 34f),
+            new Vector2(190f, 34f),
             new Vector2(0f, 1f),
             new Vector2(0f, 1f),
             FontStyles.Bold,
@@ -351,7 +352,7 @@ public static class AuroraGameplayHudBuilder
             "Distance Track",
             panel.transform,
             new Vector2(-55f, 39f),
-            new Vector2(260f, 8f),
+            new Vector2(300f, 8f),
             new Vector2(1f, 0f),
             new Vector2(1f, 0f),
             new Color(0.3f, 0.7f, 0.82f, 0.42f),
@@ -377,18 +378,18 @@ public static class AuroraGameplayHudBuilder
         Image start = CreateImage(
             "Start Marker",
             track.transform,
-            new Vector2(-130f, 0f),
+            new Vector2(-150f, 0f),
             new Vector2(5f, 24f),
             new Vector2(0.5f, 0.5f),
             new Vector2(0.5f, 0.5f),
             White,
             null);
-        start.rectTransform.anchoredPosition = new Vector2(-130f, 0f);
+        start.rectTransform.anchoredPosition = new Vector2(-150f, 0f);
 
         Image marker = CreateImage(
             "Progress Marker",
             track.transform,
-            new Vector2(-130f, 0f),
+            new Vector2(-150f, 0f),
             new Vector2(16f, 16f),
             new Vector2(0.5f, 0.5f),
             new Vector2(0.5f, 0.5f),
@@ -408,7 +409,7 @@ public static class AuroraGameplayHudBuilder
             new Vector2(1f, 0f),
             new Vector2(1f, 0f),
             new Vector2(-34f, 34f),
-            new Vector2(700f, 270f),
+            new Vector2(760f, 270f),
             PanelStrong);
         AddPanelChrome(panel.rectTransform);
 
@@ -463,7 +464,7 @@ public static class AuroraGameplayHudBuilder
             "CELESTIA",
             28f,
             TextAlignmentOptions.Left,
-            new Vector2(266f, -26f),
+            new Vector2(276f, -26f),
             new Vector2(180f, 42f),
             new Vector2(0f, 1f),
             new Vector2(0f, 1f),
@@ -477,7 +478,7 @@ public static class AuroraGameplayHudBuilder
             18f,
             TextAlignmentOptions.Right,
             new Vector2(-42f, -31f),
-            new Vector2(210f, 32f),
+            new Vector2(230f, 32f),
             new Vector2(1f, 1f),
             new Vector2(1f, 1f),
             FontStyles.Bold,
@@ -508,8 +509,8 @@ public static class AuroraGameplayHudBuilder
         CreateImage(
             "Header Divider",
             panel.transform,
-            new Vector2(258f, -72f),
-            new Vector2(410f, 2f),
+            new Vector2(268f, -72f),
+            new Vector2(460f, 2f),
             new Vector2(0f, 1f),
             new Vector2(0f, 1f),
             new Color(Cyan.r, Cyan.g, Cyan.b, 0.65f),
@@ -521,8 +522,8 @@ public static class AuroraGameplayHudBuilder
             "Doutor Elias, mantenha a rota. Detectando obstáculos à frente.",
             25f,
             TextAlignmentOptions.TopLeft,
-            new Vector2(268f, -91f),
-            new Vector2(390f, 108f),
+            new Vector2(278f, -91f),
+            new Vector2(440f, 108f),
             new Vector2(0f, 1f),
             new Vector2(0f, 1f),
             FontStyles.Normal,
@@ -535,7 +536,7 @@ public static class AuroraGameplayHudBuilder
             Image bar = CreateImage(
                 "Transmission " + i,
                 panel.transform,
-                new Vector2(278f + i * 13f, 25f),
+                new Vector2(288f + i * 14f, 25f),
                 new Vector2(5f, 12f),
                 new Vector2(0f, 0f),
                 new Vector2(0f, 0f),

@@ -29,10 +29,16 @@ public class PlayerRunner : MonoBehaviour
     private float speedMultiplier = 1f;
     private bool autoRun;
     private bool inputEnabled = true;
+    private TutorialActionGate tutorialGate;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        tutorialGate = GetComponent<TutorialActionGate>();
+        if (tutorialGate == null)
+        {
+            tutorialGate = gameObject.AddComponent<TutorialActionGate>();
+        }
     }
 
     private void Update()
@@ -42,12 +48,24 @@ public class PlayerRunner : MonoBehaviour
         {
             if (keyboard.aKey.wasPressedThisFrame || keyboard.leftArrowKey.wasPressedThisFrame)
             {
-                MoveLane(-1);
+                if (tutorialGate == null || tutorialGate.CanMoveLeft())
+                {
+                    if (MoveLane(-1))
+                    {
+                        tutorialGate?.NotifyMoveLeft();
+                    }
+                }
             }
 
             if (keyboard.dKey.wasPressedThisFrame || keyboard.rightArrowKey.wasPressedThisFrame)
             {
-                MoveLane(1);
+                if (tutorialGate == null || tutorialGate.CanMoveRight())
+                {
+                    if (MoveLane(1))
+                    {
+                        tutorialGate?.NotifyMoveRight();
+                    }
+                }
             }
 
             if (keyboard.spaceKey.wasPressedThisFrame)
@@ -86,7 +104,8 @@ public class PlayerRunner : MonoBehaviour
 
     public bool TryJump()
     {
-        if (!inputEnabled || controller == null || !controller.isGrounded || IsJumping)
+        if (!inputEnabled || controller == null || !controller.isGrounded || IsJumping ||
+            (tutorialGate != null && !tutorialGate.CanJump()))
         {
             return false;
         }
@@ -94,17 +113,21 @@ public class PlayerRunner : MonoBehaviour
         IsJumping = true;
         verticalVelocity = jumpForce;
         Jumped?.Invoke();
+        tutorialGate?.NotifyJump();
         return true;
     }
 
-    private void MoveLane(int direction)
+    private bool MoveLane(int direction)
     {
         int previous = currentLane;
         currentLane = Mathf.Clamp(currentLane + direction, 0, 2);
         if (previous != currentLane)
         {
             LaneChanged?.Invoke(direction);
+            return true;
         }
+
+        return false;
     }
 
     public static bool PausePressedThisFrame()

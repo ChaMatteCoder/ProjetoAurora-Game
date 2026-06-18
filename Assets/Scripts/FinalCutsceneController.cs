@@ -6,6 +6,7 @@ public class FinalCutsceneController : MonoBehaviour
     public DialogueManager dialogue;
     public PlayerRunner player;
     public CelestIAHudController celestIAHud;
+    public TerminalFinalePresentation presentation;
 
     public void Begin()
     {
@@ -18,6 +19,16 @@ public class FinalCutsceneController : MonoBehaviour
         player.SetInputEnabled(false);
         AudioManager.Instance?.FadeForFinal();
         celestIAHud?.SetCelestIAState(CelestIAState.Corrupted);
+
+        if (presentation == null)
+        {
+            presentation = FindAnyObjectByType<TerminalFinalePresentation>();
+        }
+        if (presentation != null)
+        {
+            yield return presentation.PlayPrelude();
+        }
+
         RenderSettings.ambientLight = new Color(0.5f, 0.01f, 0.02f);
 
         yield return dialogue.Play(new[]

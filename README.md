@@ -8,6 +8,25 @@ O projeto combina corrida em terceira pessoa, narrativa ambiental, cenários sci
 
 ---
 
+## Versão Atual
+
+**Beta 0.3 Narrativa — Gameplay/HUD**
+
+Estado documentado em **18 de junho de 2026**.
+
+Esta versão consolida o fluxo jogável principal em `Beta03_Principal`, com:
+
+* menu apontando para a cena principal da Beta 0.3;
+* tutorial guiado com bloqueio seletivo de input, sem usar `Time.timeScale = 0`;
+* obstáculos de tutorial posicionados para ensinar desvio, pulo e interação com `E`;
+* HUD de gameplay reorganizada, mais legível e alinhada ao estilo sci-fi ciano;
+* interações reutilizáveis para portas, lasers e blocos móveis;
+* sequência de Terminal Central e cutscene final;
+* materiais e cena do Terminal Central versionados;
+* assets pesados/experimentais da Fase 01 mantidos fora do Git até otimização e revisão.
+
+---
+
 ## 🎮 Conceito do Jogo
 
 O jogo se passa durante o início da falha de contenção do Projeto Aurora. O laboratório, antes limpo e controlado, começa a apresentar falhas críticas: portas travadas, robôs hostis, alarmes, instabilidade visual, sistemas corrompidos e mensagens contraditórias da IA CelestIA.
@@ -138,13 +157,27 @@ O projeto está em desenvolvimento.
 * [x] Definição do conceito narrativo;
 * [x] Estruturação inicial do gameplay;
 * [x] Protótipo com movimentação base;
-* [ ] Implementação completa da HUD;
-* [ ] Criação das fases principais;
+* [x] Tutorial narrativo funcional da Beta 0.3;
+* [x] HUD de gameplay reorganizada para a Beta 0.3;
+* [x] Terminal Central e encerramento narrativo inicial;
+* [ ] Criação/polimento das fases principais;
 * [ ] Importação dos modelos finais;
 * [ ] Implementação de áudio e trilha;
-* [ ] Cutscenes e transições narrativas;
+* [ ] Cutscenes e transições narrativas com polimento final;
 * [ ] Polimento visual;
 * [ ] Build final para apresentação.
+
+---
+
+## Prática de Versionamento
+
+Antes de iniciar qualquer feature grande, faça um checkpoint:
+
+1. Rode `git status`.
+2. Faça commit do progresso anterior.
+3. Envie para o GitHub quando a branch estiver validada.
+
+Isso evita misturar correções, experimentos visuais, assets pesados e novas features no mesmo pacote de mudanças.
 
 ---
 
@@ -153,7 +186,7 @@ O projeto está em desenvolvimento.
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/SEU_USUARIO/ProjetoAuroraGame.git
+git clone https://github.com/ChaMatteCoder/ProjetoAurora-Game.git
 ```
 
 2. Abra o projeto pela Unity Hub.
@@ -163,7 +196,7 @@ git clone https://github.com/SEU_USUARIO/ProjetoAuroraGame.git
 4. Abra a cena principal em:
 
 ```txt
-Assets/_ProjectAurora/Scenes/
+Assets/_ProjectAurora/Scenes/Beta03_Principal.unity
 ```
 
 5. Pressione **Play** para executar o protótipo.

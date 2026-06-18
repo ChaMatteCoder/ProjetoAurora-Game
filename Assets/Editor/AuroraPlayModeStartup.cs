@@ -8,8 +8,7 @@ public static class AuroraPlayModeStartup
     private const string MainMenuScenePath =
         "Assets/_ProjectAurora/Scenes/MainMenu.unity";
     private const string GameplayScenePath =
-        "Assets/_ProjectAurora/Scenes/FASE 01 - Laboratório Limpo A/" +
-        "Fase01_SetorA_LaboratorioLimpo.unity";
+        "Assets/_ProjectAurora/Scenes/Beta03_Principal.unity";
 
     static AuroraPlayModeStartup()
     {
@@ -30,6 +29,13 @@ public static class AuroraPlayModeStartup
         {
             EditorSceneManager.playModeStartScene = menuScene;
             Debug.Log("PROJETO:AURORA - Menu principal definido como inicio do Play Mode.");
+        }
+
+        if (AssetDatabase.LoadAssetAtPath<SceneAsset>(GameplayScenePath) == null)
+        {
+            Debug.LogWarning(
+                "PROJETO:AURORA - Beta03_Principal ainda nao foi gerada.");
+            return;
         }
 
         EditorBuildSettings.scenes = new[]

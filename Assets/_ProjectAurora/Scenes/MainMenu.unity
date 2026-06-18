@@ -845,6 +845,7 @@ MonoBehaviour:
   extraBackButton: {fileID: 220813002}
   creditsBackButton: {fileID: 434548286}
   gameplaySceneCandidates:
+  - Beta03_Principal
   - Fase01_SetorA_LaboratorioLimpo
 --- !u!114 &249101881
 MonoBehaviour:

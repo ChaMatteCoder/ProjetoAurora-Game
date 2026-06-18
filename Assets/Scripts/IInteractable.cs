@@ -1,6 +1,8 @@
+using UnityEngine;
+
 public interface IInteractable
 {
-    bool CanInteract { get; }
-    string Prompt { get; }
-    void Interact(PlayerInteraction player);
+    string GetInteractionPrompt();
+    bool CanInteract(GameObject interactor);
+    void Interact(GameObject interactor);
 }

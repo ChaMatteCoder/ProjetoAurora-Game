@@ -365,7 +365,7 @@ public static class AuroraMenuBuilder
 
     private static void CreateEventSystem()
     {
-        if (Object.FindObjectOfType<EventSystem>() != null) return;
+        if (Object.FindAnyObjectByType<EventSystem>() != null) return;
         new GameObject("EventSystem", typeof(EventSystem), typeof(InputSystemUIInputModule));
     }
 

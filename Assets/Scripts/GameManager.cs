@@ -21,6 +21,14 @@ public class GameManager : MonoBehaviour
     [Header("Run")]
     public float finishDistance = 2700f;
 
+    [Header("Scene Preview")]
+    public bool terminalSequencePreview;
+    public bool previewAutoRun = true;
+    public string previewSectorName = "TERMINAL CENTRAL";
+    [TextArea]
+    public string previewObjective =
+        "Terminal Central alcancado. Aproxime-se do painel principal.";
+
     public GameState State { get; private set; } = GameState.IntroCutscene;
     public bool CanRun => State == GameState.Playing;
     public bool IsFinished => State == GameState.GameOver || State == GameState.Finished;
@@ -65,6 +73,20 @@ public class GameManager : MonoBehaviour
         ui.SetInteractionPrompt(false, string.Empty);
         celestIA.Begin();
         narrativeEvents.ResetEvents();
+
+        if (terminalSequencePreview)
+        {
+            SetState(GameState.Playing);
+            player.SetInputEnabled(true);
+            player.SetAutoRun(previewAutoRun);
+            ui.SetSector(previewSectorName);
+            ui.SetDistance(Distance, finishDistance);
+            ui.SetCelestIAState(CelestIAState.Corrupted);
+            dialogue.ShowPersistent("CELESTIA", previewObjective);
+            AudioManager.Instance?.BeginGameplayMusic();
+            return;
+        }
+
         SetState(GameState.IntroCutscene);
         introCutscene.Begin();
     }
@@ -82,6 +104,11 @@ public class GameManager : MonoBehaviour
         }
 
         ui.SetDistance(Distance, finishDistance);
+        if (terminalSequencePreview)
+        {
+            return;
+        }
+
         sectors.UpdateSector(Distance);
         if (State == GameState.Playing)
         {

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/_ProjectAurora/Scenes/MainMenu.unity
     guid: 255540227bdc58546907987fdfa3961c
   - enabled: 1
-    path: Assets/_ProjectAurora/Scenes/FASE 01 - Laboratório Limpo A/Fase01_SetorA_LaboratorioLimpo.unity
-    guid: cc61e94cc4a6d654295bdb8d51fa9df8
+    path: Assets/_ProjectAurora/Scenes/Beta03_Principal.unity
+    guid: 75d54ad27d1530547a36c36267f985bf
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

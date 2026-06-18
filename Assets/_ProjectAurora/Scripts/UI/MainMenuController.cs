@@ -42,6 +42,7 @@ namespace ProjectAurora.UI
         [Tooltip("Cenas de gameplay tentadas em ordem. A primeira encontrada nos Build Settings é carregada.")]
         public string[] gameplaySceneCandidates =
         {
+            "Beta03_Principal",
             "Fase01_SetorA_LaboratorioLimpo"
         };
 

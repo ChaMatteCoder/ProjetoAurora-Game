@@ -12,23 +12,43 @@ public enum InteractableAction
 public class InteractableObject : MonoBehaviour, IInteractable
 {
     public InteractableAction action;
-    public string prompt = "Pressione E";
+    public string prompt = "PRESSIONE E";
     public string message = "CELESTIA: Acesso autorizado.";
     public GameObject targetObject;
     public LaserHazard targetLaser;
     public TutorialManager tutorial;
     public bool oneShot = true;
 
-    public bool CanInteract { get; private set; } = true;
-    public string Prompt => action == InteractableAction.FinalTerminal
-        ? "Pressione E para iniciar restauração"
-        : action == InteractableAction.TutorialPanel
-            ? "Pressione E para abrir a porta"
-            : prompt;
+    public bool CanInteractLegacy { get; private set; } = true;
 
-    public void Interact(PlayerInteraction player)
+    public string GetInteractionPrompt()
     {
-        if (!CanInteract)
+        if (action == InteractableAction.FinalTerminal)
+        {
+            return "PRESSIONE E - INICIAR RESTAURACAO";
+        }
+
+        if (action == InteractableAction.TutorialPanel)
+        {
+            return string.IsNullOrWhiteSpace(prompt) ? "PRESSIONE E - ABRIR PORTA" : prompt;
+        }
+
+        return string.IsNullOrWhiteSpace(prompt) ? "PRESSIONE E" : prompt;
+    }
+
+    public bool CanInteract(GameObject interactor)
+    {
+        if (!CanInteractLegacy)
+        {
+            return false;
+        }
+
+        return action != InteractableAction.TutorialPanel || tutorial == null || tutorial.CanInteract(this);
+    }
+
+    public void Interact(GameObject interactor)
+    {
+        if (!CanInteract(interactor))
         {
             return;
         }
@@ -41,9 +61,11 @@ public class InteractableObject : MonoBehaviour, IInteractable
                     targetObject.SetActive(false);
                 }
                 break;
+
             case InteractableAction.DisableLaser:
                 targetLaser?.Deactivate();
                 break;
+
             case InteractableAction.TutorialPanel:
                 if (targetObject != null)
                 {
@@ -51,22 +73,24 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 }
                 tutorial?.NotifyInteractionComplete();
                 break;
+
             case InteractableAction.FinalTerminal:
-                GameManager.Instance.BeginFinalCutscene();
+                GameManager.Instance?.BeginFinalCutscene();
                 break;
+
             case InteractableAction.Message:
-                GameManager.Instance.celestIA.ShowTemporary(message, 3f);
+                GameManager.Instance?.celestIA?.ShowTemporary(message, 3f);
                 break;
         }
 
         if (!string.IsNullOrWhiteSpace(message))
         {
-            GameManager.Instance.celestIA.ShowTemporary(message, 2.5f);
+            GameManager.Instance?.celestIA?.ShowTemporary(message, 2.5f);
         }
 
         if (oneShot)
         {
-            CanInteract = false;
+            CanInteractLegacy = false;
         }
     }
 }
