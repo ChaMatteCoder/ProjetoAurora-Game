@@ -153,3 +153,7 @@ Antes de mover/apagar qualquer coisa:
 2. Confirmar que nao ha erros vermelhos novos no Console apos a troca de cena.
 3. Somente depois disso planejar migracao incremental de scripts ainda usados em `Assets/Scripts`.
 4. Nao limpar cenas antigas, builders, tutorial, GameOver ou assets gerados ate o fluxo canonico estar testado em Play Mode.
+
+## Decisao posterior
+
+O fluxo `MainMenu -> Beta03_Principal` foi adotado como fluxo canonico temporario para estabilizacao do beta. Limpezas estruturais devem ser feitas em etapas futuras, sem mover/apagar `Assets/Scripts` neste momento.
