@@ -1,0 +1,43 @@
+﻿<svg width="320" height="52" viewBox="0 0 320 52" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="320" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07111F"/>
+      <stop offset="0.45" stop-color="#0A1A2F"/>
+      <stop offset="1" stop-color="#0D2740"/>
+    </linearGradient>
+    <linearGradient id="innerGlow" x1="0" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00C8FF" stop-opacity="0.10"/>
+      <stop offset="0.5" stop-color="#00C8FF" stop-opacity="0.03"/>
+      <stop offset="1" stop-color="#00C8FF" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="activeStroke" x1="0" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00C8FF" stop-opacity="0.25"/>
+      <stop offset="0.18" stop-color="#00C8FF" stop-opacity="1"/>
+      <stop offset="0.75" stop-color="#00C8FF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#00C8FF" stop-opacity="1"/>
+    </linearGradient>
+    <filter id="tinyGlow" x="-40%" y="-100%" width="180%" height="300%">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feFlood flood-color="#00C8FF" flood-opacity="0.45" result="glowColor"/>
+      <feComposite in="glowColor" in2="blur" operator="in" result="softGlow"/>
+      <feMerge><feMergeNode in="softGlow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softCyanGlow" x="-20%" y="-80%" width="140%" height="260%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feFlood flood-color="#00C8FF" flood-opacity="0.85" result="glowColor"/>
+      <feComposite in="glowColor" in2="blur" operator="in" result="softGlow"/>
+      <feMerge><feMergeNode in="softGlow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M4 6 L18 6 L23 1 L286 1 L319 26 L286 51 L23 51 L18 46 L4 46 L1 43 L1 9 Z" fill="url(#bgGradient)" stroke="#1B4F7A" stroke-width="1" />
+  <path d="M9 10 L27 10 L31 6 L282 6 L310 26 L282 46 L31 46 L27 42 L9 42 Z" fill="url(#innerGlow)" stroke="#123D61" stroke-width="1" opacity="0.9" />
+
+  <path d="M42 7 L136 7" stroke="#00C8FF" stroke-width="1.2" opacity="0.35"/>
+  <path d="M188 45 L270 45" stroke="#00C8FF" stroke-width="1.2" opacity="0.25"/>
+  <path d="M12 17 L20 17 M12 35 L20 35" stroke="#00C8FF" stroke-width="1" opacity="0.35"/>
+  <path d="M294 17 L306 26 L294 35" fill="none" stroke="#00C8FF" stroke-width="1" opacity="0.30"/>
+  <path d="M32 14 L48 14 L56 26 L48 38 L32 38 L24 26 Z" fill="#06111D" stroke="#00C8FF" stroke-width="1" opacity="0.65"/>
+  <g transform="translate(30 16) scale(0.8333333)" fill="none" stroke="#00C8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" filter="url(#tinyGlow)"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></g>
+
+  <text x="74" y="26" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" letter-spacing="3" fill="#FFFFFF">CONFIGURAÇÕES</text>
+</svg>
