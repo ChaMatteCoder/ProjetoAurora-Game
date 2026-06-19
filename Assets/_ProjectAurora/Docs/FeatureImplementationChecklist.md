@@ -9,6 +9,9 @@
 - Nao criar outro player.
 - Nao alterar `Assets/Scripts` legado sem necessidade.
 - Preferir `Assets/_ProjectAurora/Scripts`.
+- Nunca implementar features novas em `Assets/Scenes/MainMenu.unity`.
+- Nunca usar `Assets/Scripts/MainMenuController.cs` como base para novas features.
+- Usar sempre `Assets/_ProjectAurora/Scenes/MainMenu.unity` e `AuroraMainMenuController.cs`.
 
 ## Durante implementacao
 

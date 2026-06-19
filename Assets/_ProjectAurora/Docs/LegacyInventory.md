@@ -30,3 +30,12 @@ Essas pastas ainda podem conter scripts e cenas funcionais usados pelo beta. Ela
 - Revisar `GameOverManager`.
 - Quebrar builders grandes.
 - Mover outputs derivados para pasta ignorada.
+
+## Menu legado
+
+- `Assets/Scenes/MainMenu.unity` ainda referencia `Assets/Scripts/MainMenuController.cs`.
+- Essa cena nao e o menu oficial.
+- O menu oficial e `Assets/_ProjectAurora/Scenes/MainMenu.unity`.
+- Nao usar `Assets/Scenes/MainMenu.unity` para novas features.
+- Nao apagar ainda por seguranca de GUID.
+- Reavaliar remocao apenas apos confirmar que nenhuma cena/prefab/build depende dela.
