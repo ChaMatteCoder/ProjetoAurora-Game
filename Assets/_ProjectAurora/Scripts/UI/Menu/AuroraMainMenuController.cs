@@ -30,6 +30,10 @@ namespace ProjectAurora.UI.Menu
         [SerializeField] private string[] gameplaySceneCandidates =
         {
             "Beta03_Principal",
+            "Gameplay",
+            "RunnerScene",
+            "GameScene",
+            "SampleScene",
             "Fase01_SetorA_LaboratorioLimpo"
         };
 
