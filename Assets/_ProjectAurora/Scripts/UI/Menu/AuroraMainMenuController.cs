@@ -50,7 +50,7 @@ namespace ProjectAurora.UI.Menu
         {
             BindCards();
             BindBackButtons();
-            SelectInitialCard();
+            ClearMenuCardSelection();
         }
 
         private void Update()
@@ -176,7 +176,7 @@ namespace ProjectAurora.UI.Menu
 
         private void HandleCardClick(AuroraMenuCard card)
         {
-            SetActiveCard(card);
+            ClearMenuCardSelection();
             switch (card.Action)
             {
                 case AuroraMenuCardAction.StartGame:
@@ -200,18 +200,21 @@ namespace ProjectAurora.UI.Menu
             }
         }
 
-        private void SelectInitialCard()
+        private void ClearMenuCardSelection()
         {
             DiscoverCards();
-            if (cards.Count == 0)
+            activeCard = null;
+            foreach (AuroraMenuCard card in cards)
             {
-                return;
+                if (card != null)
+                {
+                    card.SetSelected(false);
+                }
             }
 
-            SetActiveCard(cards[0]);
             if (EventSystem.current != null)
             {
-                EventSystem.current.SetSelectedGameObject(cards[0].gameObject);
+                EventSystem.current.SetSelectedGameObject(null);
             }
         }
 

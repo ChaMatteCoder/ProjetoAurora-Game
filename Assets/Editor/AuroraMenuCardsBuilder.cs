@@ -21,7 +21,6 @@ public static class AuroraMenuCardsBuilder
     private const string MenuScenePath = BasePath + "/Scenes/MainMenu.unity";
     private const string CardsArtPath = BasePath + "/Art/UI/Menu/Cards";
     private const string MenuPrefabPath = BasePath + "/Prefabs/UI/Menu/PF_AuroraMenuCard.prefab";
-    private const string BackgroundPath = BasePath + "/Art/Menu/References/MenuFull.png";
     private const string RequestPath = "Temp/AuroraMenuCardsBuild.request";
     private const string ResultPath = "Temp/AuroraMenuCardsBuild.result";
 
@@ -38,7 +37,6 @@ public static class AuroraMenuCardsBuilder
         public string Key;
         public string Label;
         public AuroraMenuCardAction Action;
-        public string IconSvg;
         public IconKind IconKind;
     }
 
@@ -53,11 +51,11 @@ public static class AuroraMenuCardsBuilder
 
     private static readonly CardDefinition[] Cards =
     {
-        new CardDefinition { Key = "jogar", Label = "JOGAR", Action = AuroraMenuCardAction.StartGame, IconKind = IconKind.Play, IconSvg = PlayIcon },
-        new CardDefinition { Key = "configuracoes", Label = "CONFIGURA\u00C7\u00D5ES", Action = AuroraMenuCardAction.OpenSettings, IconKind = IconKind.Settings, IconSvg = SettingsIcon },
-        new CardDefinition { Key = "extra", Label = "EXTRA", Action = AuroraMenuCardAction.OpenExtras, IconKind = IconKind.Gem, IconSvg = GemIcon },
-        new CardDefinition { Key = "creditos", Label = "CR\u00C9DITOS", Action = AuroraMenuCardAction.OpenCredits, IconKind = IconKind.UsersRound, IconSvg = UsersRoundIcon },
-        new CardDefinition { Key = "sair", Label = "SAIR", Action = AuroraMenuCardAction.QuitGame, IconKind = IconKind.Power, IconSvg = PowerIcon }
+        new CardDefinition { Key = "jogar", Label = "JOGAR", Action = AuroraMenuCardAction.StartGame, IconKind = IconKind.Play },
+        new CardDefinition { Key = "configuracoes", Label = "CONFIGURA\u00C7\u00D5ES", Action = AuroraMenuCardAction.OpenSettings, IconKind = IconKind.Settings },
+        new CardDefinition { Key = "extra", Label = "EXTRA", Action = AuroraMenuCardAction.OpenExtras, IconKind = IconKind.Gem },
+        new CardDefinition { Key = "creditos", Label = "CR\u00C9DITOS", Action = AuroraMenuCardAction.OpenCredits, IconKind = IconKind.UsersRound },
+        new CardDefinition { Key = "sair", Label = "SAIR", Action = AuroraMenuCardAction.QuitGame, IconKind = IconKind.Power }
     };
 
     static AuroraMenuCardsBuilder()
@@ -68,7 +66,7 @@ public static class AuroraMenuCardsBuilder
         }
     }
 
-    [MenuItem("Tools/Projeto Aurora/Menu/Build SVG Card Menu")]
+    [MenuItem("Tools/Projeto Aurora/Menu/Build PNG Card Menu")]
     public static void BuildMenuCards()
     {
         EnsureFolders();
@@ -77,7 +75,7 @@ public static class AuroraMenuCardsBuilder
         BuildMenuScene(prefab);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        Debug.Log("PROJETO:AURORA - MainMenu com cards SVG gerado.");
+        Debug.Log("PROJETO:AURORA - MainMenu com cards PNG gerado.");
     }
 
     private static void RunRequestedBuild()
@@ -92,7 +90,7 @@ public static class AuroraMenuCardsBuilder
         {
             File.Delete(AbsolutePath(RequestPath));
             BuildMenuCards();
-            File.WriteAllText(AbsolutePath(ResultPath), "SUCCESS: MainMenu SVG cards generated.", Encoding.UTF8);
+            File.WriteAllText(AbsolutePath(ResultPath), "SUCCESS: MainMenu PNG cards generated.", Encoding.UTF8);
         }
         catch (Exception exception)
         {
@@ -120,8 +118,6 @@ public static class AuroraMenuCardsBuilder
     {
         foreach (CardDefinition card in Cards)
         {
-            WriteSvg(card, false);
-            WriteSvg(card, true);
             WritePng(card, false);
             WritePng(card, true);
         }
@@ -135,11 +131,6 @@ public static class AuroraMenuCardsBuilder
         AssetDatabase.Refresh();
     }
 
-    private static void WriteSvg(CardDefinition card, bool active)
-    {
-        string svg = BuildSvg(card.Label, card.IconSvg, active);
-        File.WriteAllText(AbsolutePath(SvgPath(card, active)), svg, Encoding.UTF8);
-    }
 
     private static void WritePng(CardDefinition card, bool active)
     {
@@ -189,7 +180,7 @@ public static class AuroraMenuCardsBuilder
         AuroraMenuCard card = root.GetComponent<AuroraMenuCard>();
         Sprite inactive = LoadSprite(PngPath(Cards[0], false));
         Sprite active = LoadSprite(PngPath(Cards[0], true));
-        card.Configure(Cards[0].Label, Cards[0].IconSvg, SvgPath(Cards[0], false), Cards[0].Action, inactive, active, true);
+        card.Configure(Cards[0].Label, Cards[0].Action, inactive, active, true);
 
         GameObject prefab = PrefabUtility.SaveAsPrefabAsset(root, MenuPrefabPath);
         Object.DestroyImmediate(root);
@@ -233,7 +224,6 @@ public static class AuroraMenuCardsBuilder
         controller.SetCardsContainer(container);
         controller.SetPanels(settings, extras, credits);
         EnsureEventSystem();
-        EnsureBackground(menuRoot);
         AddSceneToBuildSettingsAsFirst(MenuScenePath);
 
         EditorUtility.SetDirty(controller);
@@ -254,8 +244,6 @@ public static class AuroraMenuCardsBuilder
         AuroraMenuCard card = instance.GetComponent<AuroraMenuCard>();
         card.Configure(
             definition.Label,
-            definition.IconSvg,
-            SvgPath(definition, active),
             definition.Action,
             LoadSprite(PngPath(definition, false)),
             LoadSprite(PngPath(definition, true)),
@@ -359,33 +347,6 @@ public static class AuroraMenuCardsBuilder
                 Object.DestroyImmediate(found);
             }
         }
-    }
-
-    private static void EnsureBackground(RectTransform menuRoot)
-    {
-        if (FindChild(menuRoot, "Image_MenuBackground") != null)
-        {
-            return;
-        }
-
-        Sprite background = LoadSprite(BackgroundPath);
-        if (background == null)
-        {
-            return;
-        }
-
-        GameObject backgroundObject = new GameObject("Image_MenuBackground", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
-        backgroundObject.transform.SetParent(menuRoot, false);
-        backgroundObject.transform.SetAsFirstSibling();
-        RectTransform rect = backgroundObject.GetComponent<RectTransform>();
-        rect.anchorMin = Vector2.zero;
-        rect.anchorMax = Vector2.one;
-        rect.offsetMin = Vector2.zero;
-        rect.offsetMax = Vector2.zero;
-        Image image = backgroundObject.GetComponent<Image>();
-        image.sprite = background;
-        image.preserveAspect = true;
-        image.raycastTarget = false;
     }
 
     private static void EnsureEventSystem()
@@ -492,61 +453,6 @@ public static class AuroraMenuCardsBuilder
         }
     }
 
-    private static string BuildSvg(string label, string iconSvgContent, bool active)
-    {
-        string activeHighlight = active
-            ? @"  <path d=""M8 8 L28 8 L33 3 L284 3 L315 26 L284 49 L33 49 L28 44 L8 44"" fill=""none"" stroke=""url(#activeStroke)"" stroke-width=""1.6"" opacity=""0.85"" filter=""url(#softCyanGlow)"" />"
-            : string.Empty;
-        string activeIndicator = active
-            ? @"  <path d=""M64 18 L67 26 L64 34"" fill=""none"" stroke=""#00C8FF"" stroke-width=""1"" opacity=""0.85"" filter=""url(#tinyGlow)"" />"
-            : string.Empty;
-
-        return $@"<svg width=""320"" height=""52"" viewBox=""0 0 320 52"" xmlns=""http://www.w3.org/2000/svg"">
-  <defs>
-    <linearGradient id=""bgGradient"" x1=""0"" y1=""0"" x2=""320"" y2=""52"" gradientUnits=""userSpaceOnUse"">
-      <stop offset=""0"" stop-color=""#07111F""/>
-      <stop offset=""0.45"" stop-color=""#0A1A2F""/>
-      <stop offset=""1"" stop-color=""#0D2740""/>
-    </linearGradient>
-    <linearGradient id=""innerGlow"" x1=""0"" y1=""0"" x2=""320"" y2=""0"" gradientUnits=""userSpaceOnUse"">
-      <stop offset=""0"" stop-color=""#00C8FF"" stop-opacity=""{(active ? "0.18" : "0.10")}""/>
-      <stop offset=""0.5"" stop-color=""#00C8FF"" stop-opacity=""{(active ? "0.06" : "0.03")}""/>
-      <stop offset=""1"" stop-color=""#00C8FF"" stop-opacity=""{(active ? "0.20" : "0.12")}""/>
-    </linearGradient>
-    <linearGradient id=""activeStroke"" x1=""0"" y1=""0"" x2=""320"" y2=""0"" gradientUnits=""userSpaceOnUse"">
-      <stop offset=""0"" stop-color=""#00C8FF"" stop-opacity=""0.25""/>
-      <stop offset=""0.18"" stop-color=""#00C8FF"" stop-opacity=""1""/>
-      <stop offset=""0.75"" stop-color=""#00C8FF"" stop-opacity=""0.55""/>
-      <stop offset=""1"" stop-color=""#00C8FF"" stop-opacity=""1""/>
-    </linearGradient>
-    <filter id=""tinyGlow"" x=""-40%"" y=""-100%"" width=""180%"" height=""300%"">
-      <feGaussianBlur stdDeviation=""1.2"" result=""blur""/>
-      <feFlood flood-color=""#00C8FF"" flood-opacity=""0.45"" result=""glowColor""/>
-      <feComposite in=""glowColor"" in2=""blur"" operator=""in"" result=""softGlow""/>
-      <feMerge><feMergeNode in=""softGlow""/><feMergeNode in=""SourceGraphic""/></feMerge>
-    </filter>
-    <filter id=""softCyanGlow"" x=""-20%"" y=""-80%"" width=""140%"" height=""260%"">
-      <feGaussianBlur stdDeviation=""2.2"" result=""blur""/>
-      <feFlood flood-color=""#00C8FF"" flood-opacity=""0.85"" result=""glowColor""/>
-      <feComposite in=""glowColor"" in2=""blur"" operator=""in"" result=""softGlow""/>
-      <feMerge><feMergeNode in=""softGlow""/><feMergeNode in=""SourceGraphic""/></feMerge>
-    </filter>
-  </defs>
-  <path d=""M4 6 L18 6 L23 1 L286 1 L319 26 L286 51 L23 51 L18 46 L4 46 L1 43 L1 9 Z"" fill=""url(#bgGradient)"" stroke=""#1B4F7A"" stroke-width=""1"" />
-  <path d=""M9 10 L27 10 L31 6 L282 6 L310 26 L282 46 L31 46 L27 42 L9 42 Z"" fill=""url(#innerGlow)"" stroke=""#123D61"" stroke-width=""1"" opacity=""0.9"" />
-{activeHighlight}
-  <path d=""M42 7 L136 7"" stroke=""#00C8FF"" stroke-width=""1.2"" opacity=""{(active ? "0.55" : "0.35")}""/>
-  <path d=""M188 45 L270 45"" stroke=""#00C8FF"" stroke-width=""1.2"" opacity=""{(active ? "0.45" : "0.25")}""/>
-  <path d=""M12 17 L20 17 M12 35 L20 35"" stroke=""#00C8FF"" stroke-width=""1"" opacity=""{(active ? "0.55" : "0.35")}""/>
-  <path d=""M294 17 L306 26 L294 35"" fill=""none"" stroke=""#00C8FF"" stroke-width=""1"" opacity=""{(active ? "0.50" : "0.30")}""/>
-  <path d=""M32 14 L48 14 L56 26 L48 38 L32 38 L24 26 Z"" fill=""#06111D"" stroke=""#00C8FF"" stroke-width=""1"" opacity=""0.65""/>
-{iconSvgContent}
-{activeIndicator}
-  <text x=""74"" y=""26"" dominant-baseline=""central"" font-family=""Arial, Helvetica, sans-serif"" font-size=""16"" font-weight=""400"" letter-spacing=""3"" fill=""#FFFFFF"">{EscapeXml(label)}</text>
-</svg>
-";
-    }
-
     private static void ConfigureSprite(string assetPath)
     {
         TextureImporter importer = AssetImporter.GetAtPath(assetPath) as TextureImporter;
@@ -569,10 +475,6 @@ public static class AuroraMenuCardsBuilder
         return AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
     }
 
-    private static string SvgPath(CardDefinition card, bool active)
-    {
-        return $"{CardsArtPath}/card_{card.Key}_{(active ? "active" : "inactive")}.svg";
-    }
 
     private static string PngPath(CardDefinition card, bool active)
     {
@@ -785,16 +687,6 @@ public static class AuroraMenuCardsBuilder
         return color;
     }
 
-    private static string EscapeXml(string value)
-    {
-        return value.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;");
-    }
-
-    private const string PlayIcon = @"  <g transform=""translate(30 16) scale(0.8333333)"" fill=""none"" stroke=""#00C8FF"" stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round"" filter=""url(#tinyGlow)""><path d=""M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z""/></g>";
-    private const string SettingsIcon = @"  <g transform=""translate(30 16) scale(0.8333333)"" fill=""none"" stroke=""#00C8FF"" stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round"" filter=""url(#tinyGlow)""><path d=""M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915""/><circle cx=""12"" cy=""12"" r=""3""/></g>";
-    private const string GemIcon = @"  <g transform=""translate(30 16) scale(0.8333333)"" fill=""none"" stroke=""#00C8FF"" stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round"" filter=""url(#tinyGlow)""><path d=""M10.5 3 8 9l4 13 4-13-2.5-6""/><path d=""M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z""/><path d=""M2 9h20""/></g>";
-    private const string UsersRoundIcon = @"  <g transform=""translate(30 16) scale(0.8333333)"" fill=""none"" stroke=""#00C8FF"" stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round"" filter=""url(#tinyGlow)""><path d=""M18 21a8 8 0 0 0-16 0""/><circle cx=""10"" cy=""8"" r=""5""/><path d=""M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3""/></g>";
-    private const string PowerIcon = @"  <g transform=""translate(30 16) scale(0.8333333)"" fill=""none"" stroke=""#00C8FF"" stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round"" filter=""url(#tinyGlow)""><path d=""M12 2v10""/><path d=""M18.4 6.6a9 9 0 1 1-12.77.04""/></g>";
 }
 
 

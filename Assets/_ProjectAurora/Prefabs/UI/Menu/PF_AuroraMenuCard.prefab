@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 320, y: 52}
+  m_SizeDelta: {x: 500, y: 76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7863626712987691393
 CanvasRenderer:
@@ -69,9 +69,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6da2863de204bb14b8f942e910de7a03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca09c463e7c42b8428581fba2248a24b, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -98,15 +98,15 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.84, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.35, g: 0.95, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.35, g: 0.45, b: 0.55, a: 0.7}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.08
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -136,13 +136,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
   m_IgnoreLayout: 0
-  m_MinWidth: 320
-  m_MinHeight: 52
-  m_PreferredWidth: 320
-  m_PreferredHeight: 52
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
+  m_MinWidth: 500
+  m_MinHeight: 76
+  m_PreferredWidth: 500
+  m_PreferredHeight: 76
+  m_FlexibleWidth: 0
+  m_FlexibleHeight: 0
+  m_LayoutPriority: 10
 --- !u!114 &6895460286542077190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,17 +156,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.UI.Menu.AuroraMenuCard
   label: JOGAR
-  iconSvgContent: '  <g transform="translate(30 16) scale(0.8333333)" fill="none"
-    stroke="#00C8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-    filter="url(#tinyGlow)"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2
-    0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></g>'
-  svgAssetPath: Assets/_ProjectAurora/Art/UI/Menu/Cards/card_jogar_inactive.svg
   action: 0
   cardImage: {fileID: 7563108788251926020}
   labelText: {fileID: 5282374535262597183}
   inactiveSprite: {fileID: 21300000, guid: ca09c463e7c42b8428581fba2248a24b, type: 3}
   activeSprite: {fileID: 21300000, guid: 6da2863de204bb14b8f942e910de7a03, type: 3}
-  activeByDefault: 1
+  activeByDefault: 0
+  cardSize: {x: 500, y: 76}
   onClick:
     m_PersistentCalls:
       m_Calls: []
@@ -204,8 +200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 28, y: 0}
-  m_SizeDelta: {x: -92, y: 0}
+  m_AnchoredPosition: {x: 66, y: 0}
+  m_SizeDelta: {x: -220, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3140892108303745354
 CanvasRenderer:
@@ -228,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.86, g: 0.93, b: 1, a: 0.92}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -237,7 +233,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 16
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
