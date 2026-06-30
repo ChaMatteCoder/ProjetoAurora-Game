@@ -11,10 +11,14 @@ namespace ProjectAurora.UI.Menu
         [SerializeField] private VideoClip loopClip;
         [SerializeField] private RenderTexture targetTexture;
         [SerializeField] private RawImage targetImage;
-        [SerializeField] private float restartCooldown = 0.25f;
-        [SerializeField] private float endRestartMargin = 1.5f;
+        [SerializeField] private float restartCooldown = 0.35f;
+        [SerializeField] private float freezeWatchdogSeconds = 1.25f;
 
         private float lastRestartTime;
+        private float lastProgressTime;
+        private double lastObservedVideoTime = -1d;
+        private bool waitingForPrepare;
+        private bool warnedMissingSetup;
 
         private void Awake()
         {
@@ -26,11 +30,15 @@ namespace ProjectAurora.UI.Menu
         {
             ResolveReferences();
             ConfigurePlayer();
-            StartLoop();
+            RegisterEvents();
+            PlayFromStart();
         }
 
         private void OnDisable()
         {
+            UnregisterEvents();
+            waitingForPrepare = false;
+
             if (videoPlayer != null)
             {
                 videoPlayer.Stop();
@@ -39,29 +47,35 @@ namespace ProjectAurora.UI.Menu
 
         private void Update()
         {
-            if (videoPlayer == null || loopClip == null || targetTexture == null)
+            if (!HasValidSetup())
             {
+                WarnMissingSetupOnce();
                 return;
             }
 
-            if (!videoPlayer.isPrepared)
+            if (waitingForPrepare)
             {
-                if (!videoPlayer.isPlaying && Time.unscaledTime - lastRestartTime >= restartCooldown)
-                {
-                    StartLoop();
-                }
-                return;
-            }
-
-            if (videoPlayer.isPlaying && loopClip.length > 0d && videoPlayer.time >= loopClip.length - endRestartMargin)
-            {
-                RestartLoop();
                 return;
             }
 
             if (!videoPlayer.isPlaying && Time.unscaledTime - lastRestartTime >= restartCooldown)
             {
-                RestartLoop();
+                PlayFromStart();
+                return;
+            }
+
+            double currentTime = videoPlayer.time;
+            if (currentTime > lastObservedVideoTime + 0.02d || currentTime < lastObservedVideoTime - 0.5d)
+            {
+                lastObservedVideoTime = currentTime;
+                lastProgressTime = Time.unscaledTime;
+                return;
+            }
+
+            if (videoPlayer.isPlaying && Time.unscaledTime - lastProgressTime >= freezeWatchdogSeconds)
+            {
+                Debug.LogWarning("Aurora menu video stopped advancing; restarting Dr.Elias_Loop playback.", this);
+                PlayFromStart();
             }
         }
 
@@ -94,29 +108,93 @@ namespace ProjectAurora.UI.Menu
             if (targetImage != null)
             {
                 targetImage.texture = targetTexture;
+                targetImage.color = Color.white;
                 targetImage.raycastTarget = false;
             }
         }
 
-        private void StartLoop()
+        private void RegisterEvents()
         {
-            if (videoPlayer == null || loopClip == null || targetTexture == null)
+            if (videoPlayer == null)
             {
-                Debug.LogWarning("Aurora menu video loop is missing VideoPlayer, clip, or RenderTexture.", this);
+                return;
+            }
+
+            UnregisterEvents();
+            videoPlayer.prepareCompleted += HandlePrepareCompleted;
+            videoPlayer.loopPointReached += HandleLoopPointReached;
+            videoPlayer.errorReceived += HandleVideoError;
+        }
+
+        private void UnregisterEvents()
+        {
+            if (videoPlayer == null)
+            {
+                return;
+            }
+
+            videoPlayer.prepareCompleted -= HandlePrepareCompleted;
+            videoPlayer.loopPointReached -= HandleLoopPointReached;
+            videoPlayer.errorReceived -= HandleVideoError;
+        }
+
+        private bool HasValidSetup()
+        {
+            return videoPlayer != null && loopClip != null && targetTexture != null;
+        }
+
+        private void WarnMissingSetupOnce()
+        {
+            if (warnedMissingSetup)
+            {
+                return;
+            }
+
+            warnedMissingSetup = true;
+            Debug.LogWarning("Aurora menu video loop is missing VideoPlayer, Dr.Elias_Loop clip, or RenderTexture.", this);
+        }
+
+        private void PlayFromStart()
+        {
+            if (!HasValidSetup())
+            {
+                WarnMissingSetupOnce();
                 return;
             }
 
             lastRestartTime = Time.unscaledTime;
+            lastProgressTime = Time.unscaledTime;
+            lastObservedVideoTime = -1d;
+            waitingForPrepare = true;
+
             videoPlayer.Stop();
             videoPlayer.time = 0d;
-            videoPlayer.Play();
+            videoPlayer.Prepare();
         }
 
-        private void RestartLoop()
+        private void HandlePrepareCompleted(VideoPlayer source)
         {
-            lastRestartTime = Time.unscaledTime;
-            videoPlayer.time = 0d;
-            videoPlayer.Play();
+            waitingForPrepare = false;
+            lastProgressTime = Time.unscaledTime;
+            lastObservedVideoTime = -1d;
+            source.time = 0d;
+            source.Play();
+        }
+
+        private void HandleLoopPointReached(VideoPlayer source)
+        {
+            if (!isActiveAndEnabled)
+            {
+                return;
+            }
+
+            PlayFromStart();
+        }
+
+        private void HandleVideoError(VideoPlayer source, string message)
+        {
+            waitingForPrepare = false;
+            Debug.LogWarning($"Aurora menu video could not play Dr.Elias_Loop: {message}", this);
         }
     }
 }

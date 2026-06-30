@@ -38,6 +38,7 @@ namespace ProjectAurora.UI.Menu
         [SerializeField] private UnityEvent onClick = new UnityEvent();
 
         private Button button;
+        private Image rootImage;
         private bool isSelected;
         private bool isPointerInside;
 
@@ -117,9 +118,14 @@ namespace ProjectAurora.UI.Menu
         private void ResolveReferences()
         {
             button = GetComponent<Button>();
-            if (cardImage == null)
+            rootImage = GetComponent<Image>();
+
+            Transform card = transform.Find("Image_Card");
+            Image childCardImage = card != null ? card.GetComponent<Image>() : null;
+            cardImage = childCardImage != null ? childCardImage : cardImage;
+            if (cardImage == null || cardImage == rootImage)
             {
-                cardImage = GetComponent<Image>();
+                cardImage = childCardImage;
             }
             if (iconImage == null)
             {
@@ -153,7 +159,7 @@ namespace ProjectAurora.UI.Menu
                 {
                     tmpRect.anchorMin = new Vector2(0f, 0f);
                     tmpRect.anchorMax = new Vector2(1f, 1f);
-                    tmpRect.offsetMin = new Vector2(116f, 0f);
+                    tmpRect.offsetMin = new Vector2(128f, 0f);
                     tmpRect.offsetMax = new Vector2(-34f, 0f);
                 }
             }
@@ -170,7 +176,7 @@ namespace ProjectAurora.UI.Menu
                 {
                     labelRect.anchorMin = new Vector2(0f, 0f);
                     labelRect.anchorMax = new Vector2(1f, 1f);
-                    labelRect.offsetMin = new Vector2(116f, 0f);
+                    labelRect.offsetMin = new Vector2(128f, 0f);
                     labelRect.offsetMax = new Vector2(-34f, 0f);
                 }
             }
@@ -183,9 +189,16 @@ namespace ProjectAurora.UI.Menu
 
             if (cardImage != null)
             {
-                cardImage.raycastTarget = true;
+                cardImage.raycastTarget = false;
                 cardImage.type = Image.Type.Simple;
                 cardImage.preserveAspect = false;
+            }
+
+            if (rootImage != null)
+            {
+                rootImage.sprite = null;
+                rootImage.color = new Color(1f, 1f, 1f, 0f);
+                rootImage.raycastTarget = true;
             }
 
             if (iconImage != null)
@@ -201,8 +214,8 @@ namespace ProjectAurora.UI.Menu
                     iconRect.anchorMin = new Vector2(0f, 0.5f);
                     iconRect.anchorMax = new Vector2(0f, 0.5f);
                     iconRect.pivot = new Vector2(0.5f, 0.5f);
-                    iconRect.anchoredPosition = new Vector2(58f, 0f);
-                    iconRect.sizeDelta = new Vector2(42f, 42f);
+                    iconRect.anchoredPosition = new Vector2(62f, 0f);
+                    iconRect.sizeDelta = new Vector2(64f, 64f);
                 }
             }
 
@@ -249,7 +262,7 @@ namespace ProjectAurora.UI.Menu
             }
             if (iconImage != null)
             {
-                iconImage.color = active ? Color.white : new Color(0.82f, 0.96f, 1f, 0.92f);
+                iconImage.color = Color.white;
             }
 
             transform.localScale = active ? Vector3.one * 1.015f : Vector3.one;
