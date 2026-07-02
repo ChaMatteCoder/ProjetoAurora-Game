@@ -11,6 +11,15 @@ public class AuroraGameplayHUDController : MonoBehaviour
     public Image[] integritySegments;
     public Color integrityActiveColor = new Color(0.08f, 0.9f, 1f);
     public Color integrityEmptyColor = new Color(0.05f, 0.15f, 0.2f, 0.7f);
+
+    [Header("Suit Recovery (Round 3)")]
+    public TMP_Text recoveryLabel;
+    public Color integrityRecoveringColor = new Color(0.08f, 0.9f, 1f);
+
+    private int recoveringIndex = -1;
+    private float recoveringProgress;
+    private int flashIndex = -1;
+    private float flashTimer;
     public TMP_Text distanceValueText;
     public Image distanceProgressFill;
     public RectTransform distanceMarker;
@@ -76,6 +85,88 @@ public class AuroraGameplayHUDController : MonoBehaviour
 
             segment.gameObject.SetActive(i < visibleMaximum);
             segment.color = i < current ? integrityActiveColor : integrityEmptyColor;
+        }
+    }
+
+    /// Mostra o segmento em recarga (progress 0..1). progress <= 0 ou index invalido limpa o estado.
+    public void SetIntegrityRecoveryProgress(int segmentIndex, float progress)
+    {
+        if (integritySegments == null || segmentIndex < 0 || segmentIndex >= integritySegments.Length || progress <= 0f)
+        {
+            ClearRecovery();
+            return;
+        }
+
+        recoveringIndex = segmentIndex;
+        recoveringProgress = Mathf.Clamp01(progress);
+        if (recoveryLabel != null && !recoveryLabel.gameObject.activeSelf)
+        {
+            recoveryLabel.gameObject.SetActive(true);
+        }
+    }
+
+    /// Flash curto de conclusao no segmento restaurado.
+    public void NotifyRecoveryComplete(int segmentIndex)
+    {
+        ClearRecovery();
+        flashIndex = segmentIndex;
+        flashTimer = 0.7f;
+    }
+
+    private void ClearRecovery()
+    {
+        if (recoveringIndex >= 0 && recoveringIndex < (integritySegments != null ? integritySegments.Length : 0))
+        {
+            Image segment = integritySegments[recoveringIndex];
+            if (segment != null)
+            {
+                segment.color = integrityEmptyColor;
+            }
+        }
+
+        recoveringIndex = -1;
+        recoveringProgress = 0f;
+        if (recoveryLabel != null && recoveryLabel.gameObject.activeSelf)
+        {
+            recoveryLabel.gameObject.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (recoveringIndex >= 0 && integritySegments != null && recoveringIndex < integritySegments.Length)
+        {
+            Image segment = integritySegments[recoveringIndex];
+            if (segment != null)
+            {
+                float pulse = 0.7f + 0.3f * Mathf.Sin(Time.unscaledTime * 6f);
+                Color target = Color.Lerp(integrityEmptyColor, integrityRecoveringColor, recoveringProgress);
+                target.a = Mathf.Lerp(integrityEmptyColor.a, 1f, recoveringProgress) * pulse;
+                segment.color = target;
+            }
+
+            if (recoveryLabel != null)
+            {
+                Color labelColor = recoveryLabel.color;
+                labelColor.a = 0.55f + 0.45f * Mathf.Sin(Time.unscaledTime * 4f);
+                recoveryLabel.color = labelColor;
+            }
+        }
+
+        if (flashTimer > 0f && integritySegments != null && flashIndex >= 0 && flashIndex < integritySegments.Length)
+        {
+            flashTimer -= Time.deltaTime;
+            Image segment = integritySegments[flashIndex];
+            if (segment != null)
+            {
+                float t = Mathf.Clamp01(flashTimer / 0.7f);
+                segment.color = Color.Lerp(integrityActiveColor, Color.white, t);
+            }
+
+            if (flashTimer <= 0f)
+            {
+                flashIndex = -1;
+            }
         }
     }
 

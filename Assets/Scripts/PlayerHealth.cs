@@ -31,6 +31,21 @@ public class PlayerHealth : MonoBehaviour
         IntegrityChanged?.Invoke(Lives, startingLives);
     }
 
+    /// Restaura 1 segmento de integridade (usado pelo SuitIntegrityRecovery).
+    /// Nao ressuscita (Lives <= 0) e nao ultrapassa o maximo.
+    public bool TryRestoreSegment()
+    {
+        if (Lives <= 0 || Lives >= startingLives)
+        {
+            return false;
+        }
+
+        Lives++;
+        GameManager.Instance?.ui?.SetLives(Lives);
+        IntegrityChanged?.Invoke(Lives, startingLives);
+        return true;
+    }
+
     public void TakeDamage()
     {
         if (GameManager.Instance == null || !GameManager.Instance.AllowsDamage ||
