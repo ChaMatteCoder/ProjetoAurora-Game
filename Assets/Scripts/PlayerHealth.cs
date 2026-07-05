@@ -31,6 +31,13 @@ public class PlayerHealth : MonoBehaviour
         IntegrityChanged?.Invoke(Lives, startingLives);
     }
 
+    /// Invulnerabilidade externa para cutscenes curtas (ex.: perseguicao dos robos).
+    /// Nao interfere na janela de invulnerabilidade pos-dano.
+    public void SetExternalInvulnerability(bool value)
+    {
+        IsInvulnerable = value;
+    }
+
     /// Restaura 1 segmento de integridade (usado pelo SuitIntegrityRecovery).
     /// Nao ressuscita (Lives <= 0) e nao ultrapassa o maximo.
     public bool TryRestoreSegment()
@@ -57,7 +64,20 @@ public class PlayerHealth : MonoBehaviour
         Lives--;
         GameManager.Instance.ui.SetLives(Lives);
         IntegrityChanged?.Invoke(Lives, startingLives);
-        GameManager.Instance.celestIA.ShowTemporary("CELESTIA: Impacto detectado. Estabilizando traje.", 2f);
+        if (!VoiceLinePlayer.TryPlayQueued("CEL_045", new VoicePlaybackOptions
+        {
+            group = VoiceGroup.Suit,
+            priority = VoicePriority.Context,
+            interruptCurrent = false,
+            clearQueueOfSameGroup = true,
+            cancelOnStateExit = true,
+            blockGameplay = false,
+            fadeOutTime = 0.08f,
+            ownerStateId = "Suit_Damage"
+        }))
+        {
+            GameManager.Instance.celestIA.ShowTemporary("CELESTIA: Impacto detectado. Estabilizando traje.", 2f);
+        }
 
         if (Lives <= 0)
         {

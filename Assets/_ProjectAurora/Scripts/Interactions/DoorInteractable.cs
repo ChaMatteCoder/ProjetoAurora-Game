@@ -27,7 +27,21 @@ public class DoorInteractable : InteractableBase
     protected override void HandleInteraction(GameObject interactor)
     {
         PlaySfx(audioSource, openSfx);
-        NotifyCelestIA(celestIAMessage);
+        NotifyCelestIA(celestIAMessage, "CEL_048");
+
+        // Round 11: porta padrao Aurora tem prioridade sobre o deslocamento em bloco
+        AuroraDoorController auroraDoor = GetComponentInChildren<AuroraDoorController>() ??
+            (doorTransform != null ? doorTransform.GetComponentInParent<AuroraDoorController>() : null);
+        if (auroraDoor != null)
+        {
+            auroraDoor.SetLocked(false);
+            auroraDoor.Open();
+            if (blockingCollider != null)
+            {
+                blockingCollider.enabled = false;
+            }
+            return;
+        }
 
         if (animator != null && !string.IsNullOrWhiteSpace(animatorOpenTrigger))
         {

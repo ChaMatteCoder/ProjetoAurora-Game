@@ -69,13 +69,17 @@ public class InteractableObject : MonoBehaviour, IInteractable
         switch (action)
         {
             case InteractableAction.OpenDoor:
-                if (slideTarget != null)
+                // Round 11: porta padrao Aurora tem prioridade (paineis deslizam na moldura)
+                if (!TryOpenAuroraDoor())
                 {
-                    StartCoroutine(SlideOpenRoutine());
-                }
-                else if (targetObject != null)
-                {
-                    targetObject.SetActive(false);
+                    if (slideTarget != null)
+                    {
+                        StartCoroutine(SlideOpenRoutine());
+                    }
+                    else if (targetObject != null)
+                    {
+                        targetObject.SetActive(false);
+                    }
                 }
                 break;
 
@@ -91,7 +95,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 break;
 
             case InteractableAction.TutorialPanel:
-                if (targetObject != null)
+                // Round 11: porta Aurora abre de verdade em vez de sumir (SetActive)
+                if (!TryOpenAuroraDoor() && targetObject != null)
                 {
                     targetObject.SetActive(false);
                 }
@@ -103,7 +108,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 break;
 
             case InteractableAction.Message:
-                GameManager.Instance?.celestIA?.ShowTemporary(message, 3f);
                 break;
         }
 
@@ -115,12 +119,72 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
         if (!string.IsNullOrWhiteSpace(message))
         {
-            GameManager.Instance?.celestIA?.ShowTemporary(message, 2.5f);
+            string voiceLineId = ResolveVoiceLineId();
+            if (!VoiceLinePlayer.TryPlayQueued(voiceLineId, new VoicePlaybackOptions
+            {
+                group = VoiceGroup.Interaction,
+                priority = VoicePriority.Context,
+                interruptCurrent = false,
+                clearQueueOfSameGroup = true,
+                cancelOnStateExit = true,
+                blockGameplay = false,
+                fadeOutTime = 0.08f,
+                ownerStateId = "LegacyInteraction"
+            }))
+            {
+                // mensagens de painel sao de baixa prioridade: nao cortam narrativa em andamento
+                GameManager.Instance?.celestIA?.ShowTemporary(
+                    message,
+                    action == InteractableAction.Message ? 3f : 2.5f,
+                    DialogueManager.PriorityLow);
+            }
         }
 
         if (oneShot)
         {
             CanInteractLegacy = false;
+        }
+    }
+
+    /// Se o alvo (targetObject/slideTarget) tiver AuroraDoorController, abre por ele.
+    private bool TryOpenAuroraDoor()
+    {
+        AuroraDoorController door = null;
+        if (targetObject != null)
+        {
+            door = targetObject.GetComponentInParent<AuroraDoorController>() ??
+                   targetObject.GetComponentInChildren<AuroraDoorController>();
+        }
+        if (door == null && slideTarget != null)
+        {
+            door = slideTarget.GetComponentInParent<AuroraDoorController>() ??
+                   slideTarget.GetComponentInChildren<AuroraDoorController>();
+        }
+
+        if (door == null)
+        {
+            return false;
+        }
+
+        door.SetLocked(false);
+        door.Open();
+        return true;
+    }
+
+    private string ResolveVoiceLineId()
+    {
+        string byMessage = VoiceLinePlayer.ResolveContextId(message);
+        if (!string.IsNullOrEmpty(byMessage))
+        {
+            return byMessage;
+        }
+
+        switch (action)
+        {
+            case InteractableAction.OpenDoor: return "CEL_048";
+            case InteractableAction.DisableLaser: return "CEL_049";
+            case InteractableAction.Message: return "CEL_047";
+            default: return null;
         }
     }
 

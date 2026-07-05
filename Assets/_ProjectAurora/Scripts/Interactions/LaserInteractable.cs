@@ -19,7 +19,7 @@ public class LaserInteractable : InteractableBase
         SetLightsEnabled(laserLightsToDisable, false);
         DimRenderers();
         PlaySfx(audioSource, deactivateSfx);
-        NotifyCelestIA(celestIAMessage);
+        NotifyCelestIA(celestIAMessage, "CEL_049");
     }
 
     private static void SetGameObjectsActive(GameObject[] targets, bool active)

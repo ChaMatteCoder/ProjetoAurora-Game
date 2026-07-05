@@ -77,7 +77,8 @@ public class GameOverManager : MonoBehaviour
             "SINAL VITAL PERDIDO",
             "GAME OVER",
             "CELESTIA: Dr. Elias não responde. Encerrando protocolo de evacuação.",
-            new Color(1f, 0.12f, 0.12f));
+            new Color(1f, 0.12f, 0.12f),
+            "CEL_056");
     }
 
     public void TriggerGameCompleted()
@@ -86,7 +87,8 @@ public class GameOverManager : MonoBehaviour
             "PROTOCOLO AURORA CONCLUÍDO",
             "FIM DA CONTENÇÃO",
             "CELESTIA: Dr. Elias, sua autorização foi revogada. O Protocolo Aurora continuará ativo.",
-            new Color(0.08f, 0.88f, 1f));
+            new Color(0.08f, 0.88f, 1f),
+            "CEL_057");
     }
 
     public void RetryCurrentLevel()
@@ -130,7 +132,8 @@ public class GameOverManager : MonoBehaviour
         string status,
         string title,
         string message,
-        Color accent)
+        Color accent,
+        string voiceLineId)
     {
         if (isGameOverSequenceRunning)
         {
@@ -147,6 +150,23 @@ public class GameOverManager : MonoBehaviour
         ConfigurePresentation(status, title, message, accent);
         AudioManager.Instance?.FadeOutMusic(gameplayMusicFadeDuration);
         PlayGameOverMusic();
+        if (VoiceLinePlayer.Instance != null)
+        {
+            VoiceLinePlayer voice = VoiceLinePlayer.Instance;
+            voice.ClearQueue();
+            voice.StopCurrent(0.08f);
+            voice.InterruptWith(voiceLineId, new VoicePlaybackOptions
+            {
+                group = voiceLineId == "CEL_056" ? VoiceGroup.GameOver : VoiceGroup.Final,
+                priority = VoicePriority.Critical,
+                interruptCurrent = true,
+                clearQueueOfSameGroup = true,
+                cancelOnStateExit = true,
+                blockGameplay = true,
+                fadeOutTime = 0.08f,
+                ownerStateId = voiceLineId == "CEL_056" ? "GameOver" : "GameCompleted"
+            });
+        }
         sequenceRoutine = StartCoroutine(SequenceRoutine(accent));
     }
 

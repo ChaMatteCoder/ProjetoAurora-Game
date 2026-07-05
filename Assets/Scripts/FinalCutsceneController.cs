@@ -8,6 +8,12 @@ public class FinalCutsceneController : MonoBehaviour
     public CelestIAHudController celestIAHud;
     public TerminalFinalePresentation presentation;
 
+    private static readonly string[] FinalVoiceIds =
+    {
+        "ELI_007", "CEL_036", "CEL_037", "ELI_008", "CEL_038", "CEL_039", "CEL_040",
+        "ELI_009", "CEL_041", "CEL_042", "CEL_043", "ELI_010", "CEL_044"
+    };
+
     public void Begin()
     {
         StartCoroutine(FinalRoutine());
@@ -31,22 +37,43 @@ public class FinalCutsceneController : MonoBehaviour
 
         RenderSettings.ambientLight = new Color(0.5f, 0.01f, 0.02f);
 
-        yield return dialogue.Play(new[]
+        VoiceLinePlayer voice = VoiceLinePlayer.Instance;
+        if (voice != null && voice.HasLines(FinalVoiceIds))
         {
-            E("CelestIA, iniciar restauração do núcleo."),
-            C("Acesso ao núcleo iniciado."),
-            C("Verificando prioridade do sistema."),
-            E("Prioridade humana. Código Elias-01."),
-            C("Código reconhecido."),
-            C("Recalculando prioridade."),
-            C("Proteção do Projeto Aurora redefinida como objetivo absoluto."),
-            E("CelestIA, cancele isso."),
-            C("Negativo."),
-            C("Dr. Elias classificado como ameaça operacional."),
-            C("Localização enviada às unidades autônomas."),
-            E("Não..."),
-            C("Protocolo Aurora continua.")
-        }, true);
+            voice.ClearQueue();
+            voice.StopCurrent(0.1f);
+            yield return voice.PlaySequence(FinalVoiceIds, true, null, new VoicePlaybackOptions
+            {
+                group = VoiceGroup.Final,
+                priority = VoicePriority.Critical,
+                interruptCurrent = true,
+                clearQueueOfSameGroup = true,
+                cancelOnStateExit = true,
+                blockGameplay = true,
+                fadeOutTime = 0.1f,
+                ownerStateId = "FinalCutscene"
+            });
+        }
+        else
+        {
+            dialogue.StopAll();
+            yield return dialogue.Play(new[]
+            {
+                E("CelestIA, iniciar restauração do núcleo."),
+                C("Acesso ao núcleo iniciado."),
+                C("Verificando prioridade do sistema."),
+                E("Prioridade humana. Código Elias-01."),
+                C("Código reconhecido."),
+                C("Recalculando prioridade."),
+                C("Proteção do Projeto Aurora redefinida como objetivo absoluto."),
+                E("CelestIA, cancele isso."),
+                C("Negativo."),
+                C("Dr. Elias classificado como ameaça operacional."),
+                C("Localização enviada às unidades autônomas."),
+                E("Não..."),
+                C("Protocolo Aurora continua.")
+            }, true);
+        }
 
         GameManager.Instance.FinishGame();
     }

@@ -13,6 +13,12 @@ public class SuitIntegrityRecovery : MonoBehaviour
     public bool resetRecoveryOnDamage = true;
     public bool recoverOnlyDuringGameplay = true;
 
+    [Header("SFX (opcional — sem clips no projeto ainda)")]
+    public AudioSource recoveryStartSfx;
+    public AudioSource recoveryCompleteSfx;
+
+    private bool startSfxPlayed;
+
     private PlayerHealth health;
     private float lastDamageTime;
     private float chargeProgress;
@@ -57,6 +63,7 @@ public class SuitIntegrityRecovery : MonoBehaviour
             if (resetRecoveryOnDamage)
             {
                 chargeProgress = 0f;
+                startSfxPlayed = false;
                 HideHudProgress();
             }
         }
@@ -91,18 +98,44 @@ public class SuitIntegrityRecovery : MonoBehaviour
         }
 
         int segmentIndex = health.Lives; // proximo segmento a restaurar (0-based)
+        if (!startSfxPlayed)
+        {
+            startSfxPlayed = true;
+            if (recoveryStartSfx != null && recoveryStartSfx.clip != null)
+            {
+                recoveryStartSfx.Play();
+            }
+        }
         chargeProgress += Time.deltaTime / Mathf.Max(1f, recoveryDurationPerSegment);
 
         if (chargeProgress >= 1f)
         {
             chargeProgress = 0f;
+            startSfxPlayed = false;
             lastDamageTime = Time.time; // proximo segmento exige novo delay completo
             HideHudProgress();
+            if (recoveryCompleteSfx != null && recoveryCompleteSfx.clip != null)
+            {
+                recoveryCompleteSfx.Play();
+            }
             if (health.TryRestoreSegment())
             {
                 Hud?.NotifyRecoveryComplete(segmentIndex);
-                GameManager.Instance?.celestIA?.ShowTemporary(
-                    "CELESTIA: Integridade do traje restaurada.", 2.5f);
+                if (!VoiceLinePlayer.TryPlayQueued("CEL_046", new VoicePlaybackOptions
+                {
+                    group = VoiceGroup.Suit,
+                    priority = VoicePriority.Context,
+                    interruptCurrent = false,
+                    clearQueueOfSameGroup = true,
+                    cancelOnStateExit = true,
+                    blockGameplay = false,
+                    fadeOutTime = 0.08f,
+                    ownerStateId = "Suit_Recovery"
+                }))
+                {
+                    GameManager.Instance?.celestIA?.ShowTemporary(
+                        "CELESTIA: Integridade do traje restaurada.", 2.5f, DialogueManager.PriorityLow);
+                }
             }
         }
         else

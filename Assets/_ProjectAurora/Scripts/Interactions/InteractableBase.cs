@@ -57,9 +57,21 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
         }
     }
 
-    protected void NotifyCelestIA(string message)
+    protected void NotifyCelestIA(string message, string voiceLineId = null)
     {
-        if (!string.IsNullOrWhiteSpace(message))
+        bool voiceStarted = !string.IsNullOrWhiteSpace(voiceLineId) &&
+            VoiceLinePlayer.TryPlayQueued(voiceLineId, new VoicePlaybackOptions
+            {
+                group = VoiceGroup.Interaction,
+                priority = VoicePriority.Context,
+                interruptCurrent = false,
+                clearQueueOfSameGroup = true,
+                cancelOnStateExit = true,
+                blockGameplay = false,
+                fadeOutTime = 0.08f,
+                ownerStateId = "Interaction"
+            });
+        if (!voiceStarted && !string.IsNullOrWhiteSpace(message))
         {
             GameManager.Instance?.celestIA?.ShowTemporary(message, 2.5f);
         }

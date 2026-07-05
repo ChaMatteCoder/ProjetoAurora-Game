@@ -25,9 +25,12 @@ public class PrototypeSliceEndTrigger : MonoBehaviour
         if (game != null)
         {
             game.ui.SetInteractionPrompt(false, string.Empty);
-            game.dialogue.ShowPersistent(
-                "CELESTIA",
-                "Setor A estabilizado. Primeira passagem concluida.");
+            if (!VoiceLinePlayer.TryPlay("CEL_053"))
+            {
+                game.dialogue.ShowPersistent(
+                    "CELESTIA",
+                    "Setor A estabilizado. Primeira passagem concluida.");
+            }
         }
     }
 }

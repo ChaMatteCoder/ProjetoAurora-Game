@@ -71,7 +71,6 @@ public class GameManager : MonoBehaviour
         ui.SetFinal(false);
         ui.ShowIntro(false, string.Empty);
         ui.SetInteractionPrompt(false, string.Empty);
-        celestIA.Begin();
         narrativeEvents.ResetEvents();
 
         if (terminalSequencePreview)
@@ -82,7 +81,10 @@ public class GameManager : MonoBehaviour
             ui.SetSector(previewSectorName);
             ui.SetDistance(Distance, finishDistance);
             ui.SetCelestIAState(CelestIAState.Corrupted);
-            dialogue.ShowPersistent("CELESTIA", previewObjective);
+            if (!VoiceLinePlayer.TryPlay("CEL_055"))
+            {
+                dialogue.ShowPersistent("CELESTIA", previewObjective);
+            }
             AudioManager.Instance?.BeginGameplayMusic();
             return;
         }
@@ -125,7 +127,10 @@ public class GameManager : MonoBehaviour
     {
         SetState(GameState.Playing);
         player.SetAutoRun(true);
+        celestIA.Begin();
         AudioManager.Instance?.BeginGameplayMusic();
+        // Round 11: a HUD completa acabou de entrar — apresenta o setor atual
+        sectors?.ShowCurrentSectorTitle();
     }
 
     public void DamagePlayer()
@@ -225,6 +230,32 @@ public class GameManager : MonoBehaviour
     private void SetState(GameState state)
     {
         State = state;
+        // Round 11: a HUD acompanha o estado do jogo (intro esconde HUD de gameplay etc.)
+        if (ui != null)
+        {
+            switch (state)
+            {
+                case GameState.IntroCutscene:
+                    ui.SetHudVisibilityState(GameplayHudVisibilityState.IntroCinematic);
+                    break;
+                case GameState.Tutorial:
+                    ui.SetHudVisibilityState(GameplayHudVisibilityState.Tutorial);
+                    break;
+                case GameState.Playing:
+                    ui.SetHudVisibilityState(GameplayHudVisibilityState.Gameplay);
+                    break;
+                case GameState.Paused:
+                    ui.SetHudVisibilityState(GameplayHudVisibilityState.Paused);
+                    break;
+                case GameState.GameOver:
+                    ui.SetHudVisibilityState(GameplayHudVisibilityState.GameOver);
+                    break;
+                case GameState.FinalCutscene:
+                case GameState.Finished:
+                    ui.SetHudVisibilityState(GameplayHudVisibilityState.Final);
+                    break;
+            }
+        }
     }
 
     private void EnsureNarrativeControllers()

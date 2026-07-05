@@ -28,7 +28,7 @@ public class MovingBlockInteractable : InteractableBase
         }
 
         PlaySfx(audioSource, moveSfx);
-        NotifyCelestIA(celestIAMessage);
+        NotifyCelestIA(celestIAMessage, "CEL_050");
 
         if (moveRoutine != null)
         {

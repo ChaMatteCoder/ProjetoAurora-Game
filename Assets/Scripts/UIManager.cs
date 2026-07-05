@@ -100,6 +100,29 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetVoiceLine(VoiceLineEntry line)
+    {
+        if (line == null)
+        {
+            return;
+        }
+
+        auroraHud?.SetVoiceLine(line);
+        if (celestiaText != null)
+        {
+            celestiaText.text = $"<b>{line.SpeakerDisplayName}</b>\n{line.subtitleText}";
+        }
+    }
+
+    public void ClearVoiceLine(VoiceLineEntry line)
+    {
+        auroraHud?.ClearVoiceLine(line);
+        if (celestiaText != null)
+        {
+            celestiaText.text = string.Empty;
+        }
+    }
+
     public void SetCelestIAColor(Color color)
     {
         auroraHud?.SetCelestIAColor(color);
@@ -119,6 +142,10 @@ public class UIManager : MonoBehaviour
     }
 
     public void SetCelestIAState(CelestIAState state) => auroraHud?.SetCelestIAState(state);
+
+    /// Round 11: visibilidade da HUD de gameplay por estado (intro/tutorial/gameplay/...).
+    public void SetHudVisibilityState(GameplayHudVisibilityState state) =>
+        auroraHud?.SetHudVisibilityState(state);
 
     public void SetPause(bool value)
     {
