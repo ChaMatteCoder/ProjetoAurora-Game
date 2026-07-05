@@ -20,7 +20,7 @@ public class CelestIACommPanel : MonoBehaviour
     private void Awake()
     {
         SetState(CelestIAState.Normal);
-        SetMessage("Doutor Elias, mantenha a rota. Detectando obstáculos à frente.");
+        SetMessage(string.Empty);
     }
 
     private void Update()
