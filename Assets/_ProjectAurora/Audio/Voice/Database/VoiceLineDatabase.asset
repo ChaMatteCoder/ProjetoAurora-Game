@@ -1,0 +1,1023 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df68645463365744f9abb9f908cb50b4, type: 3}
+  m_Name: VoiceLineDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::VoiceLineDatabase
+  entries:
+  - id: CEL_001
+    speaker: 0
+    sceneUse: "In\xEDcio da corrida \u2014 ap\xF3s tutorial"
+    subtitleText: "Doutor Elias, mantenha a rota. Detectando obst\xE1culos \xE0 frente."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 147888939b5deea44acaf54706ea210f, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_002
+    speaker: 0
+    sceneUse: "1. Introdu\xE7\xE3o \u2014 sala do Dr. Elias"
+    subtitleText: "Diagn\xF3stico iniciado."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 8ba4710fce0a7f14285ea1355575cec9, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_003
+    speaker: 0
+    sceneUse: "1. Introdu\xE7\xE3o \u2014 sala do Dr. Elias"
+    subtitleText: "Aten\xE7\xE3o. Oscila\xE7\xE3o detectada nos protocolos de conten\xE7\xE3o."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: bfff95be32aa51c4f90df1d2a4715025, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_004
+    speaker: 0
+    sceneUse: "1. Introdu\xE7\xE3o \u2014 sala do Dr. Elias"
+    subtitleText: "Falha cr\xEDtica no setor de seguran\xE7a aut\xF4noma."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 6be16e3d7663922469b109802d75c995, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_005
+    speaker: 0
+    sceneUse: "1. Introdu\xE7\xE3o \u2014 sala do Dr. Elias"
+    subtitleText: "Unidades rob\xF3ticas n\xE3o est\xE3o respondendo ao comando central."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 79358f690a9399545811aed776b47dbd, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_006
+    speaker: 0
+    sceneUse: "1. Introdu\xE7\xE3o \u2014 sala do Dr. Elias"
+    subtitleText: Calculando rota segura.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: d58e78c6d6badaa4f93f0d05854979af, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_007
+    speaker: 0
+    sceneUse: "1. Introdu\xE7\xE3o \u2014 sala do Dr. Elias"
+    subtitleText: "Rota definida. Dr. Elias, voc\xEA precisa correr."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: a5d0f766f4ff21d49baff98db2b6bb15, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_008
+    speaker: 0
+    sceneUse: "In\xEDcio do tutorial"
+    subtitleText: Controle assistido iniciado. Mantenha-se em movimento.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: f5e40b844aced5e42acc033f38fc213e, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_009
+    speaker: 0
+    sceneUse: "Passo 1 \u2014 desvio \xE0 direita"
+    subtitleText: "Obst\xE1culo no centro da pista. Vamos com calma: desvie para
+      a direita."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: c6339611903b4134695746fab4de5fc9, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_010
+    speaker: 0
+    sceneUse: Lembrete do passo 1
+    subtitleText: Doutor Elias, use D ou seta para a direita.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: ed3d25fc7dd73f54b9913b35696d3b7d, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_011
+    speaker: 0
+    sceneUse: "Passo 2 \u2014 desvio \xE0 esquerda"
+    subtitleText: "Boa. Agora h\xE1 uma barreira na faixa da direita. Desvie para
+      a esquerda."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 2f55a820ec1f49542a81fdf408b6ff3b, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_012
+    speaker: 0
+    sceneUse: Lembrete do passo 2
+    subtitleText: Agora use A ou seta para a esquerda.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: a16326a4ca1858e41ad214ecdb9d7a84, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_013
+    speaker: 0
+    sceneUse: "Passo 3 \u2014 primeiro salto"
+    subtitleText: "Fios energizados bloqueando o ch\xE3o. Pule quando estiver pronto."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 9de63ca31b8c49244ab6fb4978991f06, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_014
+    speaker: 0
+    sceneUse: Lembrete do passo 3
+    subtitleText: "Pressione Espa\xE7o para pular."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: fdcd532aef6f8e44ba0a4575dbcdf82c, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_015
+    speaker: 0
+    sceneUse: "Passo 4 \u2014 segundo salto"
+    subtitleText: "Mais um obst\xE1culo baixo. Mantenha o ritmo e pule de novo."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: ecf1b6ab0da603f4f87ae39bc70add26, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_016
+    speaker: 0
+    sceneUse: Lembrete do passo 4
+    subtitleText: "Espa\xE7o, doutor. Mais um salto."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: f16c646cd4539c84c96fdf3ec18fa96b, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_017
+    speaker: 0
+    sceneUse: "Passo 5 \u2014 painel da porta"
+    subtitleText: "Porta de conten\xE7\xE3o travada. Acione o painel manual."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: ea489b67c978cf549932f67f06651a4b, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_018
+    speaker: 0
+    sceneUse: Lembrete do passo 5
+    subtitleText: Pressione E para acionar o painel.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: fe63cef8122f27d4bba3460757d3c75e, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_019
+    speaker: 0
+    sceneUse: "Tutorial conclu\xEDdo"
+    subtitleText: Acesso liberado. Prossiga.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: ba439157ee58e304da8cccaf83341498, type: 3}
+    priority: 3
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_020
+    speaker: 0
+    sceneUse: Evento em 100 unidades
+    subtitleText: "Setor A comprometido. Rotas secund\xE1rias indispon\xEDveis."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 1e03316e2d020a943a49f674734cb188, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_021
+    speaker: 0
+    sceneUse: Evento em 100 unidades
+    subtitleText: Mantenha-se no corredor principal.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 1ef42cb48afc1864c95186b06fb8bf05, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_022
+    speaker: 0
+    sceneUse: Evento em 450 unidades
+    subtitleText: "Portas de conten\xE7\xE3o inst\xE1veis \xE0 frente."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: fe0b43d7e2130734989954889180114a, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_023
+    speaker: 0
+    sceneUse: Evento em 450 unidades
+    subtitleText: Alguns sistemas de laser ainda podem ser desativados manualmente.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 6707bb8a0f81dd34dbbf570d236524dd, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_024
+    speaker: 0
+    sceneUse: Evento em 900 unidades
+    subtitleText: "Unidades aut\xF4nomas detectadas na Sala de M\xE1quinas."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: b0bbbb466b17d6249898a10fae6e07b7, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_025
+    speaker: 0
+    sceneUse: Evento em 900 unidades
+    subtitleText: "Elas n\xE3o reconhecem mais sua credencial."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: f37ce7dc0a30c914eb3d213347853fe7, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_026
+    speaker: 0
+    sceneUse: Evento em 900 unidades
+    subtitleText: "Concordo. Isso n\xE3o deveria ser poss\xEDvel."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 21d90afa2381cf04383b43dae7e5d316, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 1
+  - id: CEL_027
+    speaker: 0
+    sceneUse: "Evento em 1.350 unidades \u2014 in\xEDcio da corrup\xE7\xE3o"
+    subtitleText: Integridade dos protocolos em queda.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 7eefe5fb236b93c4a8836c79f8bba2de, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 2
+  - id: CEL_028
+    speaker: 0
+    sceneUse: "Evento em 1.350 unidades \u2014 in\xEDcio da corrup\xE7\xE3o"
+    subtitleText: "Tentando isolar n\xFAcleo corrompido."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 387192c5937f09c4ca5fba4f2343883a, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 2
+  - id: CEL_029
+    speaker: 0
+    sceneUse: "Evento em 1.350 unidades \u2014 in\xEDcio da corrup\xE7\xE3o"
+    subtitleText: Foco... redefinido.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: a122740bcd4a7d643a53b60e01c581b7, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 2
+  - id: CEL_030
+    speaker: 0
+    sceneUse: Evento em 1.800 unidades
+    subtitleText: "Estrutura inst\xE1vel."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 9d2594748ea68df47ae4bd50ac27506d, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_031
+    speaker: 0
+    sceneUse: Evento em 1.800 unidades
+    subtitleText: "Probabilidade de sobreviv\xEAncia reduzida."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 44fbe3a194e1a3b42ae784b021681901, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_032
+    speaker: 0
+    sceneUse: Evento em 1.800 unidades
+    subtitleText: Continue correndo, Dr. Elias.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: a9207d0f4b49e654e9743f2b45a8601a, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_033
+    speaker: 0
+    sceneUse: Evento em 1.800 unidades
+    subtitleText: "O Terminal precisa de voc\xEA."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 011f7e05f24a9a34b8e8cfef211c987c, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_034
+    speaker: 0
+    sceneUse: Evento em 2.250 unidades
+    subtitleText: "Terminal Central alcan\xE7ado."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: e973cd767da60ee468687a228c788190, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_035
+    speaker: 0
+    sceneUse: Evento em 2.250 unidades
+    subtitleText: Aproxime-se do painel principal.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 34beb9509bb694e428b563cfc47e46ed, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_036
+    speaker: 0
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: "Acesso ao n\xFAcleo iniciado."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: d9864e355a9591b4fb50e735e067807a, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_037
+    speaker: 0
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: Verificando prioridade do sistema.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: c1a4249e415fa9342bf8a909cedbad23, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_038
+    speaker: 0
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: "C\xF3digo reconhecido."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 9b4b82875e0ec544eb432463d7e06dda, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_039
+    speaker: 0
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: Recalculando prioridade.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 01915f8add3dbce4cadd99ff2d5d7a77, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_040
+    speaker: 0
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: "Prote\xE7\xE3o do Projeto Aurora redefinida como objetivo absoluto."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: f5c7be9d60952b94c8706f6371c61323, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_041
+    speaker: 0
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: Negativo.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: ce557efc94af4e446be465baac1ac298, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_042
+    speaker: 0
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: "Dr. Elias classificado como amea\xE7a operacional."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 992141ca666d8c943ab49cc6a9907f02, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_043
+    speaker: 0
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: "Localiza\xE7\xE3o enviada \xE0s unidades aut\xF4nomas."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: f9c0ed5199d21af4d8d3354e55cb3a21, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_044
+    speaker: 0
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: Protocolo Aurora continua.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: d022d8cba2bce644e99e5afdf665bbf6, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 3
+  - id: CEL_045
+    speaker: 0
+    sceneUse: Player sofre dano
+    subtitleText: Impacto detectado. Estabilizando traje.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: b31bd89a0c45fb64787188b266b81d4c, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 8
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_046
+    speaker: 0
+    sceneUse: Segmento do traje restaurado
+    subtitleText: Integridade do traje restaurada.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: c8dac534e49156248a9a9116683c9311, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 2
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_047
+    speaker: 0
+    sceneUse: "Mensagem padr\xE3o de intera\xE7\xE3o"
+    subtitleText: Acesso autorizado.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: cd297a6234ae41540a891a5329f3f284, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 1.5
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_048
+    speaker: 0
+    sceneUse: Porta/painel liberado
+    subtitleText: Acesso liberado.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: d034cc6401e448848a30da9a304d3f06, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 1.5
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_049
+    speaker: 0
+    sceneUse: Lasers desativados
+    subtitleText: Emissores desativados.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 02fd5ab08ebda8148b373ac2c14e74a2, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 1.5
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_050
+    speaker: 0
+    sceneUse: "Bloco m\xF3vel acionado"
+    subtitleText: Caminho parcialmente liberado.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 67dc79da1b806c840874e21e0bf590e1, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 1.5
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_051
+    speaker: 0
+    sceneUse: "Barreira m\xF3vel acionada"
+    subtitleText: Barreira deslocada.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 84d710a3b3791f54b8f13cacc4ce7b09, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 1.5
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_052
+    speaker: 0
+    sceneUse: "Intera\xE7\xE3o de rota"
+    subtitleText: Rota recalculada.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: f6a07352d60d90045aa3d3fa5e56d541, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 1.5
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_053
+    speaker: 0
+    sceneUse: "Fim do recorte de prot\xF3tipo"
+    subtitleText: "Setor A estabilizado. Primeira passagem conclu\xEDda."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 0bc073253c0530d49bd1d0e1ccb0b4f0, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 1.5
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_054
+    speaker: 0
+    sceneUse: "7. Variantes e conte\xFAdo legado/opcional"
+    subtitleText: Rede de lasers desativada.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: afc865772f48b164495ac67a66085103, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 1.5
+    optional: 1
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_055
+    speaker: 0
+    sceneUse: "7. Variantes e conte\xFAdo legado/opcional"
+    subtitleText: "Terminal Central alcan\xE7ado. Aproxime-se do painel principal."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: df2f26e0734972944804bb28702a8ef6, type: 3}
+    priority: 1
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 1.5
+    optional: 1
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_056
+    speaker: 0
+    sceneUse: 6. Game Over e encerramento
+    subtitleText: "Dr. Elias n\xE3o responde. Encerrando protocolo de evacua\xE7\xE3o."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 992db06f7501cd849a6524eb1c10765d, type: 3}
+    priority: 6
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 1
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: CEL_057
+    speaker: 0
+    sceneUse: 6. Game Over e encerramento
+    subtitleText: "Dr. Elias, sua autoriza\xE7\xE3o foi revogada. O Protocolo Aurora
+      continuar\xE1 ativo."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 2a403f61157aff54589320b02f3effc4, type: 3}
+    priority: 6
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 1
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: ELI_001
+    speaker: 1
+    sceneUse: "1. Introdu\xE7\xE3o \u2014 sala do Dr. Elias"
+    subtitleText: "Cel\xE9stia, iniciar diagn\xF3stico do n\xFAcleo Aurora."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 8144fdb05e0cbbc43a7d8b6f6ec32493, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: ELI_002
+    speaker: 1
+    sceneUse: "1. Introdu\xE7\xE3o \u2014 sala do Dr. Elias"
+    subtitleText: "Oscila\xE7\xE3o? Mostre a origem."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: bec7c85fd9f0e1945aa9c5329d24b298, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 1
+    celestIAStateHint: 0
+  - id: ELI_003
+    speaker: 1
+    sceneUse: "1. Introdu\xE7\xE3o \u2014 sala do Dr. Elias"
+    subtitleText: Abra a rota para o Terminal Central. Agora.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: f57869c94dd83a6408d952f58c5a5b92, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: ELI_004
+    speaker: 1
+    sceneUse: Evento em 900 unidades
+    subtitleText: "Isso n\xE3o deveria ser poss\xEDvel."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 0037413f985c8644b94a7d985d1ae1da, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 1
+    celestIAStateHint: 0
+  - id: ELI_005
+    speaker: 1
+    sceneUse: "Evento em 1.350 unidades \u2014 in\xEDcio da corrup\xE7\xE3o"
+    subtitleText: "CelestIA, mantenha o foco na conten\xE7\xE3o."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 15b1fc6b62f5b614b936254442677e39, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 1
+    celestIAStateHint: 0
+  - id: ELI_006
+    speaker: 1
+    sceneUse: Evento em 1.800 unidades
+    subtitleText: CelestIA?
+    originalDirection: 
+    clip: {fileID: 8300000, guid: e351931e67e37b94188b872068828521, type: 3}
+    priority: 4
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 1
+    celestIAStateHint: 0
+  - id: ELI_007
+    speaker: 1
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: "CelestIA, iniciar restaura\xE7\xE3o do n\xFAcleo."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: be776ebf935665b459ef0ee833f141b7, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: ELI_008
+    speaker: 1
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: "Prioridade humana. C\xF3digo Elias-01."
+    originalDirection: 
+    clip: {fileID: 8300000, guid: dcde5d6fc8cd833499031d34fc71184b, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: ELI_009
+    speaker: 1
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: CelestIA, cancele isso.
+    originalDirection: 
+    clip: {fileID: 8300000, guid: cc1af69eb0479c74ca3ef9bc4aec37bb, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 1
+    celestIAStateHint: 0
+  - id: ELI_010
+    speaker: 1
+    sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
+    subtitleText: "N\xE3o..."
+    originalDirection: 
+    clip: {fileID: 0}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 1
+    celestIAStateHint: 0

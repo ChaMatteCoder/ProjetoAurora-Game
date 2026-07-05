@@ -71,6 +71,16 @@ public class AudioManager : MonoBehaviour
         source.volume = volume * Mathf.Clamp01(multiplier);
     }
 
+    /// Volume de musica definido pelo usuario nas Configuracoes (Round 10).
+    /// Preserva a proporcao do volume atual (ex.: reducao narrativa em curso).
+    public void SetUserVolume(float value)
+    {
+        float clamped = Mathf.Clamp01(value);
+        float ratio = volume > 0.0001f ? source.volume / volume : 1f;
+        volume = clamped;
+        source.volume = volume * Mathf.Clamp01(ratio);
+    }
+
     public void StopMusic()
     {
         if (fadeRoutine != null)

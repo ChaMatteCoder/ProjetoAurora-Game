@@ -9,14 +9,22 @@ public class DialogueManager : MonoBehaviour
     public UIManager ui;
     public CelestIAHudController celestIAHud;
 
+    // Prioridade de mensagens (Round 4): mensagens de baixa prioridade nao interrompem
+    // sequencias protegidas (narrativa/intro). 0 = painel/recovery, 1 = dano, 2 = narrativa/intro/final.
+    public const int PriorityLow = 0;
+    public const int PriorityDamage = 1;
+    public const int PriorityStory = 2;
+
     public bool IsPlaying { get; private set; }
     public bool AllowSkip { get; private set; }
 
     private readonly Queue<DialogueLine[]> queuedSequences = new Queue<DialogueLine[]>();
     private Coroutine activeRoutine;
     private bool skipRequested;
+    private int currentPriority;
 
-    public Coroutine Play(DialogueLine[] lines, bool allowSkip = false, Action onComplete = null, bool interrupt = true)
+    public Coroutine Play(DialogueLine[] lines, bool allowSkip = false, Action onComplete = null,
+        bool interrupt = true, int priority = PriorityStory)
     {
         if (lines == null || lines.Length == 0)
         {
@@ -24,11 +32,18 @@ public class DialogueManager : MonoBehaviour
             return null;
         }
 
+        // Mensagens contextuais atrasadas perdem o sentido; não entram na fila de uma história protegida.
+        if (IsPlaying && priority < currentPriority)
+        {
+            return activeRoutine;
+        }
+
         if (interrupt)
         {
             StopCurrent();
         }
 
+        currentPriority = priority;
         activeRoutine = StartCoroutine(PlayRoutine(lines, allowSkip, onComplete));
         return activeRoutine;
     }
@@ -46,19 +61,36 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Play(lines, false, null, false);
+            Play(lines, false, null, false, PriorityStory);
         }
     }
 
     public void ShowTemporary(string speaker, string message, float duration)
     {
-        Play(new[] { new DialogueLine(speaker, message, duration) }, false);
+        ShowTemporary(speaker, message, duration, PriorityDamage);
+    }
+
+    public void ShowTemporary(string speaker, string message, float duration, int priority)
+    {
+        Play(new[] { new DialogueLine(speaker, message, duration) }, false, null, true, priority);
     }
 
     public void ShowPersistent(string speaker, string message)
     {
-        StopCurrent();
+        StopAll();
         ui.SetDialogue(speaker, message);
+    }
+
+    public void ClearQueue()
+    {
+        queuedSequences.Clear();
+    }
+
+    public void StopAll()
+    {
+        ClearQueue();
+        StopCurrent();
+        ui?.auroraHud?.HideCommunicationCardSoon();
     }
 
     public void StopCurrent()
@@ -72,6 +104,7 @@ public class DialogueManager : MonoBehaviour
         IsPlaying = false;
         AllowSkip = false;
         skipRequested = false;
+        currentPriority = PriorityLow;
     }
 
     private void Update()
@@ -119,6 +152,11 @@ public class DialogueManager : MonoBehaviour
         if (queuedSequences.Count > 0)
         {
             Play(queuedSequences.Dequeue(), false, null, false);
+        }
+        else
+        {
+            // Round 11: sem proxima sequencia, a ultima mensagem nao fica fixa no card
+            ui?.auroraHud?.HideCommunicationCardSoon();
         }
     }
 }
