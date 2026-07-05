@@ -10,20 +10,25 @@ O projeto combina corrida em terceira pessoa, narrativa ambiental, cenários sci
 
 ## Versão Atual
 
-**Beta 0.3 Narrativa — Gameplay/HUD**
+**Beta jogável — candidata à primeira build**
 
-Estado documentado em **18 de junho de 2026**.
+Estado documentado em **4 de julho de 2026**.
 
-Esta versão consolida o fluxo jogável principal em `Beta03_Principal`, com:
+O fluxo completo `MainMenu → Beta03_Principal → Terminal Central` está jogável de ponta
+a ponta. Sistemas consolidados desde a Beta 0.3:
 
-* menu apontando para a cena principal da Beta 0.3;
-* tutorial guiado com bloqueio seletivo de input, sem usar `Time.timeScale = 0`;
-* obstáculos de tutorial posicionados para ensinar desvio, pulo e interação com `E`;
-* HUD de gameplay reorganizada, mais legível e alinhada ao estilo sci-fi ciano;
-* interações reutilizáveis para portas, lasers e blocos móveis;
-* sequência de Terminal Central e cutscene final;
-* materiais e cena do Terminal Central versionados;
-* assets pesados/experimentais da Fase 01 mantidos fora do Git até otimização e revisão.
+* **intro cinematográfica** na sala do Dr. Elias (múltiplos ângulos de câmera) com opção de pular por `ESC`;
+* **dublagem por ID** (`VoiceLinePlayer`): 67 takes de CelestIA e Dr. Elias, com fila, prioridades e grupos;
+* **HUD com retratos em vídeo** de CelestIA (3 estados) e Dr. Elias (2 humores), card exibido apenas durante fala ativa e falante correto por ID;
+* **tutorial guiado** com liberação de ação após a fala da CelestIA e setas animadas — sem usar `Time.timeScale = 0`;
+* **perseguição cinematográfica por robôs** (replay visual, sem física) com obstáculos reais e modelo riggado;
+* **recuperação de traje** (Suit Recovery) com HUD animada;
+* **lasers** com SFX aleatórios e cortina completa; portas de transição automáticas entre setores com overlay de título;
+* **menu reestruturado**: configurações persistentes (áudio/vídeo/qualidade), menu de pausa e carregamento assíncrono do "Jogar";
+* **Game Over** e sequência de **Terminal Central / cutscene final**.
+
+Binários pesados (modelo do robô, vídeos, áudios) são versionados via **Git LFS** — veja
+[Como Executar](#-como-executar-o-projeto).
 
 ---
 
@@ -58,14 +63,15 @@ O jogo possui estrutura inspirada em um corredor de fuga, com movimentação em 
 ### Mecânicas principais
 
 * movimentação lateral entre três caminhos;
-* corrida automática;
-* pulo;
-* colisão com obstáculos;
-* sistema de vida;
-* HUD com informações do setor;
-* mensagens da CelestIA;
-* progressão por fases;
-* transição gradual da IA de estado normal para corrompido.
+* corrida automática e pulo;
+* colisão com obstáculos e sistema de integridade do traje (com recuperação gradual);
+* interação com painéis (`E`) para portas e desativação de lasers;
+* perseguição por unidades robóticas;
+* HUD com setor, integridade, distância e comunicador da CelestIA;
+* dublagem por ID e retratos em vídeo dos personagens;
+* portas de transição automáticas e overlay de mudança de setor;
+* progressão por setores com transição gradual da IA de normal para corrompido;
+* menu com configurações persistentes e pausa em jogo.
 
 ---
 
@@ -76,16 +82,19 @@ O jogo é dividido em setores do laboratório do Projeto Aurora:
 1. **Setor A — Laboratório Limpo**
    Área inicial do jogo, com estética clínica, luzes frias e introdução da mecânica.
 
-2. **Corredor de Contenção**
+2. **Setor B — Corredor de Contenção**
    Espaço de transição com sinais de instabilidade, portas industriais e primeiros obstáculos críticos.
 
-3. **Sala de Máquinas**
-   Setor onde as máquinas e unidades robóticas do Projeto Aurora são produzidas.
+3. **Setor C — Sala de Máquinas**
+   Setor onde as máquinas e unidades robóticas do Projeto Aurora são produzidas; início da perseguição.
 
-4. **Corredor Vermelho**
-   Área moderna e agressiva visualmente, marcada por alarmes, luzes vermelhas e aumento da tensão.
+4. **Setor D — Corredor Vermelho**
+   Área agressiva visualmente, marcada por alarmes, luzes vermelhas e a corrupção crescente da CelestIA.
 
-5. **Terminal Central**
+5. **Setor E — Ponte Técnica**
+   Travessia tensa sobre a estrutura, com a IA já instável.
+
+6. **Núcleo — Terminal Central**
    Núcleo do sistema de contenção, onde ocorre o clímax narrativo envolvendo CelestIA e o Protocolo Aurora.
 
 ---
@@ -113,12 +122,14 @@ O projeto explora diferentes técnicas relacionadas à Computação Gráfica e a
 
 ## 🛠️ Tecnologias e Ferramentas
 
-* **Unity** — engine principal do jogo;
+* **Unity** (URP) — engine principal do jogo;
 * **C#** — programação das mecânicas;
 * **Blender** — edição/modelagem de assets 3D;
-* **Mixamo** — animações de personagem;
+* **Tripo** — geração do modelo 3D do robô;
+* **Mixamo** — animações de personagem (retarget humanoide);
+* **ElevenLabs** — dublagem das falas de CelestIA e Dr. Elias;
 * **Suno** — criação de trilhas sonoras e ideias musicais;
-* **Git/GitHub** — versionamento e organização do projeto;
+* **Git/GitHub + Git LFS** — versionamento (LFS para modelos, vídeos e áudios);
 * **Ferramentas de IA** — apoio em concept art, documentação, prompts e organização de produção.
 
 ---
@@ -157,14 +168,15 @@ O projeto está em desenvolvimento.
 * [x] Definição do conceito narrativo;
 * [x] Estruturação inicial do gameplay;
 * [x] Protótipo com movimentação base;
-* [x] Tutorial narrativo funcional da Beta 0.3;
-* [x] HUD de gameplay reorganizada para a Beta 0.3;
-* [x] Terminal Central e encerramento narrativo inicial;
-* [ ] Criação/polimento das fases principais;
-* [ ] Importação dos modelos finais;
-* [ ] Implementação de áudio e trilha;
-* [ ] Cutscenes e transições narrativas com polimento final;
-* [ ] Polimento visual;
+* [x] Tutorial narrativo com liberação de ação após fala + setas;
+* [x] HUD de gameplay com retratos em vídeo e visibilidade por estado;
+* [x] Dublagem por ID (CelestIA + Dr. Elias);
+* [x] Perseguição por robôs e obstáculos reais;
+* [x] Recuperação de traje e balanceamento de dificuldade;
+* [x] Portas de transição de setor + overlays;
+* [x] Menu com configurações persistentes e pausa;
+* [x] Terminal Central e cutscene final;
+* [ ] Polimento visual final e passes de otimização;
 * [ ] Build final para apresentação.
 
 ---
@@ -183,23 +195,33 @@ Isso evita misturar correções, experimentos visuais, assets pesados e novas fe
 
 ## 🚀 Como Executar o Projeto
 
-1. Clone o repositório:
+> **Importante:** o projeto usa **Git LFS** para modelos, vídeos e áudios. Instale o
+> Git LFS **antes** de clonar (`git lfs install`), senão esses arquivos virão apenas como
+> ponteiros e o jogo abrirá sem o robô, os vídeos da HUD e a dublagem.
+
+1. Instale e ative o Git LFS (uma vez por máquina):
+
+```bash
+git lfs install
+```
+
+2. Clone o repositório (o LFS baixa os binários automaticamente):
 
 ```bash
 git clone https://github.com/ChaMatteCoder/ProjetoAurora-Game.git
 ```
 
-2. Abra o projeto pela Unity Hub.
+Se já tiver clonado sem LFS, rode `git lfs pull` na pasta do projeto.
 
-3. Selecione a versão correta da Unity utilizada no desenvolvimento.
+3. Abra o projeto pela Unity Hub, selecionando a versão da Unity usada no desenvolvimento (Unity 6 / `6000.4.x`).
 
 4. Abra a cena principal em:
 
 ```txt
-Assets/_ProjectAurora/Scenes/Beta03_Principal.unity
+Assets/_ProjectAurora/Scenes/MainMenu.unity
 ```
 
-5. Pressione **Play** para executar o protótipo.
+5. Pressione **Play** e clique em **Jogar** (ou abra `Beta03_Principal.unity` para ir direto à gameplay).
 
 ---
 
