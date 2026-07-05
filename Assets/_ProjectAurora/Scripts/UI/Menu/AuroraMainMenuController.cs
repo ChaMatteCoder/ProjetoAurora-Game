@@ -26,6 +26,11 @@ namespace ProjectAurora.UI.Menu
         [SerializeField] private GameObject extraPanel;
         [SerializeField] private GameObject creditsPanel;
 
+        [Header("Loading (Round 10)")]
+        [SerializeField] private GameObject loadingOverlay;
+
+        private bool startingGame;
+
         [Header("Gameplay")]
         [SerializeField] private string[] gameplaySceneCandidates =
         {
@@ -84,6 +89,13 @@ namespace ProjectAurora.UI.Menu
 
         public void StartGame()
         {
+            // Round 10: o load sincrono da Beta03 congelava a UI ("botao travado").
+            // Agora: resposta imediata (overlay CARREGANDO + botoes off) + LoadSceneAsync.
+            if (startingGame)
+            {
+                return; // evita duplo clique
+            }
+
             CloseAllPanels();
             foreach (string candidate in gameplaySceneCandidates)
             {
@@ -94,12 +106,30 @@ namespace ProjectAurora.UI.Menu
 
                 if (IsSceneInBuildSettings(candidate))
                 {
-                    SceneManager.LoadScene(candidate);
+                    startingGame = true;
+                    SetCardsInteractable(false);
+                    if (loadingOverlay != null)
+                    {
+                        loadingOverlay.SetActive(true);
+                    }
+                    SceneManager.LoadSceneAsync(candidate);
                     return;
                 }
             }
 
             Debug.LogWarning("PROJETO:AURORA - Nenhuma cena de gameplay encontrada nos Build Settings.");
+        }
+
+        private void SetCardsInteractable(bool value)
+        {
+            DiscoverCards();
+            foreach (AuroraMenuCard card in cards)
+            {
+                if (card != null && card.Button != null)
+                {
+                    card.Button.interactable = value;
+                }
+            }
         }
 
         public void OpenSettings()
