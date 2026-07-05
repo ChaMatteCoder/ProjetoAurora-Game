@@ -89,3 +89,6 @@ Assets/_ProjectAurora/Scenes/FASE 01 - Laboratório Limpo A/Cenário/Materials/M
 Assets/_ProjectAurora/Scenes/FASE 01 - Laboratório Limpo A/Cenário/Materials/MAT_Fase01_RubberBlack.mat.meta
 Assets/_ProjectAurora/Scenes/FASE 01 - Laboratório Limpo A/Cenário/Materials/MAT_Fase01_Storage_Textured.mat
 Assets/_ProjectAurora/Scenes/FASE 01 - Laboratório Limpo A/Cenário/Materials/MAT_Fase01_Storage_Textured.mat.meta
+
+# Stray/local media at repo root (fora de Assets/ — nao importado pelo Unity)
+/sirene.mp3
