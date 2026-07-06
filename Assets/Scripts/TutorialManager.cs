@@ -229,11 +229,12 @@ public class TutorialManager : MonoBehaviour
                 break;
             case TutorialAction.Interact:
             {
-                // "E" sobre o console do painel (filho com "Console" no nome), senao sobre o trigger
+                // "E" acima do painel modelado (Round 16b: painel agora tem ~1.5m e fica
+                // no chao; o E flutua a 2.35 — folga proporcional acima do topo, sem cobrir).
                 Transform console = FindChildContaining(step.transform, "Console");
                 Vector3 anchor = console != null
-                    ? console.position + Vector3.up * 1.6f
-                    : step.transform.position + new Vector3(0f, 1.9f, 0f);
+                    ? new Vector3(console.position.x, 0f, console.position.z) + Vector3.up * 2.35f
+                    : step.transform.position + new Vector3(0f, 2.35f, 0f);
                 arrows.ShowInteract(anchor);
                 break;
             }
@@ -445,16 +446,21 @@ public class TutorialManager : MonoBehaviour
 
     private void PlayTutorialCompletion()
     {
+        // Round 14: a conclusao do tutorial (CEL_019 "Acesso liberado") NAO pode ser cortada
+        // pela narrativa do Setor A (CEL_020/021, disparada em ~z100). Prioridade Cutscene
+        // protege a linha enquanto ela toca: o VoiceLinePlayer nao interrompe algo com
+        // prioridade >= Cutscene, entao a SectorNarrative ENFILEIRA e so toca apos CEL_019.
+        // Nao bloqueia gameplay (blockGameplay=false) e GameOver/Final ainda podem interromper.
         var options = new VoicePlaybackOptions
         {
             group = VoiceGroup.Gameplay,
-            priority = VoicePriority.Tutorial,
-            interruptCurrent = false,
+            priority = VoicePriority.Cutscene,
+            interruptCurrent = true,
             clearQueueOfSameGroup = false,
             cancelOnStateExit = false,
             blockGameplay = false,
             fadeOutTime = 0.1f,
-            ownerStateId = "Tutorial_Complete"
+            ownerStateId = "TutorialConclusion"
         };
         if (!VoiceLinePlayer.TryPlay("CEL_019", options))
         {

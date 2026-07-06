@@ -17,8 +17,14 @@ public class PlayerRunner : MonoBehaviour
     public event Action Jumped;
     public event Action Landed;
 
+    [Header("Sprint final (Round 15)")]
+    [Tooltip("Multiplicador extra de velocidade no trecho antes do Nucleo (>1). Transicao suave.")]
+    public float finalSprintTarget = 1f;
+    public float finalSprintEaseSpeed = 0.7f;
+    private float finalSprintCurrent = 1f;
+
     public float CurrentForwardSpeed =>
-        Mathf.Lerp(initialSpeed, maximumSpeed, Mathf.Clamp01(transform.position.z / speedRampDistance)) * speedMultiplier;
+        Mathf.Lerp(initialSpeed, maximumSpeed, Mathf.Clamp01(transform.position.z / speedRampDistance)) * speedMultiplier * finalSprintCurrent;
     public bool IsAutoRunning => autoRun;
     public bool IsGrounded => controller != null && controller.isGrounded;
     public bool IsJumping { get; private set; }
@@ -29,6 +35,7 @@ public class PlayerRunner : MonoBehaviour
     private float speedMultiplier = 1f;
     private bool autoRun;
     private bool inputEnabled = true;
+    private bool laneLockedCenter;
     private TutorialActionGate tutorialGate;
 
     private void Awake()
@@ -74,6 +81,10 @@ public class PlayerRunner : MonoBehaviour
             }
         }
 
+        // Round 15: easing suave do sprint final (transicao gradual de velocidade)
+        finalSprintCurrent = Mathf.MoveTowards(finalSprintCurrent, Mathf.Max(1f, finalSprintTarget),
+            finalSprintEaseSpeed * Time.deltaTime);
+
         if (!IsJumping && controller.isGrounded && verticalVelocity < 0f)
         {
             verticalVelocity = -2f;
@@ -102,6 +113,21 @@ public class PlayerRunner : MonoBehaviour
     public void SetInputEnabled(bool value) => inputEnabled = value;
     public void SetSpeedMultiplier(float value) => speedMultiplier = Mathf.Clamp01(value);
 
+    /// Round 14: aproximacao do Terminal Central. Trava o jogador na lane central e ignora
+    /// troca de lane, para ele nao correr por uma lane lateral e sair do mapa sem acessar
+    /// o terminal (o trigger de acesso cobre apenas a faixa central).
+    public void SetLaneLockedCenter(bool value)
+    {
+        laneLockedCenter = value;
+        if (value)
+        {
+            currentLane = 1;
+        }
+    }
+
+    /// Round 15: define o alvo do sprint final (>1 = mais rapido). A transicao e suavizada.
+    public void SetFinalSprint(float target) => finalSprintTarget = Mathf.Max(1f, target);
+
     public bool TryJump()
     {
         if (!inputEnabled || controller == null || !controller.isGrounded || IsJumping ||
@@ -119,6 +145,11 @@ public class PlayerRunner : MonoBehaviour
 
     private bool MoveLane(int direction)
     {
+        if (laneLockedCenter)
+        {
+            return false;
+        }
+
         int previous = currentLane;
         currentLane = Mathf.Clamp(currentLane + direction, 0, 2);
         if (previous != currentLane)
