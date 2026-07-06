@@ -33,6 +33,9 @@ public class FinalCutsceneController : MonoBehaviour
         if (presentation != null)
         {
             yield return presentation.PlayPrelude();
+            // Round 15: robôs entram e se aproximam EM PARALELO com as falas finais
+            // (a ameaça culmina no "Não..." do ELI_010). Nao bloqueante.
+            presentation.BeginRobotApproach();
         }
 
         RenderSettings.ambientLight = new Color(0.5f, 0.01f, 0.02f);

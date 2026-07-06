@@ -192,8 +192,11 @@ public class AuroraGameplayHUDController : MonoBehaviour
             case GameplayHudVisibilityState.Gameplay:
             case GameplayHudVisibilityState.Paused:
             case GameplayHudVisibilityState.GameOver:
-            case GameplayHudVisibilityState.Final:
                 return true;
+            // Round 15: a cutscene final oculta a HUD de gameplay (setor/integridade/
+            // distancia) e mantem apenas o card de dialogo, como a intro.
+            case GameplayHudVisibilityState.Final:
+                return false;
             default:
                 return false;
         }
