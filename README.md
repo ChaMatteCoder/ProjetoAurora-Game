@@ -12,22 +12,34 @@ O projeto combina corrida em terceira pessoa, narrativa ambiental, cenários sci
 
 **Beta jogável — candidata à primeira build**
 
-Estado documentado em **4 de julho de 2026**.
+Estado documentado em **6 de julho de 2026**.
 
 O fluxo completo `MainMenu → Beta03_Principal → Terminal Central` está jogável de ponta
-a ponta. Sistemas consolidados desde a Beta 0.3:
+a ponta. Sistemas consolidados:
 
-* **intro cinematográfica** na sala do Dr. Elias (múltiplos ângulos de câmera) com opção de pular por `ESC`;
-* **dublagem por ID** (`VoiceLinePlayer`): 67 takes de CelestIA e Dr. Elias, com fila, prioridades e grupos;
-* **HUD com retratos em vídeo** de CelestIA (3 estados) e Dr. Elias (2 humores), card exibido apenas durante fala ativa e falante correto por ID;
-* **tutorial guiado** com liberação de ação após a fala da CelestIA e setas animadas — sem usar `Time.timeScale = 0`;
-* **perseguição cinematográfica por robôs** (replay visual, sem física) com obstáculos reais e modelo riggado;
-* **recuperação de traje** (Suit Recovery) com HUD animada;
-* **lasers** com SFX aleatórios e cortina completa; portas de transição automáticas entre setores com overlay de título;
-* **menu reestruturado**: configurações persistentes (áudio/vídeo/qualidade), menu de pausa e carregamento assíncrono do "Jogar";
-* **Game Over** e sequência de **Terminal Central / cutscene final**.
+* **intro cinematográfica** na sala do Dr. Elias — laboratório sci-fi com arcos, mesa
+  holográfica e interface da CelestIA; o Dr. Elias só é revelado após o alerta, com
+  **sirene 3D** que se afasta pela distância; opção de pular por `ESC`;
+* **dublagem por ID** (`VoiceLinePlayer`): CelestIA e Dr. Elias com fila, prioridades e
+  grupos; transições de música com **fade** (sem estouro de volume);
+* **HUD com retratos em vídeo** de CelestIA (3 estados, com **glitch** quando corrompida)
+  e Dr. Elias (2 humores), card exibido apenas durante fala ativa e falante correto por ID;
+  HUD de distância e **overlay de setor animado**;
+* **tutorial guiado** com liberação de ação após a fala da CelestIA, **setas direcionais
+  corretas** e indicador **“E” hexagonal** — sem usar `Time.timeScale = 0`;
+* **painéis interativos modelados** (asset 3D) com tela iluminada e **marcador “E”
+  flutuante** visível de longe em todos os painéis;
+* **perseguição cinematográfica por robôs** (replay visual, sem física) e **obstáculos
+  finais** (lasers desativáveis, robôs, barreiras) com dificuldade justa;
+* **Setor E / Ponte Técnica** com colapso ambiental animado e **sprint final** rumo ao Núcleo;
+* **Terminal Central** reestruturado por referências (núcleo luminoso, cryo-tubes, braços
+  robóticos, telas), com **luzes que acendem conforme os passos** do Dr. Elias;
+* **cutscene final** sincronizada com o diálogo — os robôs chegam apenas no “Não…” (ELI_010),
+  em enquadramento de censura (o Dr. Elias nunca aparece sendo pego); HUD oculta;
+* **recuperação de traje** (Suit Recovery), **anti-softlock** de portas, **menu
+  reestruturado** (configurações persistentes, pausa, “Jogar” assíncrono) e **Game Over**.
 
-Binários pesados (modelo do robô, vídeos, áudios) são versionados via **Git LFS** — veja
+Binários pesados (modelos, vídeos, áudios) são versionados via **Git LFS** — veja
 [Como Executar](#-como-executar-o-projeto).
 
 ---
