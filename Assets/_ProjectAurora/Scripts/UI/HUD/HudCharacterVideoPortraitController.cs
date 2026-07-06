@@ -226,8 +226,11 @@ public class HudCharacterVideoPortraitController : MonoBehaviour
             return;
         }
 
-        // slot nao-loop que ja terminou nao deve ser retomado
-        if (!activeSlot.loop)
+        // Round 13: slot nao-loop pausado por perda de foco tambem retoma — senao o clipe
+        // de transicao (Celestia02) nunca chega ao fim e o retrato fica preso em
+        // Transitioning (bloqueando inclusive a identidade do Dr. Elias no card).
+        // So nao retoma se ja estiver no ultimo frame (fim natural: loopPointReached cuida).
+        if (!activeSlot.loop && (long)active.frame >= (long)active.frameCount - 1)
         {
             return;
         }
