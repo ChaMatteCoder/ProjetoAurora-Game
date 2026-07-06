@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource source;
     private Coroutine fadeRoutine;
+    private Coroutine volumeFadeRoutine;
 
     private void Awake()
     {
@@ -58,16 +59,67 @@ public class AudioManager : MonoBehaviour
 
     public void BeginGameplayMusic()
     {
+        // Round 12: entrada padrao com fade — o salto 0.15 -> 1.0 no fim da intro estourava
+        BeginGameplayMusic(2.0f);
+    }
+
+    public void BeginGameplayMusic(float fadeInDuration)
+    {
         if (source.clip == null || !source.isPlaying)
         {
             RestartMusic();
+            source.volume = 0f;
         }
 
-        source.volume = volume;
+        FadeNarrativeVolume(1f, fadeInDuration);
+    }
+
+    /// Round 12: anima o volume ate volume*multiplier com ease suave (SmoothStep).
+    /// Evita trocas bruscas na transicao intro -> gameplay.
+    public void FadeNarrativeVolume(float multiplier, float duration)
+    {
+        if (volumeFadeRoutine != null)
+        {
+            StopCoroutine(volumeFadeRoutine);
+            volumeFadeRoutine = null;
+        }
+
+        float target = volume * Mathf.Clamp01(multiplier);
+        if (duration <= 0.05f || source == null)
+        {
+            if (source != null)
+            {
+                source.volume = target;
+            }
+            return;
+        }
+
+        volumeFadeRoutine = StartCoroutine(VolumeFadeRoutine(target, duration));
+    }
+
+    private IEnumerator VolumeFadeRoutine(float target, float duration)
+    {
+        float start = source.volume;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / duration));
+            source.volume = Mathf.Lerp(start, target, t);
+            yield return null;
+        }
+
+        source.volume = target;
+        volumeFadeRoutine = null;
     }
 
     public void SetNarrativeVolume(float multiplier)
     {
+        if (volumeFadeRoutine != null)
+        {
+            StopCoroutine(volumeFadeRoutine);
+            volumeFadeRoutine = null;
+        }
         source.volume = volume * Mathf.Clamp01(multiplier);
     }
 
@@ -87,6 +139,11 @@ public class AudioManager : MonoBehaviour
         {
             StopCoroutine(fadeRoutine);
             fadeRoutine = null;
+        }
+        if (volumeFadeRoutine != null)
+        {
+            StopCoroutine(volumeFadeRoutine);
+            volumeFadeRoutine = null;
         }
 
         source.Stop();

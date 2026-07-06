@@ -37,9 +37,12 @@ public class IntroCutsceneController : MonoBehaviour
     private bool finished;
 
     private static readonly string[] OpeningVoiceIds = { "ELI_001", "CEL_002" };
+    // Round 12: CEL_003 ("Atencao. Oscilacao detectada...") toca ISOLADA com a camera nos
+    // monitores/nucleo — o Dr. Elias (pose assustada) so aparece DEPOIS dela, junto da sirene.
+    private static readonly string[] AlertRevealVoiceIds = { "CEL_003" };
     private static readonly string[] AlertVoiceIds =
     {
-        "CEL_003", "ELI_002", "CEL_004", "CEL_005", "ELI_003", "CEL_006", "CEL_007"
+        "ELI_002", "CEL_004", "CEL_005", "ELI_003", "CEL_006", "CEL_007"
     };
 
     public void Begin()
@@ -97,27 +100,57 @@ public class IntroCutsceneController : MonoBehaviour
             }, false, () => dialogueDone = true);
         }
 
-        // ---- SHOT 01: establishing da sala do Dr. Elias (mesa holografica, janela ao fundo) ----
+        // ---- SHOT 01 (Round 12): establishing da sala a partir da porta — panoramica ampla,
+        // Dr. Elias so aparece pequeno/de costas ao fundo (nada de close antes do alerta) ----
         yield return PlayShot(
-            basePos + new Vector3(0.5f, 1.85f, 3.4f), basePos + new Vector3(0.15f, 1.72f, 2.8f),
-            basePos + new Vector3(0f, 1.45f, 0.4f), basePos + new Vector3(0f, 1.4f, 0.2f),
+            basePos + new Vector3(3.1f, 2.9f, 7.6f), basePos + new Vector3(2.0f, 2.3f, 5.8f),
+            basePos + new Vector3(-0.8f, 1.1f, -6.5f), basePos + new Vector3(-0.5f, 1.0f, -5.5f),
             establishingDuration);
 
-        // ---- SHOT 02: close no Dr. Elias, com o dialogo de abertura em andamento ----
+        // ---- SHOT 02 (Round 12): detalhe da mesa holografica em plongee (por cima do ombro,
+        // rosto fora de quadro) — o diagnostico e o assunto, nao o personagem ----
+        yield return PlayShot(
+            basePos + new Vector3(-0.4f, 3.1f, 0.6f), basePos + new Vector3(0.3f, 2.7f, 1.1f),
+            basePos + new Vector3(0f, 0.95f, 1.6f), basePos + new Vector3(0.1f, 0.95f, 1.5f),
+            characterDuration);
+
+        // dublagem mais longa que os shots: angulos extras SEM o Dr. Elias (monitores, janela, holo)
+        yield return WaitForDialogueWithFillers(basePos, OpeningFillerShots(basePos));
+
+        // ---- FASE CEL_003 (Round 12): "Atencao. Oscilacao detectada..." toca com a camera
+        // nos monitores/nucleo sob o alerta vermelho — o Dr. Elias ainda NAO aparece ----
+        SetAlertLighting();
+        dialogueDone = false;
+        if (!skipRequested)
+        {
+            if (voice != null && voice.HasLines(AlertRevealVoiceIds))
+            {
+                voice.PlaySequence(AlertRevealVoiceIds, false, () => dialogueDone = true,
+                    IntroVoiceOptions("Intro_AlertReveal"));
+            }
+            else
+            {
+                dialogue.Play(new[]
+                {
+                    new DialogueLine("CELESTIA", "Atenção. Oscilação detectada nos protocolos de contenção.", 1.7f)
+                }, false, () => dialogueDone = true);
+            }
+        }
+        else
+        {
+            dialogueDone = true;
+        }
+
+        // travelling nos monitores enquanto CEL_003 fala (cicla se a fala for longa)
+        yield return WaitForDialogueWithFillers(basePos, AlertMonitorShots(basePos));
+
+        // ---- REVELACAO (Round 12): CEL_003 terminou -> sirene 3D dispara e SO AGORA
+        // cortamos para a reacao assustada do Dr. Elias ----
+        PlaySiren();
         yield return PlayShot(
             basePos + new Vector3(0.95f, 1.72f, 1.5f), basePos + new Vector3(0.6f, 1.64f, 1.15f),
             basePos + new Vector3(0f, 1.55f, 0.1f), basePos + new Vector3(0f, 1.52f, 0f),
-            characterDuration);
-
-        // dublagem mais longa que os shots: cobre a espera com angulos extras da sala
-        yield return WaitForDialogueWithFillers(basePos, OpeningFillerShots(basePos));
-
-        // ---- SHOT 03: detalhe do perigo + alerta vermelho ----
-        SetAlertLighting();
-        if (!skipRequested && sirenSource != null && sirenSource.clip != null)
-        {
-            sirenSource.Play();
-        }
+            characterDuration * 0.6f);
 
         dialogueDone = false;
         if (!skipRequested)
@@ -131,7 +164,6 @@ public class IntroCutsceneController : MonoBehaviour
             {
                 dialogue.Play(new[]
                 {
-                    new DialogueLine("CELESTIA", "Atenção. Oscilação detectada nos protocolos de contenção.", 1.7f),
                     new DialogueLine("DR. ELIAS", "Oscilação? Mostre a origem.", 1.4f),
                     new DialogueLine("CELESTIA", "Falha crítica no setor de segurança autônoma.", 1.7f),
                     new DialogueLine("CELESTIA", "Unidades robóticas não estão respondendo ao comando central.", 1.7f),
@@ -159,6 +191,8 @@ public class IntroCutsceneController : MonoBehaviour
         {
             voice?.StopGroup(VoiceGroup.Intro, 0.1f);
             dialogue.StopAll();
+            // skip: garante o ambiente de alerta mesmo sem ter chegado na revelacao
+            PlaySiren();
         }
 
         // ---- porta da sala desliza aberta ("Rota definida... voce precisa correr") ----
@@ -167,10 +201,24 @@ public class IntroCutsceneController : MonoBehaviour
         // ---- SHOT 04: retorno suave para a camera de runner ----
         finished = true;
         yield return RestoreGameplayCamera();
-        sirenSource?.Stop();
+        // Round 12: a sirene NAO para aqui — o AudioSource e 3D e fica no laboratorio;
+        // o som se afasta naturalmente conforme o Dr. Elias corre (rolloff por distancia).
         RestoreLighting();
         GameManager.Instance.EnterTutorial();
         tutorial.BeginTutorial();
+    }
+
+    /// Round 12: dispara a sirene 3D do laboratorio (uma vez), respeitando o slider
+    /// de Efeitos das Configuracoes.
+    private void PlaySiren()
+    {
+        if (sirenSource == null || sirenSource.clip == null || sirenSource.isPlaying)
+        {
+            return;
+        }
+
+        sirenSource.volume = 0.9f * AuroraSettingsService.EffectsVolume;
+        sirenSource.Play();
     }
 
     private static VoicePlaybackOptions IntroVoiceOptions(string ownerStateId)
@@ -248,15 +296,31 @@ public class IntroCutsceneController : MonoBehaviour
     {
         return new[]
         {
-            // varredura baixa sobre a mesa holografica (arco amplo)
+            // varredura baixa sobre a mesa holografica (arco amplo, rosto fora de quadro)
             new FillerShot(basePos + new Vector3(-1.4f, 1.25f, 2.6f), basePos + new Vector3(1.4f, 1.40f, 2.0f),
                 basePos + new Vector3(0f, 0.95f, 1.5f), basePos + new Vector3(0f, 0.90f, 1.5f)),
-            // janela/skyline atras do Dr. Elias (travelling lateral)
+            // janela/skyline da estacao (travelling lateral)
             new FillerShot(basePos + new Vector3(1.6f, 1.80f, -3.0f), basePos + new Vector3(-0.4f, 2.10f, -4.6f),
                 basePos + new Vector3(-1f, 3.0f, -10f), basePos + new Vector3(-1f, 3.1f, -10f)),
-            // perfil do Dr. Elias com a sala ao fundo (orbita curta)
-            new FillerShot(basePos + new Vector3(-1.9f, 1.55f, -0.4f), basePos + new Vector3(-1.1f, 1.68f, 0.9f),
-                basePos + new Vector3(0.3f, 1.5f, 0f), basePos + new Vector3(0.2f, 1.52f, 0f))
+            // Round 12: interface da CelestIA / anel holografico ao lado da mesa
+            // (substitui o antigo perfil do Dr. Elias — ele so aparece apos o alerta)
+            new FillerShot(basePos + new Vector3(-1.2f, 1.35f, 3.6f), basePos + new Vector3(-2.2f, 1.55f, 3.0f),
+                basePos + new Vector3(-3.0f, 1.6f, 4.5f), basePos + new Vector3(-3.0f, 1.7f, 4.5f))
+        };
+    }
+
+    /// Round 12: planos de monitores/nucleo usados ENQUANTO CEL_003 avisa da oscilacao
+    /// (o Dr. Elias segue fora de quadro ate a revelacao).
+    private FillerShot[] AlertMonitorShots(Vector3 basePos)
+    {
+        return new[]
+        {
+            // travelling na parede de monitores sob a virada do alerta
+            new FillerShot(basePos + new Vector3(-4.4f, 2.00f, -2.2f), basePos + new Vector3(-3.8f, 1.80f, 1.2f),
+                basePos + new Vector3(-6.8f, 2.25f, -0.5f), basePos + new Vector3(-6.8f, 2.2f, 0.5f)),
+            // mergulho no nucleo/diagnostico da mesa holografica
+            new FillerShot(basePos + new Vector3(1.1f, 2.4f, 2.6f), basePos + new Vector3(0.4f, 1.7f, 2.0f),
+                basePos + new Vector3(0f, 1.0f, 1.5f), basePos + new Vector3(0f, 1.0f, 1.5f))
         };
     }
 
