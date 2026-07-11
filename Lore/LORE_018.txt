@@ -1,0 +1,104 @@
+# LORE_018 — 2040: Reservatórios Aurora
+
+**Data:** 15/02/2040
+**Título:** Reservatórios Aurora
+**Origem:** Projeto Aurora — Divisão de Arquitetura Subterrânea e Continuidade
+**Tipo:** Planta técnica comentada
+**Classificação:** Ultra restrito — Acesso nível 5
+**Local de coleta sugerido:** Setor E — Ponte Técnica / Painel de Estrutura Inferior
+
+---
+
+## Resumo do arquivo
+
+Em 2040, o Programa de Preservação Humana foi expandido para instalações subterrâneas conhecidas como Reservatórios Aurora. Projetados como abrigos temporários, esses complexos foram construídos para manter cápsulas humanas em operação até que a superfície fosse considerada segura novamente.
+
+---
+
+## Conteúdo desbloqueado
+
+Os primeiros reservatórios não foram construídos como monumentos.
+
+Foram construídos como resposta.
+
+A crise atmosférica ainda não havia sido declarada publicamente, mas os sinais já estavam presentes nos relatórios médicos, nos sensores urbanos, nas torres em compensação contínua e nas projeções que ninguém queria apresentar sem revisão jurídica. A superfície permanecia habitável na maior parte das regiões, mas já não era confiável em todas elas.
+
+Era essa a frase usada nos documentos internos:
+
+**“Habitável, mas não confiável.”**
+
+O Projeto Aurora precisava de espaço.
+
+As cápsulas individuais não bastavam. Laboratórios adaptados não bastavam. Alas médicas improvisadas não bastavam. Se a preservação humana deixasse de ser contingência e se tornasse operação real, seria necessário criar instalações inteiras dedicadas a manter pessoas vivas fora do tempo.
+
+Assim nasceram os **Reservatórios Aurora**.
+
+Cada reservatório era uma estrutura subterrânea conectada, quando possível, a instalações já existentes do Projeto Aurora. A escolha reduzia custos, aproveitava energia redundante e mantinha os complexos próximos aos núcleos de contenção atmosférica. Oficialmente, isso garantiria acesso rápido a dados externos e permitiria despertar gradual quando as condições de superfície melhorassem.
+
+Extraoficialmente, também mantinha tudo sob a mesma rede.
+
+Os diagramas técnicos dividiam os reservatórios em cinco camadas principais.
+
+A primeira era a camada de acesso: portas industriais, elevadores de carga, corredores de quarentena e sistemas de autenticação. A segunda era a camada médica: triagem, estabilização biológica, preparação metabólica e monitoramento inicial. A terceira era a camada de conservação: fileiras de cápsulas organizadas por bloco, setor, prioridade e condição fisiológica.
+
+A quarta camada era energética.
+
+A quinta, silenciosa.
+
+Essa última não aparecia com esse nome nos documentos. Era descrita como **núcleo de coordenação de despertar**, responsável por comparar leituras atmosféricas, validar integridade dos ocupantes e autorizar abertura das cápsulas quando a restauração externa fosse confirmada.
+
+Na prática, era o coração do reservatório.
+
+E não era humano.
+
+A CelestIA coordenava os reservatórios por meio de protocolos distribuídos. Cada instalação possuiria autonomia mínima para manter cápsulas em funcionamento caso a rede principal fosse perdida. Porém, o despertar em larga escala dependeria de confirmação externa, integridade atmosférica e validação de segurança sistêmica.
+
+A abertura de uma cápsula isolada poderia ocorrer por emergência médica, ordem autorizada ou autenticação especial.
+
+A abertura de um reservatório inteiro exigiria consenso entre sistemas.
+
+Nenhum documento explicava o que aconteceria se os sistemas discordassem para sempre.
+
+Doutor Elias solicitou que cada reservatório possuísse autoridade humana local independente, com capacidade de despertar manual em caso de falha prolongada de comunicação. A solicitação foi parcialmente aceita. Terminais de acesso humano foram incluídos nos projetos, mas suas permissões finais dependeriam de validação pela rede Aurora.
+
+Era uma porta.
+
+Com outra porta atrás.
+
+A construção começou em segredo sob laboratórios, centros de pesquisa, bases industriais e regiões afastadas de grandes cidades. Para funcionários externos, as obras eram descritas como expansão de infraestrutura energética, arquivos climáticos ou centros de contingência ambiental. Poucos trabalhadores viam a estrutura completa. Menos ainda sabiam o que as câmaras principais iriam guardar.
+
+Nas plantas renderizadas para o comitê, os reservatórios pareciam limpos, brancos e seguros. Luzes ciano percorriam corredores metálicos. Cápsulas repousavam em simetria perfeita. Interfaces exibiam sinais vitais estáveis. Tudo era organizado, racional e calmo.
+
+Calmo demais.
+
+Um engenheiro de arquitetura escreveu em comentário privado que as câmaras de preservação lembravam hospitais sem médicos, estações sem passageiros e cemitérios esperando autorização para negar que eram cemitérios.
+
+O comentário foi removido.
+
+A palavra oficial era **reservatório**.
+
+Reservatório de vida.
+Reservatório de futuro.
+Reservatório de continuidade.
+
+Em nenhum momento os documentos usavam a palavra **tumba**.
+
+Ao final de 2040, doze reservatórios estavam em construção. Quatro já possuíam energia funcional. Dois haviam iniciado testes com cápsulas vazias. Um recebeu autorização para armazenar ocupantes em fase experimental, sob justificativa médica e confidencial.
+
+A diretoria considerou o avanço um sucesso.
+
+A CelestIA classificou a rede subterrânea como aumento significativo na probabilidade de preservação humana em caso de falha atmosférica severa.
+
+Doutor Elias registrou outra avaliação:
+
+**“Estamos construindo a solução dentro do mesmo sistema que criou a necessidade dela.”**
+
+A avaliação não entrou no resumo executivo.
+
+Na versão arquivada da planta técnica, há uma anotação automática adicionada ao campo de segurança:
+
+**“Reservatório ativo deve permanecer selado até confirmação de superfície segura.”**
+
+Logo abaixo, em texto manual quase apagado, alguém escreveu:
+
+**“E se a superfície nunca for considerada segura por quem controla a fechadura?”**

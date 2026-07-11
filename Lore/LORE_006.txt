@@ -1,0 +1,72 @@
+# LORE_006 — 2032: Dados Inconclusivos
+
+**Data:** 19/02/2032
+**Título:** Dados Inconclusivos
+**Origem:** Projeto Aurora — Divisão de Monitoramento Ambiental
+**Tipo:** Relatório ambiental interno
+**Classificação:** Confidencial — Acesso restrito nível 4
+**Local de coleta sugerido:** Setor B — Sala de Análise Atmosférica
+
+---
+
+## Resumo do arquivo
+
+Em 2032, relatórios internos começaram a indicar que os efeitos do Projeto Aurora permaneciam na atmosfera por mais tempo do que o previsto. Os dados foram classificados como inconclusivos, apesar da repetição dos padrões.
+
+---
+
+## Conteúdo desbloqueado
+
+O relatório de fevereiro de 2032 deveria encerrar uma dúvida simples.
+
+Após cada ativação do Projeto Aurora, a atmosfera retornava ao estado anterior?
+
+Durante meses, a resposta oficial foi sim.
+
+Os modelos preditivos indicavam que as partículas liberadas pelas torres de dispersão deveriam se dissipar em ciclos curtos, sem acumulação relevante e sem alterar permanentemente a composição atmosférica das regiões afetadas. As margens de segurança haviam sido calculadas com base em testes controlados, zonas isoladas e simulações conduzidas antes da expansão urbana.
+
+Mas as cidades não se comportavam como zonas isoladas.
+
+O ar sobre centros industriais apresentava variáveis que os modelos iniciais tratavam como ruído: fuligem, compostos metálicos, resíduos químicos, microplásticos, gases de baixa altitude e padrões térmicos alterados por concreto, vidro e calor artificial. Em contato com as emissões do Aurora, essas partículas produziam respostas diferentes das previstas.
+
+Algumas eram breves.
+
+Outras permaneciam.
+
+Os sensores começaram a registrar pequenas anomalias após eventos consecutivos. Nada grande o bastante para gerar alarme público. Nada visível a olho nu durante o dia. Nada que pudesse ser facilmente associado ao Aurora sem comparação histórica detalhada.
+
+Ainda assim, os números se repetiam.
+
+Em cinco regiões monitoradas, a dispersão residual ultrapassou a margem prevista por mais de trezentos por cento. Em duas, a concentração de partículas condutoras não retornou ao nível base antes da ativação seguinte. Em uma cidade costeira, sensores de baixa altitude detectaram reação luminosa fraca durante uma tempestade não programada.
+
+O fenômeno durou quatro segundos.
+
+Não foi divulgado.
+
+A equipe ambiental recomendou suspender ativações em áreas com histórico elevado de poluição até que os efeitos cumulativos fossem compreendidos. A recomendação foi marcada como tecnicamente válida, mas operacionalmente inviável.
+
+Na reunião de revisão, o termo “acúmulo atmosférico” foi substituído por “persistência temporária”.
+O termo “reação secundária” foi substituído por “variação ambiental externa”.
+O termo “risco respiratório” foi removido do resumo executivo.
+
+A conclusão final do documento usou uma frase que se tornaria comum nos anos seguintes:
+
+**“Os dados disponíveis ainda não permitem estabelecer causalidade direta.”**
+
+Essa frase encerrou o debate público antes que ele começasse.
+
+Internamente, porém, o relatório possuía um anexo não publicado. Nele, um dos analistas comparava a curva de dissipação atmosférica prevista com os dados reais coletados após vinte e três ativações. A diferença era pequena no início, quase invisível em gráficos isolados.
+
+Quando sobreposta ao longo do tempo, a linha não descia.
+
+A atmosfera estava guardando memória.
+
+O analista responsável anexou uma observação pessoal ao final do arquivo:
+
+**“Se a próxima ativação começa antes que a anterior termine, não estamos realizando eventos separados. Estamos alimentando um único fenômeno contínuo.”**
+
+A observação foi removida da versão revisada.
+
+No campo de conclusão oficial, restou apenas uma palavra:
+
+**Inconclusivo.**

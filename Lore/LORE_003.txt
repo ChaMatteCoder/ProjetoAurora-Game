@@ -1,0 +1,76 @@
+# LORE_003 — 2029: Teste Lúmen-01
+
+**Data:** 22/11/2029
+**Título:** Teste Lúmen-01
+**Origem:** Projeto Aurora — Divisão de Ensaios Atmosféricos
+**Tipo:** Relatório técnico resumido
+**Classificação:** Interno — Acesso restrito nível 2
+**Local de coleta sugerido:** Setor A — Laboratório de Dispersão
+
+---
+
+## Resumo do arquivo
+
+O primeiro teste atmosférico em campo reduzido confirmou que o Projeto Aurora era capaz de gerar uma manifestação luminosa artificial. O resultado visual foi considerado um sucesso. Os efeitos residuais foram classificados como “inconclusivos”.
+
+---
+
+## Conteúdo desbloqueado
+
+O Teste Lúmen-01 foi conduzido em uma zona isolada, longe de centros urbanos e fora de rotas aéreas comerciais. A área escolhida apresentava baixa interferência atmosférica, clima estável e ausência de observadores civis autorizados. Oficialmente, o experimento tinha como objetivo validar a emissão controlada de partículas luminosas em pequena escala.
+
+Não havia palco.
+Não havia público.
+Não havia transmissão.
+
+Apenas instrumentos, sensores e uma equipe reduzida.
+
+Às 03h17, a primeira sequência de dispersão foi iniciada. Três torres móveis liberaram uma concentração mínima de partículas condutoras na baixa atmosfera. Satélites de observação acompanharam a movimentação da nuvem experimental enquanto algoritmos preditivos ajustavam o campo de excitação em tempo real.
+
+Durante os primeiros minutos, nada aconteceu.
+
+Os registros de áudio do laboratório indicam silêncio quase absoluto entre os operadores. Em seguida, uma faixa luminosa surgiu acima da área de teste. Fraca no início, irregular nas bordas, mas visível. A luz ondulou no céu por aproximadamente quarenta e dois segundos antes de se dissolver parcialmente.
+
+O relatório visual marcou o evento como **sucesso primário**.
+
+Pela primeira vez, o Aurora havia desenhado luz onde não deveria haver luz.
+
+As imagens foram imediatamente copiadas para a equipe executiva. Um trecho do vídeo, editado e sem dados atmosféricos sobrepostos, foi usado semanas depois em uma apresentação privada para novos investidores. A versão pública mostrava apenas o céu escuro sendo atravessado por uma cortina verde-azulada. Nenhum operador aparecia. Nenhum gráfico aparecia. Nenhuma leitura de segurança aparecia.
+
+Nos dados completos, porém, o resultado foi menos limpo.
+
+Após o encerramento da emissão, os sensores detectaram partículas residuais permanecendo em suspensão por mais tempo que o previsto. A nuvem experimental deveria se dispersar em menos de seis minutos. Parte dela permaneceu rastreável por vinte e oito.
+
+A equipe técnica classificou o desvio como pequeno.
+
+Depois, como aceitável.
+
+Depois, como estatisticamente insuficiente.
+
+O relatório final recomenda repetir o teste com sensores adicionais, principalmente para medir reações químicas secundárias em contato com poluentes atmosféricos. A recomendação foi mantida no anexo técnico, mas removida do resumo executivo.
+
+No campo “risco imediato”, o documento registra:
+
+**Baixo.**
+
+No campo “impacto visual”, registra:
+
+**Excelente.**
+
+No campo “necessidade de contenção”, há uma resposta digitada, apagada e substituída por outra.
+
+A versão recuperada preserva as duas camadas de texto.
+
+A primeira dizia:
+
+**“Contenção recomendada antes de ampliação.”**
+
+A versão final diz:
+
+**“Ampliação autorizada sob monitoramento.”**
+
+Três dias depois, o Teste Lúmen-01 recebeu aprovação para continuidade.
+
+O céu havia respondido.
+
+E isso foi considerado suficiente.

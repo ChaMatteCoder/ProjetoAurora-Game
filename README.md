@@ -10,9 +10,9 @@ O projeto combina corrida em terceira pessoa, narrativa ambiental, cenários sci
 
 ## Versão Atual
 
-**Beta jogável — candidata à primeira build**
+**Beta jogável — candidata à primeira build (otimizada)**
 
-Estado documentado em **6 de julho de 2026**.
+Estado documentado em **10 de julho de 2026**.
 
 O fluxo completo `MainMenu → Beta03_Principal → Terminal Central` está jogável de ponta
 a ponta. Sistemas consolidados:
@@ -41,6 +41,24 @@ a ponta. Sistemas consolidados:
 
 Binários pesados (modelos, vídeos, áudios) são versionados via **Git LFS** — veja
 [Como Executar](#-como-executar-o-projeto).
+
+### 🔧 Otimização de assets (10/07/2026)
+
+Todos os modelos 3D gerados por IA (Tripo) passaram por um pipeline de otimização
+**Blender → Unity** e o jogo roda 100% nas versões low-poly:
+
+* **~32 milhões de triângulos reduzidos para ~135 mil** (−99,6%) em 20 assets —
+  obstáculos, props de cenário, robô inimigo e Dr. Elias (skinned, com rig preservado);
+* texturas **bakeadas em atlas 2048** (BaseColor via EMIT + Normal) com acabamento
+  uniforme não-metálico; cena principal caiu de **33M para ~600k tris** em carga;
+* `Assets/` reduzido de **~5 GB para ~576 MB** — originais high-poly preservados fora
+  do repositório em `Backups_Optimization/` (ignorada pelo git);
+* obstáculos primitivos substituídos por props temáticos por setor (cilindro de DNA,
+  baús, braço robótico, pilares) com colliders auditados e **margem de perdão**;
+* validação por **playtest automatizado** (`AutoPilotRunner`, editor-only): corrida
+  completa de 2.560 m com 100% dos danos vindos de obstáculos da própria pista;
+* pipeline reproduzível documentado em `Tools/aurora_lp_pipeline.py` e relatórios em
+  `Assets/_ProjectAurora/Optimization/00_Reports/`.
 
 ---
 

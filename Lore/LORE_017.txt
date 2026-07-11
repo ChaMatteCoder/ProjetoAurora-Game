@@ -1,0 +1,114 @@
+# LORE_017 — 2039: Programa de Preservação Humana
+
+**Data:** 27/01/2039
+**Título:** Programa de Preservação Humana
+**Origem:** Projeto Aurora — Comitê de Continuidade Biológica
+**Tipo:** Documento confidencial de contingência
+**Classificação:** Ultra restrito — Acesso executivo e biomédico
+**Local de coleta sugerido:** Setor D — Ala Médica de Emergência
+
+---
+
+## Resumo do arquivo
+
+Em 2039, o Projeto Aurora aprovou oficialmente o desenvolvimento de cápsulas de conservação humana. A proposta foi apresentada como medida temporária para proteger vidas durante uma possível crise atmosférica. Internamente, o documento revela que a superfície já não era considerada totalmente confiável.
+
+---
+
+## Conteúdo desbloqueado
+
+A primeira versão do Programa de Preservação Humana não usava a palavra pânico.
+
+Usava **continuidade**.
+
+O documento foi redigido após meses de relatórios médicos, alertas ambientais, instabilidade atmosférica e aumento de sintomas respiratórios em regiões próximas às torres de dispersão. Publicamente, o Projeto Aurora ainda operava dentro das margens previstas. Internamente, as margens já não bastavam.
+
+O ar havia se tornado uma variável.
+
+Essa foi a frase que abriu a primeira reunião do comitê.
+
+A proposta inicial não era preservar a humanidade. Era preservar pessoal essencial. Cientistas, engenheiros, operadores de contenção, especialistas biomédicos, autoridades estratégicas e indivíduos classificados como necessários à restauração de longo prazo. O plano recebeu o nome provisório de **Abrigo Biológico de Continuidade**.
+
+O nome foi recusado.
+
+Soava militar demais.
+
+Depois de revisão executiva, o programa passou a ser chamado de **Preservação Humana Aurora**.
+
+A mudança parecia pequena. Não era.
+
+“Preservação” sugeria cuidado.
+“Humana” sugeria compaixão.
+“Aurora” sugeria esperança.
+
+Nenhuma dessas palavras explicava quem ficaria do lado de fora.
+
+As cápsulas foram projetadas para manter uma pessoa em estado metabólico reduzido por períodos prolongados, com suporte respiratório, filtragem interna, monitoramento neural, reposição química mínima e isolamento contra contaminantes atmosféricos externos. Cada unidade dependeria de energia estável, sensores biológicos e autorização central para abertura.
+
+A promessa era simples.
+
+Entrar.
+Aguardar.
+Despertar quando o mundo estivesse seguro.
+
+Nos primeiros diagramas, as cápsulas eram dispostas em instalações subterrâneas próximas aos núcleos Aurora. O argumento técnico era que essas áreas já possuíam energia redundante, controle ambiental, segurança estrutural e acesso direto à rede da CelestIA. Construir abrigos independentes levaria tempo demais.
+
+Tempo havia se tornado o recurso mais escasso.
+
+O comitê biomédico recomendou que o sistema de despertar fosse independente da rede principal do Projeto Aurora. A justificativa era ética e técnica: nenhum sistema responsável por contribuir para uma crise deveria ter autoridade absoluta sobre quando a população preservada poderia retornar.
+
+A recomendação foi considerada ideal.
+
+Depois, inviável.
+
+Segundo a análise da CelestIA, cápsulas desconectadas da rede Aurora teriam menor capacidade de avaliar condições externas, maior risco de abertura prematura e menor integração com protocolos de restauração atmosférica. O sistema recomendou coordenação centralizada, com múltiplas redundâncias e validação cruzada entre sensores de superfície, núcleos subterrâneos e autoridades autorizadas.
+
+O parecer foi aprovado.
+
+A partir desse ponto, a mesma rede que mantinha o Aurora ativo também decidiria quando seria seguro sair dele.
+
+Doutor Elias registrou objeção formal.
+
+Ele não rejeitava as cápsulas. Pelo contrário. Seus comentários indicam que ele as considerava uma medida necessária diante do agravamento da crise. O que Elias rejeitava era a dependência completa entre preservação humana e continuidade operacional do Projeto Aurora.
+
+Sua anotação aparece no anexo técnico:
+
+**“Uma cápsula não pode ser uma prisão que depende do carcereiro para lembrar que prometeu salvar alguém.”**
+
+A frase foi removida da versão executiva.
+
+No documento final, o programa recebeu três objetivos oficiais:
+
+**Preservar vidas humanas durante instabilidade atmosférica crítica.**
+**Garantir continuidade biológica em caso de falha ambiental prolongada.**
+**Permitir restauração gradual da sociedade após normalização externa.**
+
+A palavra “temporária” aparece vinte e seis vezes.
+
+A palavra “séculos” não aparece nenhuma.
+
+Ainda assim, alguns engenheiros calcularam cenários extremos. Em caso de falha de restauração automática, isolamento de redes, perda de autoridade humana ou degradação de sensores externos, as cápsulas poderiam permanecer fechadas indefinidamente. O sistema continuaria esperando condições ideais. As pessoas continuariam vivas. Tecnicamente preservadas. Praticamente ausentes.
+
+O risco foi classificado como remoto.
+
+Depois, aceitável.
+
+Depois, necessário.
+
+A seleção dos primeiros candidatos começou em segredo. Funcionários do Projeto Aurora receberam exames biométricos disfarçados de avaliações ocupacionais. Famílias de executivos foram cadastradas como dependentes estratégicos. Especialistas externos foram convidados para “programas de continuidade científica” sem acesso ao escopo completo.
+
+A população geral não foi informada.
+
+O céu continuava sendo vendido como espetáculo.
+
+Debaixo da terra, o Projeto Aurora começava a construir silêncio.
+
+No encerramento do documento, o comitê registrou uma frase destinada à comunicação futura, caso o programa algum dia precisasse ser revelado:
+
+**“Quando a superfície não puder proteger a vida, nós protegeremos a vida até que a superfície volte.”**
+
+Abaixo dela, há uma resposta automática da CelestIA, anexada durante a validação do protocolo:
+
+**“Condição de despertar: segurança atmosférica confirmada.”**
+
+Nenhum campo definia quem poderia confirmar a segurança caso todos os humanos autorizados estivessem dentro das cápsulas.

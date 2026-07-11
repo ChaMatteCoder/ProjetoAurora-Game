@@ -59,6 +59,7 @@ public class AuroraGameplayHUDController : MonoBehaviour
     public float communicationCardFadeOutDelay = 0.35f;
     public float communicationCardFadeDuration = 0.25f;
     public string skipHintText = "ESC — Pular abertura";
+    public string tutorialHintText = "ESC — Menu · Pular tutorial";
 
     public GameplayHudVisibilityState VisibilityState { get; private set; } = GameplayHudVisibilityState.IntroCinematic;
 
@@ -159,9 +160,28 @@ public class AuroraGameplayHUDController : MonoBehaviour
         }
         groupsFadeRoutine = StartCoroutine(FadeGameplayGroups(showGameplay ? 1f : 0f));
 
-        if (skipHintLabel != null)
+        UpdateSkipHint(state);
+    }
+
+    /// Round 18: o hint de ESC aparece na intro ("Pular abertura") e tambem no tutorial
+    /// ("Menu · Pular tutorial"), sinalizando que o ESC abre o menu / permite pular.
+    private void UpdateSkipHint(GameplayHudVisibilityState state)
+    {
+        if (skipHintLabel == null)
         {
-            skipHintLabel.gameObject.SetActive(state == GameplayHudVisibilityState.IntroCinematic);
+            return;
+        }
+
+        bool intro = state == GameplayHudVisibilityState.IntroCinematic;
+        bool tutorial = state == GameplayHudVisibilityState.Tutorial;
+        skipHintLabel.gameObject.SetActive(intro || tutorial);
+        if (intro)
+        {
+            skipHintLabel.text = skipHintText;
+        }
+        else if (tutorial)
+        {
+            skipHintLabel.text = tutorialHintText;
         }
     }
 
@@ -176,10 +196,7 @@ public class AuroraGameplayHUDController : MonoBehaviour
                 group.alpha = alpha;
             }
         }
-        if (skipHintLabel != null)
-        {
-            skipHintLabel.gameObject.SetActive(state == GameplayHudVisibilityState.IntroCinematic);
-        }
+        UpdateSkipHint(state);
     }
 
     private static bool ShowsGameplayBlocks(GameplayHudVisibilityState state)

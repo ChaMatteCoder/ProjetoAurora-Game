@@ -28,6 +28,12 @@ namespace ProjectAurora.UI.Pause
         [SerializeField] private Button confirmYesButton;
         [SerializeField] private Button confirmNoButton;
 
+        [Header("Tutorial (Round 18)")]
+        [Tooltip("Botao 'PULAR TUTORIAL' — visivel apenas quando a pausa e aberta no tutorial.")]
+        [SerializeField] private Button skipTutorialButton;
+        [Tooltip("Hint 'ESC retoma a corrida' — ocultado quando o botao Pular ocupa a area.")]
+        [SerializeField] private GameObject hintObject;
+
         private System.Action pendingConfirmAction;
 
         private void Awake()
@@ -43,6 +49,8 @@ namespace ProjectAurora.UI.Pause
             if (settingsBackButton != null) settingsBackButton.onClick.AddListener(ShowMain);
             if (confirmYesButton != null) confirmYesButton.onClick.AddListener(RunConfirm);
             if (confirmNoButton != null) confirmNoButton.onClick.AddListener(ShowMain);
+            if (skipTutorialButton != null) skipTutorialButton.onClick.AddListener(() =>
+                AskConfirm("Pular o tutorial e ir direto para a gameplay?", SkipTutorial));
         }
 
         private void OnEnable()
@@ -61,9 +69,22 @@ namespace ProjectAurora.UI.Pause
         private void ShowMain()
         {
             pendingConfirmAction = null;
+            // O botao "PULAR TUTORIAL" so aparece quando a pausa foi aberta no tutorial;
+            // nesse caso o hint padrao ("ESC retoma a corrida") cede o espaco.
+            bool tutorialPause = GameManager.Instance != null && GameManager.Instance.IsPausedFromTutorial;
+            if (skipTutorialButton != null) skipTutorialButton.gameObject.SetActive(tutorialPause);
+            if (hintObject != null) hintObject.SetActive(!tutorialPause);
             if (mainPanel != null) mainPanel.SetActive(true);
             if (settingsPanel != null) settingsPanel.SetActive(false);
             if (confirmPanel != null) confirmPanel.SetActive(false);
+        }
+
+        private void SkipTutorial()
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SkipTutorialFromPause();
+            }
         }
 
         private void OpenSettings()

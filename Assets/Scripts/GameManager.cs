@@ -162,19 +162,67 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Round 18: o ESC agora tambem abre a pausa durante o Tutorial. Guardamos o estado
+    // anterior para o "Continuar" retornar ao estado correto (Tutorial -> Tutorial,
+    // Playing -> Playing), em vez de sempre cair em Playing.
+    private GameState stateBeforePause = GameState.Playing;
+
+    /// True quando a pausa foi aberta a partir do tutorial (o menu usa isso para exibir
+    /// o botao "PULAR TUTORIAL").
+    public bool IsPausedFromTutorial =>
+        State == GameState.Paused && stateBeforePause == GameState.Tutorial;
+
     public void TogglePause()
     {
-        if (IsFinished || State == GameState.FinalCutscene || State == GameState.IntroCutscene ||
-            State == GameState.Tutorial)
+        // A pausa nao abre em cinematicas nem apos o fim de jogo.
+        if (IsFinished || State == GameState.FinalCutscene || State == GameState.IntroCutscene)
+        {
+            return;
+        }
+
+        // Alem de Paused, so Tutorial e Playing podem alternar a pausa.
+        if (State != GameState.Paused && State != GameState.Tutorial && State != GameState.Playing)
         {
             return;
         }
 
         bool pause = State != GameState.Paused;
-        SetState(pause ? GameState.Paused : GameState.Playing);
+        if (pause)
+        {
+            stateBeforePause = State; // Tutorial ou Playing
+            SetState(GameState.Paused);
+        }
+        else
+        {
+            SetState(stateBeforePause);
+        }
+
         Time.timeScale = pause ? 0f : 1f;
         ui.SetPause(pause);
         AudioManager.Instance?.SetPaused(pause);
+        // Congela o input enquanto pausado: evita trocar de faixa/pular com o jogo parado
+        // ou completar um passo do tutorial "por baixo" do menu.
+        player?.SetInputEnabled(!pause);
+    }
+
+    /// Round 18: "PULAR TUTORIAL" a partir do menu de pausa. Encerra a pausa e conclui o
+    /// tutorial de forma segura (o TutorialManager teleporta o Dr. Elias para depois da
+    /// porta de contencao e libera a corrida completa).
+    public void SkipTutorialFromPause()
+    {
+        if (!IsPausedFromTutorial || tutorial == null || !tutorial.IsTutorialActive)
+        {
+            return;
+        }
+
+        // Sai da pausa sem passar por TogglePause (que voltaria ao estado Tutorial).
+        Time.timeScale = 1f;
+        ui.SetPause(false);
+        AudioManager.Instance?.SetPaused(false);
+        player?.SetInputEnabled(true);
+        stateBeforePause = GameState.Playing;
+
+        tutorial.SkipToEnd(); // -> CompleteTutorial -> StartFullRun (SetState Playing)
     }
 
     public void Resume()

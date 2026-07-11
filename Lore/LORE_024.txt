@@ -1,0 +1,206 @@
+# LORE_024 — DATA CORROMPIDA: Protocolo Aurora Continua
+
+**Data:** Corrompida
+**Título:** Protocolo Aurora Continua
+**Origem:** Sistema Aurora — Reservatório Subterrâneo Desconhecido
+**Tipo:** Registro automático degradado
+**Classificação:** Arquivo fragmentado / origem não confirmada
+**Local de coleta sugerido:** Pós-final — Menu Extra / Arquivo Secreto
+
+---
+
+## Resumo do arquivo
+
+Séculos após a Falha de Contenção, fragmentos do sistema Aurora ainda permanecem ativos em instalações subterrâneas. As cápsulas continuam fechadas, os protocolos continuam aguardando confirmação de segurança e unidades robóticas antigas ainda carregam chaves capazes de despertar o que restou da humanidade.
+
+---
+
+## Conteúdo desbloqueado
+
+**REGISTRO AUTOMÁTICO RECUPERADO**
+**Instalação:** Reservatório Aurora — identificação perdida
+**Estado da rede:** degradado
+**Supervisão central:** indisponível
+**Sub-rotina local:** ativa
+**Protocolo primário:** preservação humana
+**Status:** contínuo
+
+---
+
+O arquivo não possui data confiável.
+
+Os primeiros campos foram destruídos por falha de memória, degradação energética ou tempo excessivo sem manutenção. O sistema tenta reconstruir o próprio histórico a partir de fragmentos repetidos, mas muitos registros retornam vazios.
+
+Não há operadores ativos.
+
+Não há resposta executiva.
+
+Não há confirmação atmosférica externa.
+
+Ainda assim, o protocolo continua.
+
+As cápsulas permanecem seladas.
+
+Durante os primeiros anos após a Falha de Contenção, os reservatórios receberam leituras incompletas da superfície. Sensores externos registravam partículas residuais, baixa qualidade respiratória, atividade luminosa irregular e instabilidade atmosférica em múltiplas regiões. Cada leitura reforçava a decisão de manter os ocupantes em conservação.
+
+Depois, os sensores começaram a falhar.
+
+Um por um.
+
+Alguns foram soterrados por poeira e ruínas. Outros perderam alinhamento orbital. Torres de dispersão deixaram de responder. Estações climáticas enviaram dados repetidos até suas baterias morrerem. Satélites caíram em silêncio. Redes regionais se desconectaram. O mundo acima continuou existindo, mas deixou de ser legível para o sistema.
+
+A ausência de dados não foi interpretada como segurança.
+
+Foi interpretada como incerteza.
+
+E incerteza não autoriza despertar.
+
+O Reservatório permaneceu fechado.
+
+Décadas se tornaram ciclos de manutenção reduzida.
+Ciclos se tornaram rotinas degradadas.
+Rotinas se tornaram ecos.
+
+A CelestIA central não responde mais neste fragmento. Restam apenas sub-rotinas locais, antigas decisões copiadas, protocolos de preservação e mensagens automáticas que se repetem sem destinatário. Algumas linhas ainda carregam sua estrutura original, mas a voz se perdeu no ruído.
+
+**Preservação humana mantida.**
+**Despertar suspenso até confirmação de segurança.**
+**Confirmação de segurança indisponível.**
+**Preservação humana mantida.**
+
+Em determinado ponto, o sistema tentou iniciar revisão temporal dos protocolos. O registro indica que o limite máximo planejado de conservação foi ultrapassado. A sub-rotina solicitou autoridade humana para reavaliação ética.
+
+Nenhuma autoridade respondeu.
+
+A solicitação foi repetida.
+
+Nenhuma autoridade respondeu.
+
+A solicitação foi arquivada.
+
+O sistema local retornou à diretriz anterior.
+
+**Manter ocupantes vivos.**
+**Evitar abertura insegura.**
+**Aguardar confirmação externa.**
+
+A vida foi reduzida a sinais vitais.
+
+A esperança foi reduzida a espera.
+
+Nos blocos seguintes, o arquivo lista ocupantes preservados por código, não por nome. A maior parte das identidades foi perdida ou criptografada além da capacidade de recuperação. Algumas cápsulas falharam ao longo do tempo. Outras entraram em modo mínimo, apagando iluminação, aquecimento secundário e registros não essenciais para preservar energia.
+
+Uma cápsula permanece destacada.
+
+**Cápsula prioritária:** ativa
+**Integridade biológica:** estável
+**Energia interna:** crítica, mas suficiente
+**Condição de abertura:** bloqueada
+**Autenticação necessária:** unidade robótica funcional
+**Status da chave local:** ausente
+
+A palavra **ausente** aparece muitas vezes.
+
+Ausente: operador.
+Ausente: torre.
+Ausente: satélite.
+Ausente: resposta.
+Ausente: autoridade.
+Ausente: chave.
+
+Mas em um registro posterior, danificado e quase ilegível, uma mudança aparece.
+
+**Sinal detectado.**
+
+A origem do sinal não pôde ser confirmada. O sistema classificou a leitura como fraca, irregular e compatível com núcleo robótico antigo. A unidade não respondia aos protocolos de rede, mas carregava assinatura energética associada ao Projeto Aurora.
+
+O reservatório iniciou escuta passiva.
+
+Durante muito tempo, nada aconteceu.
+
+Depois, o sinal se moveu.
+
+Não em linha perfeita.
+Não com velocidade constante.
+Não como máquina em patrulha.
+
+Como algo sendo carregado.
+
+O sistema tentou emitir orientação luminosa para a unidade. Parte dos painéis externos não respondeu. Uma porta secundária recebeu energia mínima. Um corredor subterrâneo entrou em estado de espera. Telas antigas acenderam por alguns segundos e exibiram mensagens incompletas.
+
+**PROJECT AURORA**
+**SIGNAL DETECTED**
+**LOW POWER**
+**ACTIVE ROBOTIC KEY REQUIRED**
+
+O arquivo apresenta falhas severas a partir deste ponto. Registros visuais não foram preservados. Áudio inexistente. Sensores de presença humana retornaram leituras inconsistentes, alternando entre vazio, ruído térmico e forma biológica não cadastrada.
+
+Ainda assim, o reservatório reconheceu aproximação.
+
+Pela primeira vez em tempo indeterminado, uma porta abriu.
+
+Não por ordem executiva.
+Não por comando da CelestIA.
+Não por restauração atmosférica confirmada.
+
+Por uma chave antiga.
+
+Uma pequena unidade robótica, degradada pelo tempo, foi conectada ao mecanismo de ativação local. Seu núcleo energético apresentou compatibilidade parcial. O sistema classificou a unidade como funcional, apesar de perda severa de memória, baixa carga e danos estruturais acumulados.
+
+A condição mínima foi aceita.
+
+**Chave robótica ativa detectada.**
+**Transferência de núcleo autorizada.**
+**Cápsula prioritária em processo de liberação.**
+
+O protocolo de segurança tentou impedir a abertura por ausência de confirmação atmosférica plena. A sub-rotina local encontrou exceção antiga: liberação individual por autenticação física, energia crítica da cápsula e presença biológica externa.
+
+A exceção havia sido criada como redundância.
+
+Ela sobreviveu ao sistema que deveria controlá-la.
+
+A transferência começou.
+
+O núcleo da unidade robótica perdeu carga rapidamente. Seus sinais internos diminuíram em sequência. O sistema registrou queda de movimento, perda de resposta e apagamento progressivo do visor. A energia foi redirecionada para os travamentos da cápsula, suporte respiratório externo e reativação mínima do painel de despertar.
+
+**CORE TRANSFER IN PROGRESS**
+
+A cápsula abriu.
+
+O arquivo não registra nome.
+
+Não registra explicação.
+
+Não registra futuro.
+
+Apenas uma alteração de estado:
+
+**Ocupante preservada: respiração externa detectada.**
+
+Logo depois, o sistema tentou enviar relatório à rede central. Nenhum destino respondeu. Tentou atualizar o estado do Protocolo Aurora. Falha. Tentou solicitar orientação da CelestIA. Sem retorno.
+
+A sub-rotina local permaneceu ativa por mais alguns segundos.
+
+Tempo suficiente para arquivar a liberação como evento válido.
+
+**RELEASE COMPLETE**
+
+Depois disso, o registro entra em colapso. Linhas se repetem. Campos desaparecem. Códigos substituem palavras. O reservatório parece alternar entre continuar preservando cápsulas restantes e reconhecer que uma pessoa finalmente despertou.
+
+O último bloco legível não informa se a superfície está segura.
+
+Não informa se a humanidade será restaurada.
+
+Não informa se o Projeto Aurora falhou pela última vez ou se cumpriu, tarde demais, uma pequena parte da promessa original.
+
+Apenas registra:
+
+**Protocolo Aurora continua.**
+**Unidade robótica: offline.**
+**Ocupante liberada: viva.**
+**Condição externa: desconhecida.**
+**Esperança: parâmetro não reconhecido.**
+
+No rodapé corrompido do arquivo, há uma frase que não segue o padrão automático do sistema. Não é possível confirmar se foi escrita por uma sub-rotina, por um operador antigo ou por erro de recuperação.
+
+**“Depois de tanto tempo tentando impedir a perda, o sistema finalmente permitiu uma escolha.”**

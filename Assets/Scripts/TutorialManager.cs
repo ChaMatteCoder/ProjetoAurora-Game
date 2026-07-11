@@ -354,6 +354,58 @@ public class TutorialManager : MonoBehaviour
         GameManager.Instance.StartFullRun();
     }
 
+    /// Round 18: pula o tutorial. Teleporta o Dr. Elias para logo apos a porta de
+    /// contencao (evitando correr atraves dos obstaculos/porta do tutorial, que ficariam
+    /// no caminho) e conclui o tutorial normalmente (CompleteTutorial -> StartFullRun).
+    public void SkipToEnd()
+    {
+        if (!IsTutorialActive || IsComplete)
+        {
+            return;
+        }
+
+        if (player != null)
+        {
+            float skipZ = GetTutorialSkipZ();
+            Vector3 pos = player.transform.position;
+            if (pos.z < skipZ)
+            {
+                CharacterController cc = player.GetComponent<CharacterController>();
+                bool wasEnabled = cc != null && cc.enabled;
+                if (cc != null)
+                {
+                    cc.enabled = false; // mover o transform com o CC ativo e ignorado
+                }
+                player.transform.position = new Vector3(0f, pos.y, skipZ);
+                if (cc != null)
+                {
+                    cc.enabled = wasEnabled;
+                }
+            }
+        }
+
+        CompleteTutorial();
+    }
+
+    /// z de destino do skip: logo depois do ultimo passo (porta de contencao) e antes do
+    /// primeiro obstaculo real. Calculado a partir dos passos, com fallback seguro.
+    private float GetTutorialSkipZ()
+    {
+        float lastStepZ = 98f; // fallback: painel de contencao do tutorial
+        if (orderedSteps != null)
+        {
+            for (int i = 0; i < orderedSteps.Length; i++)
+            {
+                if (orderedSteps[i] != null)
+                {
+                    lastStepZ = Mathf.Max(lastStepZ, orderedSteps[i].transform.position.z);
+                }
+            }
+        }
+        // +13 => ~z111: ja passou da porta (z~106), antes do 1o obstaculo real (z~125).
+        return lastStepZ + 13f;
+    }
+
     private bool IsCommandAllowed(TutorialAction action)
     {
         if (!IsTutorialActive || IsComplete)

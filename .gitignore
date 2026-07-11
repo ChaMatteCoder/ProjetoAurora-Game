@@ -93,3 +93,9 @@ Assets/_ProjectAurora/Scenes/FASE 01 - Laboratório Limpo A/Cenário/Materials/M
 
 # Assets brutos (.zip) de features futuras — importar/organizar antes de versionar
 *.zip
+
+# Backups e trabalho pesado de otimização (Blender, HP originais, recovery) — NUNCA versionar
+Backups_Optimization/
+
+# Logs temporários do piloto de QA
+playtest_lane*.log

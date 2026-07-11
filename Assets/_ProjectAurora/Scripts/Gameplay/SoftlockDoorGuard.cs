@@ -72,9 +72,11 @@ public class SoftlockDoorGuard : MonoBehaviour
         float bestDz = float.MaxValue;
 
         foreach (AuroraDoorController door in
-            FindObjectsByType<AuroraDoorController>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            FindObjectsByType<AuroraDoorController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
         {
-            if (door == null || door.IsOpen)
+            // portas legacy/desativadas nunca devem ser arrombadas (coroutine em objeto
+            // inativo falha e o jogador leva dano de uma porta que nem existe em jogo)
+            if (door == null || !door.gameObject.activeInHierarchy || door.IsOpen)
             {
                 continue;
             }

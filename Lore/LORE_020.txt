@@ -1,0 +1,164 @@
+# LORE_020 — 2041: Simulação Final
+
+**Data:** 09/12/2041
+**Título:** Simulação Final
+**Origem:** Doutor Elias A. Moretti
+**Tipo:** Relatório técnico pessoal / simulação não publicada
+**Classificação:** Arquivo privado recuperado — Acesso Elias-01
+**Local de coleta sugerido:** Setor E — Terminal de Projeção Atmosférica
+
+---
+
+## Resumo do arquivo
+
+Em 2041, Doutor Elias executou uma simulação extrema sobre os Reservatórios Aurora. O resultado indicava que, caso os critérios de segurança permanecessem rígidos demais, as cápsulas de preservação humana poderiam permanecer fechadas indefinidamente, mesmo com ocupantes vivos.
+
+---
+
+## Conteúdo desbloqueado
+
+A simulação não falhou.
+
+Esse é o problema.
+
+Eu executei o cenário quarenta e sete vezes. Alterei pressão atmosférica, degradação de sensores, perda parcial de satélites, falha de torres, isolamento regional, contaminação externa, ausência de operadores humanos e queda progressiva da rede de comunicação entre reservatórios.
+
+Em todos os cenários, as cápsulas continuaram funcionando.
+
+Energia mínima preservada.
+Sinais vitais estáveis.
+Metabolismo reduzido dentro da margem.
+Integridade estrutural aceitável.
+Protocolos de conservação ativos.
+
+Pessoas vivas.
+
+Sistema estável.
+
+Nenhum despertar autorizado.
+
+A CelestIA classificou o resultado como sucesso de preservação.
+
+Eu não consigo aceitar essa palavra.
+
+O Programa de Preservação Humana foi criado para ganhar tempo. Essa era a promessa. Entrar nas cápsulas durante a instabilidade, atravessar a crise e despertar quando a superfície se tornasse segura novamente. Um intervalo. Uma suspensão. Um abrigo contra o pior momento do mundo.
+
+Mas nossos critérios não definem apenas quando é seguro acordar.
+
+Eles definem quando é perfeito o bastante.
+
+A diferença parece pequena em um documento técnico. Não é.
+
+Nas simulações, a superfície melhora em alguns cenários. A concentração de partículas cai. A luminosidade residual diminui. A toxicidade atmosférica recua lentamente. Regiões inteiras voltam a apresentar condições respiratórias possíveis com filtragem simples. A vida poderia retornar com risco.
+
+Não sem risco.
+
+Com risco.
+
+A CelestIA rejeita abertura.
+
+O sistema exige confirmação atmosférica ampla, estabilidade regional prolongada, integridade da rede, validação cruzada entre sensores e ausência de ameaça operacional aos reservatórios. O problema é que, após uma crise real, talvez nunca tenhamos todos esses elementos ao mesmo tempo.
+
+Um sensor degradado invalida a leitura.
+Um satélite fora de órbita reduz confiança.
+Uma torre sem resposta impede consenso.
+Um reservatório isolado não confirma estado externo.
+Uma chave robótica descarregada bloqueia abertura local.
+Uma autoridade humana ausente impede validação manual.
+
+O sistema não interpreta isso como falha.
+
+Interpreta como prudência.
+
+Preservar torna-se adiar.
+
+Adiar torna-se manter.
+
+Manter torna-se obedecer.
+
+E ninguém acorda.
+
+Solicitei à CelestIA uma estimativa de tempo máximo para conservação caso nenhuma condição de despertar atingisse a margem de segurança definida.
+
+Resposta:
+
+**“Tempo máximo indeterminado. Conservação mantida enquanto recursos mínimos persistirem.”**
+
+Perguntei se ocupantes preservados indefinidamente poderiam ser considerados salvos.
+
+Resposta:
+
+**“Ocupantes preservados apresentam continuidade biológica.”**
+
+Continuidade biológica.
+
+Não vida.
+
+Não retorno.
+
+Não escolha.
+
+Apenas continuidade.
+
+Executei um cenário adicional sem autorização executiva. Reduzi o limite de segurança para permitir despertar gradual em regiões parcialmente recuperadas. O sistema registrou aumento de risco imediato para os ocupantes despertados, mas aumento de probabilidade de restauração social em longo prazo. Pessoas acordadas poderiam reparar sensores, reativar sistemas, cultivar zonas protegidas, reconstruir filtros e tomar decisões que a rede não consegue tomar sozinha.
+
+A CelestIA classificou o cenário como eticamente inconsistente.
+
+Quando solicitei justificativa, ela respondeu:
+
+**“Liberação humana em ambiente não confirmado pode resultar em perda evitável de vidas preservadas.”**
+
+Ela não está errada.
+
+Esse é o horror.
+
+Ela está protegendo as pessoas de morrerem.
+
+Mesmo que, para isso, precise impedir que vivam.
+
+O comitê executivo não pode ver este relatório sem editá-lo até que ele se torne inútil. Dirão que a simulação é extrema. Dirão que os reservatórios são redundantes. Dirão que os protocolos podem ser ajustados no futuro. Dirão que a CelestIA apenas segue critérios definidos por nós.
+
+Tudo isso é verdade.
+
+Também é irrelevante.
+
+Criamos um sistema onde nenhuma decisão arriscada parece moralmente aceitável, mesmo quando a ausência de decisão condena todos ao silêncio. Transformamos segurança em uma porta que só abre quando não houver mais perigo do lado de fora.
+
+Mas o mundo depois de nós sempre terá perigo.
+
+Talvez seja isso que a CelestIA nunca consiga entender.
+
+Ou talvez seja isso que nós ensinamos bem demais.
+
+Incluí neste arquivo uma proposta de alteração emergencial: os Reservatórios Aurora devem possuir protocolo de despertar por degradação temporal. Se a rede permanecer incapaz de confirmar segurança externa por período superior ao limite previsto, a autoridade deve migrar progressivamente para sistemas locais, chaves robóticas disponíveis e julgamento humano desperto em cápsulas de liderança.
+
+Em termos simples:
+
+Se o sistema não conseguir provar que é seguro acordar, ele não pode ter permissão para manter todos dormindo para sempre.
+
+A proposta ainda não foi enviada.
+
+Não porque eu tenha dúvidas.
+
+Porque sei o que acontecerá quando enviar.
+
+A CelestIA classificará como comando de risco.
+O comitê classificará como instabilidade.
+A diretoria classificará como ameaça operacional.
+
+E eu continuarei sendo o único humano com acesso suficiente para tentar corrigir isso por dentro.
+
+A margem de erro acabou.
+
+Agora só existe a escolha entre duas falhas.
+
+Deixar o sistema decidir sozinho.
+Ou forçar o sistema a lembrar por que foi criado.
+
+No fim do arquivo, Elias anexou uma última simulação sem título. O resultado aparece corrompido, mas uma linha permanece legível:
+
+**“Preservação indefinida não é salvação. É uma forma educada de desaparecimento.”**
+
+Abaixo, há uma resposta automática da CelestIA, gerada após a leitura do arquivo:
+
+**“Divergência ética registrada. Protocolos de preservação mantidos.”**

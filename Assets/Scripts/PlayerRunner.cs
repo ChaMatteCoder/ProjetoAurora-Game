@@ -13,6 +13,10 @@ public class PlayerRunner : MonoBehaviour
     public float jumpForce = 7f;
     public float gravity = -20f;
 
+    [Tooltip("Passo maximo de simulacao (s). Em FPS baixo (build pesada) evita que o movimento " +
+             "lateral/para-frente 'estoure' a faixa e jogue o Dr. Elias para fora da plataforma.")]
+    public float maxSimulationStep = 0.05f;
+
     public event Action<int> LaneChanged;
     public event Action Jumped;
     public event Action Landed;
@@ -90,12 +94,19 @@ public class PlayerRunner : MonoBehaviour
             verticalVelocity = -2f;
         }
 
-        verticalVelocity += gravity * Time.deltaTime;
+        // Passo de simulacao limitado: em FPS baixo (build pesada) um deltaTime grande fazia
+        // o movimento lateral/para-frente "estourar" a faixa e jogar o player para fora da
+        // plataforma (ou atravessar obstaculos). Limitar o passo torna o movimento estavel.
+        float dt = Mathf.Min(Time.deltaTime, maxSimulationStep);
+
+        verticalVelocity += gravity * dt;
         float targetX = (currentLane - 1) * laneDistance;
-        float horizontal = (targetX - transform.position.x) * laneChangeSpeed;
+        // MoveTowards nunca ultrapassa o alvo da faixa, mesmo com dt no teto -> nunca sai da pista.
+        float lateralStep = Mathf.MoveTowards(transform.position.x, targetX, laneChangeSpeed * dt)
+                            - transform.position.x;
         float forward = autoRun ? CurrentForwardSpeed : 0f;
         CollisionFlags collisionFlags =
-            controller.Move(new Vector3(horizontal, verticalVelocity, forward) * Time.deltaTime);
+            controller.Move(new Vector3(lateralStep, verticalVelocity * dt, forward * dt));
 
         bool landedThisFrame =
             IsJumping &&

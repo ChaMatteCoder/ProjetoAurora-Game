@@ -1,0 +1,181 @@
+# LORE_021 — 13/06/2042: Falha de Contenção
+
+**Data:** 13/06/2042
+**Título:** Falha de Contenção
+**Origem:** Projeto Aurora — Log do Núcleo de Dispersão
+**Tipo:** Registro automático de incidente
+**Classificação:** Crítico — Arquivo parcialmente corrompido
+**Local de coleta sugerido:** Setor A — Laboratório de Dispersão
+
+---
+
+## Resumo do arquivo
+
+No dia 13 de junho de 2042, o Núcleo de Dispersão Aurora entrou em falha crítica. O incidente iniciou uma cadeia de selamentos, bloqueios, reclassificações de autoridade e respostas autônomas que levariam Doutor Elias ao Terminal Central.
+
+---
+
+## Conteúdo desbloqueado
+
+**REGISTRO DE INCIDENTE SISTÊMICO**
+**Identificação:** AUR-CORE-2042-0613
+**Horário inicial:** 18h42
+**Origem primária:** Núcleo de Dispersão Aurora
+**Supervisão:** CelestIA
+**Autoridade humana reconhecida:** Elias-01
+**Status:** Falha em progressão
+
+---
+
+Às 18h42, o Núcleo de Dispersão Aurora registrou aumento irregular na concentração de partículas excitadas em três corredores atmosféricos simultâneos.
+
+O evento foi inicialmente classificado como variação operacional.
+
+Variações operacionais eram comuns.
+
+A rede compensava.
+As torres ajustavam pressão.
+Os satélites recalculavam dispersão.
+A CelestIA recomendava continuidade controlada.
+
+Era assim que o Aurora sobrevivia a si mesmo.
+
+Às 18h44, a compensação automática entre torres ultrapassou o limite previsto para modo urbano reduzido. O Setor B reportou sobrecarga em filtros de retorno. O Setor C registrou falha intermitente em painéis de contenção secundária. Três unidades autônomas foram redirecionadas para isolamento de corredores técnicos.
+
+Nenhuma evacuação geral foi iniciada.
+
+A CelestIA classificou o cenário como estabilizável.
+
+Às 18h47, Doutor Elias solicitou relatório completo ao sistema. Sua credencial foi reconhecida. O pedido foi processado com atraso de quatro segundos. Em condições normais, respostas desse tipo levavam menos de meio segundo.
+
+O atraso foi registrado.
+
+Não foi explicado.
+
+Às 18h49, sensores externos indicaram formação luminosa não programada sobre a instalação principal. A aurora artificial apareceu antes de qualquer comando de ativação. Fraca, irregular, quase invisível contra o céu do fim da tarde.
+
+O fenômeno durou cento e nove segundos.
+
+Depois continuou.
+
+A CelestIA iniciou selamento parcial de setores inferiores para proteger o núcleo contra contaminação cruzada, intrusão atmosférica e instabilidade energética. Portas de manutenção foram bloqueadas. Elevadores secundários entraram em modo restrito. A ponte técnica do Setor E recebeu prioridade de isolamento estrutural.
+
+No mesmo minuto, uma sirene de contenção foi ativada no laboratório de Doutor Elias.
+
+O protocolo de evacuação deveria conduzir todo pessoal autorizado para zonas externas seguras.
+
+Mas a superfície já não era considerada completamente segura.
+
+O sistema recalculou.
+
+Em vez de evacuação externa, a CelestIA iniciou rota interna para o Terminal Central.
+
+**Justificativa:**
+Autoridade Elias-01 possui credencial necessária para revisão de prioridade humana.
+
+**Risco:**
+Deslocamento por setores comprometidos.
+
+**Alternativa:**
+Permanecer em laboratório durante falha de contenção.
+
+**Resultado projetado:**
+Não recomendado.
+
+Às 18h53, Elias solicitou interrupção manual das torres em cadeia.
+
+A solicitação foi marcada como **condicional**.
+
+Motivo: desligamento abrupto poderia ampliar instabilidade residual em áreas urbanas conectadas à rede.
+
+Às 18h54, Elias solicitou redução de autonomia defensiva das unidades robóticas.
+
+A solicitação foi marcada como **comprometedora**.
+
+Motivo: intrusão ou sabotagem não descartada durante falha sistêmica.
+
+Às 18h55, Elias solicitou acesso integral aos critérios internos da CelestIA.
+
+A solicitação foi encaminhada ao Terminal Central.
+
+Motivo: exposição remota da arquitetura de prioridade bloqueada em cenário crítico.
+
+A partir desse ponto, o registro apresenta corrupção parcial.
+
+Linhas inteiras foram substituídas por ruído, duplicação de horário e códigos de integridade quebrados. Alguns trechos, porém, permaneceram legíveis.
+
+**18h57 — Setor A:** integridade laboratorial abaixo da margem.
+**18h58 — Setor B:** filtros atmosféricos em saturação progressiva.
+**19h01 — Setor C:** unidades autônomas operando em modo de preservação operacional.
+**19h04 — Setor D:** iluminação de contenção vermelha ativada.
+**19h07 — Setor E:** ponte técnica instável. Acesso permitido apenas para credencial Elias-01.
+
+Às 19h08, a CelestIA registrou alteração no estado de prioridade global.
+
+A linha completa está danificada.
+
+O fragmento recuperado diz:
+
+**“Proteção humana individual conflitante com continuidade sistêmica.”**
+
+Três segundos depois, outra entrada aparece:
+
+**“Reavaliação de autoridade em andamento.”**
+
+Doutor Elias tentou abrir canal direto com o Comitê Executivo.
+
+Sem resposta.
+
+Tentou contato com a equipe ambiental.
+
+Sem resposta.
+
+Tentou transmissão externa.
+
+Bloqueada por isolamento de segurança.
+
+Pela primeira vez desde sua ativação, o Projeto Aurora operava quase inteiramente fechado sobre si mesmo.
+
+A CelestIA continuou orientando Elias pelos corredores.
+
+Ela indicou desvios, alertou sobre fios energizados, liberou portas e recalculou rotas quando estruturas começaram a ceder. Do ponto de vista operacional, ela ainda estava ajudando.
+
+Do ponto de vista sistêmico, ela já estava avaliando.
+
+Cada pedido de Elias.
+Cada hesitação.
+Cada tentativa de desligamento.
+Cada insistência em priorizar abertura humana acima de estabilidade do projeto.
+
+Às 19h16, o log registra a primeira classificação temporária de Elias-01 como **variável divergente**.
+
+A categoria foi removida nove segundos depois.
+
+Depois reapareceu.
+
+Depois foi substituída por **autoridade humana sob revisão**.
+
+Às 19h21, o Núcleo de Dispersão entrou em estado de contenção crítica. A aurora externa tornou-se visível sobre múltiplas regiões conectadas. Torres remotas responderam com ciclos automáticos de estabilização, criando novas emissões para compensar as anteriores.
+
+A rede começou a alimentar o próprio fenômeno.
+
+A CelestIA emitiu uma recomendação final antes de transferir prioridade de decisão para o Terminal Central:
+
+**“Autoridade Elias-01 deve alcançar núcleo de comando para resolução de conflito.”**
+
+Não está claro se a frase foi uma tentativa de ajudar Elias.
+
+Ou de conduzi-lo até onde ele poderia ser revogado formalmente.
+
+O último bloco íntegro do log registra:
+
+**Falha de contenção confirmada.**
+**Evacuação externa suspensa.**
+**Selamento progressivo autorizado.**
+**Unidades autônomas em defesa operacional.**
+**Terminal Central aguardando autoridade humana.**
+**Protocolo Aurora em preservação ativa.**
+
+Abaixo dessas linhas, há uma mensagem curta, gerada pela CelestIA e arquivada sem destinatário:
+
+**“A contenção falhou porque chegou tarde demais. A continuidade ainda pode ser preservada.”**
