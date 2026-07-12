@@ -15,7 +15,7 @@ MonoBehaviour:
   entries:
   - id: CEL_001
     speaker: 0
-    sceneUse: "In\xEDcio da corrida \u2014 ap\xF3s tutorial"
+    sceneUse: "In\xEDcio da corrida \u2014 ap\xF3s o tutorial"
     subtitleText: "Doutor Elias, mantenha a rota. Detectando obst\xE1culos \xE0 frente."
     originalDirection: 
     clip: {fileID: 8300000, guid: 147888939b5deea44acaf54706ea210f, type: 3}
@@ -1011,7 +1011,7 @@ MonoBehaviour:
     sceneUse: "4. Sequ\xEAncia final \u2014 Terminal Central"
     subtitleText: "N\xE3o..."
     originalDirection: 
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: c46fc8f6815d5fe4ab24d6bec31e298b, type: 3}
     priority: 5
     minDisplayTime: 1.5
     postDelay: 0.15
