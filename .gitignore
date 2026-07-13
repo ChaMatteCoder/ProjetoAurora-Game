@@ -37,6 +37,7 @@ sysinfo.txt
 # Other files to ignore
 *.log
 *.tmp
+*.blend1
 *.claude
 *.codex
 *.bak

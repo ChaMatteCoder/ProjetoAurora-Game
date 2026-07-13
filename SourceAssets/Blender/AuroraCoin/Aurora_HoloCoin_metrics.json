@@ -1,0 +1,56 @@
+{
+  "asset": "Aurora_HoloCoin",
+  "dimensions_m": {
+    "depth": 0.118,
+    "height": 0.48,
+    "width": 0.48
+  },
+  "fbx": "C:\\ProjetoAurora-Game\\Assets\\_ProjectAurora\\Art\\Collectibles\\AuroraCoin\\Models\\Aurora_HoloCoin.fbx",
+  "materials": [
+    "MAT_AuroraCoin_Frame",
+    "MAT_AuroraCoin_Hologram",
+    "MAT_AuroraCoin_Emission"
+  ],
+  "objects": {
+    "Coin_AuroraSymbol": {
+      "materials": [
+        "MAT_AuroraCoin_Emission"
+      ],
+      "triangles": 440,
+      "vertices": 240
+    },
+    "Coin_BackPlate": {
+      "materials": [
+        "MAT_AuroraCoin_Frame"
+      ],
+      "triangles": 284,
+      "vertices": 144
+    },
+    "Coin_EmissionDetails": {
+      "materials": [
+        "MAT_AuroraCoin_Emission"
+      ],
+      "triangles": 1088,
+      "vertices": 576
+    },
+    "Coin_Frame": {
+      "materials": [
+        "MAT_AuroraCoin_Frame"
+      ],
+      "triangles": 1280,
+      "vertices": 672
+    },
+    "Coin_HologramCore": {
+      "materials": [
+        "MAT_AuroraCoin_Hologram"
+      ],
+      "triangles": 92,
+      "vertices": 48
+    }
+  },
+  "preview": "C:\\ProjetoAurora-Game\\SourceAssets\\Blender\\AuroraCoin\\Aurora_HoloCoin_Preview.png",
+  "preview_back": "C:\\ProjetoAurora-Game\\SourceAssets\\Blender\\AuroraCoin\\Aurora_HoloCoin_Preview_Back.png",
+  "source_blend": "C:\\ProjetoAurora-Game\\SourceAssets\\Blender\\AuroraCoin\\Aurora_HoloCoin.blend",
+  "triangles": 3184,
+  "vertices": 1680
+}

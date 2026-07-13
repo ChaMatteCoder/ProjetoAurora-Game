@@ -1,11 +1,15 @@
 fileFormatVersion: 2
-guid: 147ef2c24798d2546a41118d392f85b7
+guid: 5671a0daa8326c74fa2640ae69b24db7
+labels:
+- Aurora
+- Collectible
+- Gameplay
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 2
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -41,8 +45,8 @@ ModelImporter:
     importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
@@ -79,7 +83,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []

@@ -39,6 +39,11 @@ public class GameOverManager : MonoBehaviour
     private bool isGameOverSequenceRunning;
     private Coroutine sequenceRoutine;
     private Vector2 titleBasePosition;
+    private float sequenceStartedAtRealtime;
+
+    /// Escurecimento total da tela dura o mesmo que a música de Game Over.
+    private float FadeToBlackSeconds =>
+        gameOverMusic != null ? gameOverMusic.length : totalSequenceDuration;
 
     public bool IsGameOverActive => isGameOverSequenceRunning;
 
@@ -173,6 +178,7 @@ public class GameOverManager : MonoBehaviour
     private IEnumerator SequenceRoutine(Color accent)
     {
         float sequenceStartedAt = Time.realtimeSinceStartup;
+        sequenceStartedAtRealtime = sequenceStartedAt;
         float elapsed = 0f;
 
         while (elapsed < totalSequenceDuration)
@@ -195,6 +201,9 @@ public class GameOverManager : MonoBehaviour
         while (isGameOverSequenceRunning)
         {
             phase += Time.unscaledDeltaTime;
+            // a música pode ser mais longa que a sequência: segue escurecendo até o preto total
+            SetImageAlpha(fadeBackground, Mathf.Clamp01(
+                (Time.realtimeSinceStartup - sequenceStartedAtRealtime) / FadeToBlackSeconds));
             if (diagnosticText != null)
             {
                 Color color = diagnosticText.color;
@@ -221,7 +230,9 @@ public class GameOverManager : MonoBehaviour
 
     private void UpdateSequenceVisuals(float elapsed, Color accent)
     {
-        SetImageAlpha(fadeBackground, Mathf.Lerp(0f, 0.92f, Smooth01(elapsed / 1.15f)));
+        // escurece lentamente até PRETO TOTAL na duração da música de Game Over
+        // (vale para toda morte, inclusive a sequência final de conclusão)
+        SetImageAlpha(fadeBackground, Mathf.Clamp01(elapsed / FadeToBlackSeconds));
 
         float flashAlpha = elapsed < 0.4f
             ? Mathf.Lerp(0f, 0.18f, elapsed / 0.4f)
