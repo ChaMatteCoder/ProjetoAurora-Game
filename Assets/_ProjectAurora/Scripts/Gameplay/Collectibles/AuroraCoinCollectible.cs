@@ -78,6 +78,10 @@ public sealed class AuroraCoinCollectible : MonoBehaviour
         {
             collectionAudioSource.PlayOneShot(collectionClip);
         }
+        else
+        {
+            AuroraSfx.PlayCoin();
+        }
 
         if (collectionBurst != null)
         {

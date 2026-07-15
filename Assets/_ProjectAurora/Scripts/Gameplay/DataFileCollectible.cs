@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// Ponte de compatibilidade do prefab antigo DF_01..DF_12. Novos colecionáveis devem
@@ -5,8 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class DataFileCollectible : MonoBehaviour
 {
+    /// Registro dos DataFiles ativos (para o som de proximidade do DataFileManager).
+    public static readonly List<DataFileCollectible> Active = new List<DataFileCollectible>();
+
     [Tooltip("ID legado sequencial da corrida (DF_01 a DF_12). O manager converte para o LORE coletável oficial.")]
     public string fileId = "DF_01";
+
+    private void OnEnable() { if (!Active.Contains(this)) Active.Add(this); }
+    private void OnDisable() { Active.Remove(this); }
 
     private void Start()
     {

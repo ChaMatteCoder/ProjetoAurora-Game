@@ -117,8 +117,15 @@ public class PlayerInteraction : MonoBehaviour
         IInteractable target = ResolveInteractionTarget();
         bool show = game.AllowsInteraction &&
             target != null && target.CanInteract(gameObject) && Gate.CanInteract(target);
+        if (show && !promptWasShowing)
+        {
+            AuroraSfx.PlayEReady(); // E ficou disponível
+        }
+        promptWasShowing = show;
         game.ui.SetInteractionPrompt(show, show ? target.GetInteractionPrompt() : string.Empty);
     }
+
+    private bool promptWasShowing;
 
     private bool InteractPressedThisFrame()
     {

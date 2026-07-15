@@ -11,9 +11,12 @@ using UnityEngine;
 [RequireComponent(typeof(Obstacle))]
 public class RobotObstacleRunner : MonoBehaviour
 {
-    [Tooltip("Distância (m) do player em que o robô 'liga' e começa a correr.")]
+    [Tooltip("Distância (m) do player em que o robô 'liga' e começa a andar.")]
     public float activationDistance = 42f;
-    public float runSpeed = 5.5f;
+    [Tooltip("Velocidade de caminhada (m/s). Ritmo de caminhada, não corrida.")]
+    public float runSpeed = 2.2f;
+    [Tooltip("Velocidade natural do clipe Walking a speed=1 (medida: ~1.34 m/s).")]
+    public float naturalWalkSpeed = 1.34f;
     [Tooltip("Nome do estado do Animator com o clipe Walking.")]
     public string walkStateName = "Walking";
     [Tooltip("Metros atrás do player para considerar 'saiu da câmera' e parar.")]
@@ -54,10 +57,13 @@ public class RobotObstacleRunner : MonoBehaviour
             if (playing && dz > 0f && dz <= activationDistance)
             {
                 running = true;
-                transform.rotation = Quaternion.LookRotation(Vector3.back); // encara o player
+                // NÃO re-rotacionar: o robô já é colocado encarando o player (-Z) na
+                // edição; o RobotVisual filho tem a orientação correta. Girar aqui o
+                // virava de costas (dupla rotação).
                 if (animator != null)
                 {
-                    animator.speed = 1f;
+                    // casa a cadência da caminhada com a velocidade real -> sem deslize de pés
+                    animator.speed = naturalWalkSpeed > 0.01f ? runSpeed / naturalWalkSpeed : 1f;
                     animator.CrossFadeInFixedTime(walkStateName, 0.15f);
                 }
             }

@@ -88,7 +88,7 @@ public class IntroCutsceneController : MonoBehaviour
         {
             voice.ClearQueue();
             voice.StopCurrent();
-            voice.PlaySequence(OpeningVoiceIds, false, () => dialogueDone = true,
+            voice.PlaySequence(OpeningVoiceIds, false, () => { dialogueDone = true; AuroraSfx.PlayDiagnostico(); },
                 IntroVoiceOptions("Intro_Opening"));
         }
         else
@@ -97,7 +97,7 @@ public class IntroCutsceneController : MonoBehaviour
             {
                 new DialogueLine("DR. ELIAS", "Celéstia, iniciar diagnóstico do núcleo Aurora.", 1.5f),
                 new DialogueLine("CELESTIA", "Diagnóstico iniciado.", 1.2f)
-            }, false, () => dialogueDone = true);
+            }, false, () => { dialogueDone = true; AuroraSfx.PlayDiagnostico(); });
         }
 
         // ---- SHOT 01 (Round 12): establishing da sala a partir da porta — panoramica ampla,

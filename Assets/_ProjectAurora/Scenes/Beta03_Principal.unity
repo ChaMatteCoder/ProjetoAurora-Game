@@ -8695,7 +8695,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 30517255}
-  - component: {fileID: 30517257}
   - component: {fileID: 30517256}
   m_Layer: 0
   m_Name: Screen_R_2362
@@ -8712,13 +8711,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30517254}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.0999665, y: 0, z: 2361.8093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 99097996}
-  m_Father: {fileID: 1596022397}
+  m_Father: {fileID: 2144743460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &30517256
 MonoBehaviour:
@@ -8729,30 +8728,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 30517254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35411998aa2d7444aa08242ce58705da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013ff246a715bb5429e8d61b97567fb1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
---- !u!65 &30517257
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30517254}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.7023698, y: 2.4465463, z: 0.4}
-  m_Center: {x: 0, y: 1.4703939, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityScreen
+  floatAmplitude: 0.14
+  floatSpeed: 0.9
+  swayDegrees: 3
+  glowRange: 13
+  glowColor: {r: 0.35, g: 0.9, b: 1, a: 1}
+  glowLightIntensity: 3.2
+  emissionBoost: 3.5
 --- !u!1 &30635839
 GameObject:
   m_ObjectHideFlags: 0
@@ -30405,6 +30390,59 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115612910}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &115680679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 115680681}
+  - component: {fileID: 115680680}
+  m_Layer: 0
+  m_Name: AuroraSfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &115680680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115680679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef29162e69af794e8526204c89ea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AuroraSfx
+  diagnostico: {fileID: 8300000, guid: b857c60db0e602a44b6721b8a804915a, type: 3}
+  eReady: {fileID: 8300000, guid: 209e8acfb71fe264f91ff83f9b2a8c18, type: 3}
+  coin: {fileID: 8300000, guid: f7bf3e38779d3704ba9994a118a72a0a, type: 3}
+  dataFilePickup: {fileID: 8300000, guid: 5c2287d8928720f4787c68478cd71159, type: 3}
+  dataFileNear: {fileID: 8300000, guid: ecf7dfcca464d8f429ec5953d5fb41fe, type: 3}
+  nearRange: 30
+  nearMaxVolume: 0.7
+  coinVolume: 0.55
+  uiVolume: 0.9
+--- !u!4 &115680681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115680679}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &115703370
 GameObject:
   m_ObjectHideFlags: 0
@@ -35251,7 +35289,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 135425414}
-  - component: {fileID: 135425416}
   - component: {fileID: 135425415}
   m_Layer: 0
   m_Name: Screen_R_2293
@@ -35268,13 +35305,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135425413}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.6198752, y: 0, z: 2293.4402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 691260680}
-  m_Father: {fileID: 1596022397}
+  m_Father: {fileID: 2144743460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &135425415
 MonoBehaviour:
@@ -35285,30 +35322,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 135425413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35411998aa2d7444aa08242ce58705da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013ff246a715bb5429e8d61b97567fb1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
---- !u!65 &135425416
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135425413}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2824565, y: 2.0411012, z: 0.96318525}
-  m_Center: {x: 0, y: 1.3503287, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityScreen
+  floatAmplitude: 0.14
+  floatSpeed: 0.9
+  swayDegrees: 3
+  glowRange: 13
+  glowColor: {r: 0.35, g: 0.9, b: 1, a: 1}
+  glowLightIntensity: 3.2
+  emissionBoost: 3.5
 --- !u!1 &136266019
 GameObject:
   m_ObjectHideFlags: 0
@@ -69440,6 +69463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 265671312}
   - component: {fileID: 265671313}
+  - component: {fileID: 265671314}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -69527,6 +69551,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &265671314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265671311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &265791834
 GameObject:
   m_ObjectHideFlags: 0
@@ -76637,6 +76675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 294337355}
   - component: {fileID: 294337356}
+  - component: {fileID: 294337357}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -76724,6 +76763,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &294337357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294337354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &294486542
 GameObject:
   m_ObjectHideFlags: 0
@@ -90338,7 +90391,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 342279272}
-  - component: {fileID: 342279274}
   - component: {fileID: 342279273}
   m_Layer: 0
   m_Name: Screen_R_2322
@@ -90355,13 +90407,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342279271}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.1599576, y: 0, z: 2321.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1122339722}
-  m_Father: {fileID: 1596022397}
+  m_Father: {fileID: 2144743460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &342279273
 MonoBehaviour:
@@ -90372,30 +90424,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 342279271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35411998aa2d7444aa08242ce58705da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013ff246a715bb5429e8d61b97567fb1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
---- !u!65 &342279274
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342279271}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.2699032, y: 2.6, z: 0.4}
-  m_Center: {x: 0, y: 2.0305028, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityScreen
+  floatAmplitude: 0.14
+  floatSpeed: 0.9
+  swayDegrees: 3
+  glowRange: 13
+  glowColor: {r: 0.35, g: 0.9, b: 1, a: 1}
+  glowLightIntensity: 3.2
+  emissionBoost: 3.5
 --- !u!1 &342679401
 GameObject:
   m_ObjectHideFlags: 0
@@ -104485,6 +104523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 393654632}
   - component: {fileID: 393654633}
+  - component: {fileID: 393654634}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -104572,6 +104611,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &393654634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393654631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &393663557
 GameObject:
   m_ObjectHideFlags: 0
@@ -118062,6 +118115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 445632053}
   - component: {fileID: 445632054}
+  - component: {fileID: 445632055}
   m_Layer: 0
   m_Name: Fill_2423
   m_TagString: Untagged
@@ -118149,6 +118203,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &445632055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445632052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &445880323
 GameObject:
   m_ObjectHideFlags: 0
@@ -124000,6 +124068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 473028918}
   - component: {fileID: 473028919}
+  - component: {fileID: 473028920}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -124087,6 +124156,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &473028920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473028917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &473806619
 GameObject:
   m_ObjectHideFlags: 0
@@ -141374,7 +141457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535027314}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: 0, z: 1105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -141396,6 +141479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RobotObstacleRunner
   activationDistance: 42
   runSpeed: 5.5
+  naturalWalkSpeed: 1.34
   walkStateName: Walking
   despawnBehind: 6
 --- !u!114 &535027317
@@ -167072,7 +167156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628363755}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 0, z: 968.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -167094,6 +167178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RobotObstacleRunner
   activationDistance: 42
   runSpeed: 5.5
+  naturalWalkSpeed: 1.34
   walkStateName: Walking
   despawnBehind: 6
 --- !u!114 &628363758
@@ -170114,7 +170199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.231789
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -170126,7 +170211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.y
@@ -170134,7 +170219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -172296,7 +172381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646875078}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: 0, z: 902}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -172318,6 +172403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RobotObstacleRunner
   activationDistance: 42
   runSpeed: 5.5
+  naturalWalkSpeed: 1.34
   walkStateName: Walking
   despawnBehind: 6
 --- !u!114 &646875081
@@ -174703,7 +174789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656399641}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: 0, z: 955.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -174725,6 +174811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RobotObstacleRunner
   activationDistance: 42
   runSpeed: 5.5
+  naturalWalkSpeed: 1.34
   walkStateName: Walking
   despawnBehind: 6
 --- !u!114 &656399644
@@ -175433,7 +175520,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 659761077}
-  - component: {fileID: 659761079}
   - component: {fileID: 659761078}
   m_Layer: 0
   m_Name: Screen_C_2496
@@ -175450,13 +175536,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659761076}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.3000365, y: 0, z: 2495.8003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2029396079}
-  m_Father: {fileID: 1596022397}
+  m_Father: {fileID: 2144743460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &659761078
 MonoBehaviour:
@@ -175467,30 +175553,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 659761076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35411998aa2d7444aa08242ce58705da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013ff246a715bb5429e8d61b97567fb1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
---- !u!65 &659761079
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659761076}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.8987349, y: 2.6, z: 0.4}
-  m_Center: {x: 0, y: 2.0204315, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityScreen
+  floatAmplitude: 0.14
+  floatSpeed: 0.9
+  swayDegrees: 3
+  glowRange: 13
+  glowColor: {r: 0.35, g: 0.9, b: 1, a: 1}
+  glowLightIntensity: 3.2
+  emissionBoost: 3.5
 --- !u!1 &661519619
 GameObject:
   m_ObjectHideFlags: 0
@@ -191523,7 +191595,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 720749853}
-  - component: {fileID: 720749855}
   - component: {fileID: 720749854}
   m_Layer: 0
   m_Name: Screen_L_2290
@@ -191540,13 +191611,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720749852}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.6101246, y: 0, z: 2290.2803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1197789722}
-  m_Father: {fileID: 1596022397}
+  m_Father: {fileID: 2144743460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &720749854
 MonoBehaviour:
@@ -191557,30 +191628,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 720749852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35411998aa2d7444aa08242ce58705da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013ff246a715bb5429e8d61b97567fb1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
---- !u!65 &720749855
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720749852}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2824565, y: 2.0411012, z: 0.96318525}
-  m_Center: {x: 0, y: 1.3503287, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityScreen
+  floatAmplitude: 0.14
+  floatSpeed: 0.9
+  swayDegrees: 3
+  glowRange: 13
+  glowColor: {r: 0.35, g: 0.9, b: 1, a: 1}
+  glowLightIntensity: 3.2
+  emissionBoost: 3.5
 --- !u!1 &721789716
 GameObject:
   m_ObjectHideFlags: 0
@@ -192301,8 +192358,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9, y: 4, z: 24}
-  m_Center: {x: 0, y: 0.5, z: -8}
+  m_Size: {x: 9, y: 4, z: 7}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!4 &723801448
 Transform:
   m_ObjectHideFlags: 0
@@ -200149,6 +200206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755672988}
   - component: {fileID: 755672989}
+  - component: {fileID: 755672990}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -200236,6 +200294,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &755672990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755672987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &755684679
 GameObject:
   m_ObjectHideFlags: 0
@@ -200336,6 +200408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 756074087}
   - component: {fileID: 756074088}
+  - component: {fileID: 756074089}
   m_Layer: 0
   m_Name: Fill_2465
   m_TagString: Untagged
@@ -200423,6 +200496,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &756074089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756074086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &756186172
 GameObject:
   m_ObjectHideFlags: 0
@@ -206533,6 +206620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 777501457}
   - component: {fileID: 777501458}
+  - component: {fileID: 777501459}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -206620,6 +206708,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &777501459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777501456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &777804115
 GameObject:
   m_ObjectHideFlags: 0
@@ -211135,6 +211237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 792496405}
   - component: {fileID: 792496406}
+  - component: {fileID: 792496407}
   m_Layer: 0
   m_Name: Integrated Chamber Fill
   m_TagString: Untagged
@@ -211222,6 +211325,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &792496407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792496404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &792633922
 GameObject:
   m_ObjectHideFlags: 0
@@ -214595,7 +214712,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804182932}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1037.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -214617,6 +214734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RobotObstacleRunner
   activationDistance: 42
   runSpeed: 5.5
+  naturalWalkSpeed: 1.34
   walkStateName: Walking
   despawnBehind: 6
 --- !u!114 &804182935
@@ -215629,7 +215747,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807815677}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 0, z: 1217.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -215651,6 +215769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RobotObstacleRunner
   activationDistance: 42
   runSpeed: 5.5
+  naturalWalkSpeed: 1.34
   walkStateName: Walking
   despawnBehind: 6
 --- !u!114 &807815680
@@ -236136,7 +236255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.231789
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -236144,7 +236263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.00000004371139
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.x
@@ -239530,6 +239649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 904291233}
   - component: {fileID: 904291234}
+  - component: {fileID: 904291235}
   m_Layer: 0
   m_Name: Integrated Chamber Fill
   m_TagString: Untagged
@@ -239617,6 +239737,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &904291235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904291232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &904536296
 GameObject:
   m_ObjectHideFlags: 0
@@ -293993,7 +294127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.231789
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -294001,7 +294135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.00000004371139
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.x
@@ -299516,7 +299650,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1126608385}
-  - component: {fileID: 1126608387}
   - component: {fileID: 1126608386}
   m_Layer: 0
   m_Name: Screen_R_2476
@@ -299533,13 +299666,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126608384}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.6299636, y: 0, z: 2476.0403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 171658668}
-  m_Father: {fileID: 1596022397}
+  m_Father: {fileID: 2144743460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1126608386
 MonoBehaviour:
@@ -299550,30 +299683,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1126608384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35411998aa2d7444aa08242ce58705da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013ff246a715bb5429e8d61b97567fb1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
---- !u!65 &1126608387
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126608384}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.8987349, y: 2.6, z: 0.4}
-  m_Center: {x: 0, y: 2.0204315, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityScreen
+  floatAmplitude: 0.14
+  floatSpeed: 0.9
+  swayDegrees: 3
+  glowRange: 13
+  glowColor: {r: 0.35, g: 0.9, b: 1, a: 1}
+  glowLightIntensity: 3.2
+  emissionBoost: 3.5
 --- !u!1 &1127078405
 GameObject:
   m_ObjectHideFlags: 0
@@ -358815,7 +358934,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1330141309}
-  - component: {fileID: 1330141311}
   - component: {fileID: 1330141310}
   m_Layer: 0
   m_Name: Screen_C_2410
@@ -358832,13 +358950,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330141308}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.11004014, y: 0, z: 2410.4922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 480745093}
-  m_Father: {fileID: 1596022397}
+  m_Father: {fileID: 2144743460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1330141310
 MonoBehaviour:
@@ -358849,30 +358967,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1330141308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35411998aa2d7444aa08242ce58705da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013ff246a715bb5429e8d61b97567fb1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
---- !u!65 &1330141311
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330141308}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.1243987, y: 2.6, z: 0.4}
-  m_Center: {x: 0, y: 1.7704749, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityScreen
+  floatAmplitude: 0.14
+  floatSpeed: 0.9
+  swayDegrees: 3
+  glowRange: 13
+  glowColor: {r: 0.35, g: 0.9, b: 1, a: 1}
+  glowLightIntensity: 3.2
+  emissionBoost: 3.5
 --- !u!1 &1330336691
 GameObject:
   m_ObjectHideFlags: 0
@@ -368183,6 +368287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363906442}
   - component: {fileID: 1363906443}
+  - component: {fileID: 1363906444}
   m_Layer: 0
   m_Name: Integrated Chamber Fill
   m_TagString: Untagged
@@ -368270,6 +368375,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1363906444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363906441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &1363918383
 GameObject:
   m_ObjectHideFlags: 0
@@ -369165,7 +369284,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1368835215}
-  - component: {fileID: 1368835217}
   - component: {fileID: 1368835216}
   m_Layer: 0
   m_Name: Screen_L_2263
@@ -369182,13 +369300,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368835214}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.2200632, y: 0, z: 2263.3003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1690785724}
-  m_Father: {fileID: 1596022397}
+  m_Father: {fileID: 2144743460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1368835216
 MonoBehaviour:
@@ -369199,30 +369317,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1368835214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35411998aa2d7444aa08242ce58705da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013ff246a715bb5429e8d61b97567fb1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
---- !u!65 &1368835217
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368835214}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.2342885, y: 2.6, z: 1.4812278}
-  m_Center: {x: 0, y: 2.2105098, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityScreen
+  floatAmplitude: 0.14
+  floatSpeed: 0.9
+  swayDegrees: 3
+  glowRange: 13
+  glowColor: {r: 0.35, g: 0.9, b: 1, a: 1}
+  glowLightIntensity: 3.2
+  emissionBoost: 3.5
 --- !u!1 &1369045870
 GameObject:
   m_ObjectHideFlags: 0
@@ -389208,6 +389312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1444538424}
   - component: {fileID: 1444538425}
+  - component: {fileID: 1444538426}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -389295,6 +389400,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1444538426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444538423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &1444602908
 GameObject:
   m_ObjectHideFlags: 0
@@ -395734,6 +395853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467858306}
   - component: {fileID: 1467858307}
+  - component: {fileID: 1467858308}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -395821,6 +395941,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1467858308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467858305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &1467897328
 GameObject:
   m_ObjectHideFlags: 0
@@ -421607,6 +421741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1556735940}
   - component: {fileID: 1556735941}
+  - component: {fileID: 1556735942}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -421694,6 +421829,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1556735942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556735939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1001 &1556845225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -433615,22 +433764,12 @@ Transform:
   - {fileID: 629455834}
   - {fileID: 1529502233}
   - {fileID: 1170080873}
-  - {fileID: 1368835215}
   - {fileID: 1319765020}
   - {fileID: 1527379635}
-  - {fileID: 720749853}
-  - {fileID: 135425414}
   - {fileID: 1712219928}
-  - {fileID: 1779655628}
-  - {fileID: 342279272}
   - {fileID: 1888738360}
-  - {fileID: 30517255}
   - {fileID: 566237551}
   - {fileID: 195480273}
-  - {fileID: 1330141309}
-  - {fileID: 2020649098}
-  - {fileID: 1126608385}
-  - {fileID: 659761077}
   - {fileID: 2101370595}
   - {fileID: 645529012}
   - {fileID: 2144743460}
@@ -463858,6 +463997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1704171548}
   - component: {fileID: 1704171549}
+  - component: {fileID: 1704171550}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -463945,6 +464085,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1704171550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704171547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!1 &1705620676
 GameObject:
   m_ObjectHideFlags: 0
@@ -466825,7 +466979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.231789
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -466837,7 +466991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.y
@@ -466845,7 +466999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -484434,7 +484588,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1779655628}
-  - component: {fileID: 1779655630}
   - component: {fileID: 1779655629}
   m_Layer: 0
   m_Name: Screen_C_2322
@@ -484451,13 +484604,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779655627}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.1300425, y: 0, z: 2321.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1000768964}
-  m_Father: {fileID: 1596022397}
+  m_Father: {fileID: 2144743460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1779655629
 MonoBehaviour:
@@ -484468,30 +484621,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1779655627}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35411998aa2d7444aa08242ce58705da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013ff246a715bb5429e8d61b97567fb1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
---- !u!65 &1779655630
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779655627}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.2699032, y: 2.6, z: 0.4}
-  m_Center: {x: 0, y: 2.0305028, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityScreen
+  floatAmplitude: 0.14
+  floatSpeed: 0.9
+  swayDegrees: 3
+  glowRange: 13
+  glowColor: {r: 0.35, g: 0.9, b: 1, a: 1}
+  glowLightIntensity: 3.2
+  emissionBoost: 3.5
 --- !u!4 &1780031760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a52a6261500fad042a6723ef8ac4480f, type: 3}
@@ -549826,6 +549965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2012810734}
   - component: {fileID: 2012810735}
+  - component: {fileID: 2012810736}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -549913,6 +550053,20 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &2012810736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012810733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
+  activateDistance: 16
+  fadeInSeconds: 0.6
 --- !u!21 &2012814227
 Material:
   serializedVersion: 8
@@ -551666,7 +551820,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2020649098}
-  - component: {fileID: 2020649100}
   - component: {fileID: 2020649099}
   m_Layer: 0
   m_Name: Screen_L_2469
@@ -551683,13 +551836,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020649097}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.0241365, y: 0, z: 2469.2917}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1074281487}
-  m_Father: {fileID: 1596022397}
+  m_Father: {fileID: 2144743460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2020649099
 MonoBehaviour:
@@ -551700,30 +551853,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2020649097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35411998aa2d7444aa08242ce58705da, type: 3}
+  m_Script: {fileID: 11500000, guid: 013ff246a715bb5429e8d61b97567fb1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
---- !u!65 &2020649100
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020649097}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.8987349, y: 2.6, z: 0.4}
-  m_Center: {x: 0, y: 2.0204315, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ProximityScreen
+  floatAmplitude: 0.14
+  floatSpeed: 0.9
+  swayDegrees: 3
+  glowRange: 13
+  glowColor: {r: 0.35, g: 0.9, b: 1, a: 1}
+  glowLightIntensity: 3.2
+  emissionBoost: 3.5
 --- !u!1 &2020842578
 GameObject:
   m_ObjectHideFlags: 0
@@ -555854,7 +555993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.231789
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -555862,7 +556001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.00000004371139
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.x
@@ -556604,7 +556743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.231789
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -556612,7 +556751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.00000004371139
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalRotation.x
@@ -585277,6 +585416,16 @@ Transform:
   - {fileID: 1439643151}
   - {fileID: 963160064}
   - {fileID: 121130540}
+  - {fileID: 1368835215}
+  - {fileID: 720749853}
+  - {fileID: 135425414}
+  - {fileID: 1779655628}
+  - {fileID: 342279272}
+  - {fileID: 30517255}
+  - {fileID: 1330141309}
+  - {fileID: 2020649098}
+  - {fileID: 1126608385}
+  - {fileID: 659761077}
   m_Father: {fileID: 1596022397}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2144860722
@@ -586669,3 +586818,4 @@ SceneRoots:
   - {fileID: 1596630862}
   - {fileID: 1596022397}
   - {fileID: 240266273}
+  - {fileID: 115680681}

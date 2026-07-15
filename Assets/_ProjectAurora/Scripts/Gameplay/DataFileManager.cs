@@ -87,9 +87,31 @@ public class DataFileManager : MonoBehaviour
         return true;
     }
 
+    /// Som de proximidade: volume/pitch sobe conforme o Dr. Elias se aproxima do
+    /// DataFile ativo mais próximo (à frente, na corrida).
+    private void UpdateDataFileProximity()
+    {
+        if (playerTf == null)
+        {
+            var go = GameObject.Find("Dr. Elias - Player");
+            if (go != null) playerTf = go.transform;
+        }
+        if (playerTf == null) return;
+
+        float nearest = float.MaxValue;
+        foreach (DataFileCollectible df in DataFileCollectible.Active)
+        {
+            if (df == null || !df.isActiveAndEnabled) continue;
+            float d = Vector3.Distance(playerTf.position, df.transform.position);
+            if (d < nearest) nearest = d;
+        }
+        AuroraSfx.ReportNearestDataFile(nearest);
+    }
+
     public void ShowCollectedFeedback(string loreId)
     {
         collectedThisRun.Add(loreId);
+        AuroraSfx.PlayDataFilePickup();
         ShowCard(loreId);
         Debug.Log("[DataFile] coletado " + loreId + " (" + GetPersistentCollectibleCount() + "/" + totalFiles + ")");
     }
@@ -158,8 +180,12 @@ public class DataFileManager : MonoBehaviour
     }
 #endif
 
+    private Transform playerTf;
+
     private void Update()
     {
+        UpdateDataFileProximity();
+
         if (group == null || showTime < 0f) return;
 
         float t = Time.time - showTime;
