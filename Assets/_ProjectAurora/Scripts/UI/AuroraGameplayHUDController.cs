@@ -101,7 +101,18 @@ public class AuroraGameplayHUDController : MonoBehaviour
             {
                 group = block.gameObject.AddComponent<CanvasGroup>();
             }
-            gameplayGroups.Add(group);
+            RegisterGameplayGroup(group);
+        }
+
+        AuroraCoinHudController coinHud = GetComponentInChildren<AuroraCoinHudController>(true);
+        if (coinHud != null)
+        {
+            CanvasGroup coinGroup = coinHud.GetComponent<CanvasGroup>();
+            if (coinGroup == null)
+            {
+                coinGroup = coinHud.gameObject.AddComponent<CanvasGroup>();
+            }
+            RegisterGameplayGroup(coinGroup);
         }
 
         if (commPanel != null)
@@ -117,6 +128,14 @@ public class AuroraGameplayHUDController : MonoBehaviour
             commGroup.blocksRaycasts = false;
             commGroup.interactable = false;
             commCardVisible = false;
+        }
+    }
+
+    private void RegisterGameplayGroup(CanvasGroup group)
+    {
+        if (group != null && !gameplayGroups.Contains(group))
+        {
+            gameplayGroups.Add(group);
         }
     }
 

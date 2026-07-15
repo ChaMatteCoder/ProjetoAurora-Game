@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85ed562e450e6e4a9ad1cdcc9416990, type: 3}
+  m_Name: LORE_005
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Lore.AuroraLoreDefinition
+  id: LORE_005
+  displayName: "2031: Torres de Dispers\xE3o"
+  categoryName: DATAFILE DE CAMPO
+  shortDescription: "Ap\xF3s o sucesso das primeiras demonstra\xE7\xF5es p\xFAblicas,
+    o Projeto Aurora iniciou a instala\xE7\xE3o de torres de..."
+  fullText: {fileID: 4900000, guid: e91947407b42bf447bee96bcb500d3b2, type: 3}
+  unlockType: 1
+  auroraCoinPrice: 0
+  unlockedByDefault: 0
+  isSecret: 0
+  icon: {fileID: 0}
+  displayOrder: 5
+  sourceFileName: LORE_005.txt
+  relatedSector: 
+  relatedCharacter: 
+  futureMissionId: 
+  futureCollectibleId: DATAFILE_LORE_005

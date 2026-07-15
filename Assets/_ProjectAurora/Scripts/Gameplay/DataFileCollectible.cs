@@ -1,12 +1,11 @@
 using UnityEngine;
 
-/// Coletável de Lore (DataFile): trigger que soma no DataFileManager e some.
-/// Em dev aparece toda corrida; com persistProgress ligado no manager, já
-/// coletados são desativados no spawn.
+/// Ponte de compatibilidade do prefab antigo DF_01..DF_12. Novos colecionáveis devem
+/// usar AuroraDataFileCollectible com um ID LORE explícito.
 [RequireComponent(typeof(Collider))]
 public class DataFileCollectible : MonoBehaviour
 {
-    [Tooltip("ID único do arquivo (referencia a Lore, ex.: DF_03 -> LORE_003).")]
+    [Tooltip("ID legado sequencial da corrida (DF_01 a DF_12). O manager converte para o LORE coletável oficial.")]
     public string fileId = "DF_01";
 
     private void Start()
@@ -20,11 +19,8 @@ public class DataFileCollectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerHealth>() == null) return;
-        if (DataFileManager.Instance != null)
-        {
-            DataFileManager.Instance.Collect(fileId);
-        }
-        gameObject.SetActive(false);
+        if (other == null || other.GetComponentInParent<PlayerHealth>() == null) return;
+        if (DataFileManager.Instance != null && DataFileManager.Instance.Collect(fileId))
+            gameObject.SetActive(false);
     }
 }

@@ -2,15 +2,15 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Decoupled pickup trigger. Reward integration is exposed through onCollected.
+/// Pickup trigger integrated with the single persistent AuroraCoin wallet.
 /// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Collider))]
 public sealed class AuroraCoinCollectible : MonoBehaviour
 {
+    public const int CoinValue = 1;
+
     [Header("Collectible")]
-    [SerializeField, Min(1)] private int value = 1;
-    [SerializeField] private bool collectOnce = true;
     [SerializeField] private AuroraCoinVisualController visualController;
     [SerializeField] private UnityEvent onCollected = new UnityEvent();
 
@@ -22,8 +22,9 @@ public sealed class AuroraCoinCollectible : MonoBehaviour
     private Collider collectionTrigger;
     private bool collected;
 
-    public int Value => value;
+    public int Value => CoinValue;
     public UnityEvent OnCollected => onCollected;
+    public bool IsCollected => collected;
 
     private void Awake()
     {
@@ -45,14 +46,26 @@ public sealed class AuroraCoinCollectible : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (collected && collectOnce)
+        TryCollect(other);
+    }
+
+    public bool TryCollect(Collider other)
+    {
+        if (collected || other == null)
         {
-            return;
+            return false;
         }
 
         if (other.GetComponentInParent<PlayerHealth>() == null)
         {
-            return;
+            return false;
+        }
+
+        AuroraCoinWallet wallet = AuroraCoinWallet.Instance;
+        if (wallet == null)
+        {
+            Debug.LogError("[AuroraCoin] Wallet indisponivel; coleta mantida ativa.", this);
+            return false;
         }
 
         collected = true;
@@ -71,6 +84,8 @@ public sealed class AuroraCoinCollectible : MonoBehaviour
             collectionBurst.Play(true);
         }
 
+        // At the cap this returns false, but the pickup still resolves visually for this run.
+        wallet.TryAddCoins(CoinValue);
         onCollected.Invoke();
 
         if (visualController != null)
@@ -81,5 +96,7 @@ public sealed class AuroraCoinCollectible : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        return true;
     }
 }

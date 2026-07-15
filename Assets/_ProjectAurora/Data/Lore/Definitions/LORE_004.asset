@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85ed562e450e6e4a9ad1cdcc9416990, type: 3}
+  m_Name: LORE_004
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Lore.AuroraLoreDefinition
+  id: LORE_004
+  displayName: "2030: Noite de Demonstra\xE7\xE3o"
+  categoryName: ARQUIVO CRIPTOGRAFADO
+  shortDescription: "Em 2030, o Projeto Aurora realizou sua primeira demonstra\xE7\xE3o
+    p\xFAblica controlada. O evento foi apresentado como..."
+  fullText: {fileID: 4900000, guid: cfa24bd218547b444a8860264337bb0a, type: 3}
+  unlockType: 2
+  auroraCoinPrice: 10
+  unlockedByDefault: 0
+  isSecret: 0
+  icon: {fileID: 0}
+  displayOrder: 4
+  sourceFileName: LORE_004.txt
+  relatedSector: 
+  relatedCharacter: 
+  futureMissionId: 
+  futureCollectibleId: 

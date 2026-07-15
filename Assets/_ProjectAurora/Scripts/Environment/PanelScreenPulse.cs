@@ -31,6 +31,11 @@ public class PanelScreenPulse : MonoBehaviour
 
         if (screenGlow != null)
         {
+            if (mpb == null)
+            {
+                mpb = new MaterialPropertyBlock();
+            }
+
             screenGlow.GetPropertyBlock(mpb);
             mpb.SetColor(EmissionId, glowColor * glowIntensity * pulse);
             mpb.SetColor(BaseColorId, glowColor);

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85ed562e450e6e4a9ad1cdcc9416990, type: 3}
+  m_Name: LORE_006
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Lore.AuroraLoreDefinition
+  id: LORE_006
+  displayName: '2032: Dados Inconclusivos'
+  categoryName: DATAFILE DE CAMPO
+  shortDescription: "Em 2032, relat\xF3rios internos come\xE7aram a indicar que os
+    efeitos do Projeto Aurora permaneciam na atmosfera por..."
+  fullText: {fileID: 4900000, guid: 689ced5c7c4f652419c2b11d165de3d6, type: 3}
+  unlockType: 1
+  auroraCoinPrice: 0
+  unlockedByDefault: 0
+  isSecret: 0
+  icon: {fileID: 0}
+  displayOrder: 6
+  sourceFileName: LORE_006.txt
+  relatedSector: 
+  relatedCharacter: 
+  futureMissionId: 
+  futureCollectibleId: DATAFILE_LORE_006

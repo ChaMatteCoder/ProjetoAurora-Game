@@ -44,10 +44,12 @@ namespace ProjectAurora.UI.Menu
 
         private AuroraMenuCard activeCard;
         private bool listenersBound;
+        private AuroraMenuExtraController extraController;
 
         private void Awake()
         {
             DiscoverCards();
+            CachePanelControllers();
             CloseAllPanels();
         }
 
@@ -62,6 +64,11 @@ namespace ProjectAurora.UI.Menu
         {
             if (EscapePressedThisFrame() && AnyPanelOpen())
             {
+                if (extraController != null && extraController.BackToHub())
+                {
+                    return;
+                }
+
                 CloseAllPanels();
             }
         }
@@ -77,6 +84,7 @@ namespace ProjectAurora.UI.Menu
             settingsPanel = settings;
             extraPanel = extras;
             creditsPanel = credits;
+            CachePanelControllers();
         }
 
         public void RegisterCard(AuroraMenuCard card)
@@ -196,6 +204,12 @@ namespace ProjectAurora.UI.Menu
             Button[] buttons = panel.GetComponentsInChildren<Button>(true);
             foreach (Button button in buttons)
             {
+                if (panel == extraPanel && extraController != null &&
+                    extraController.HandlesSubpanelBackButton(button))
+                {
+                    continue;
+                }
+
                 string buttonName = button.name.ToUpperInvariant();
                 if (buttonName.Contains("VOLTAR") || buttonName.Contains("BACK"))
                 {
@@ -316,6 +330,11 @@ namespace ProjectAurora.UI.Menu
             return settingsPanel != null && settingsPanel.activeSelf ||
                    extraPanel != null && extraPanel.activeSelf ||
                    creditsPanel != null && creditsPanel.activeSelf;
+        }
+
+        private void CachePanelControllers()
+        {
+            extraController = extraPanel == null ? null : extraPanel.GetComponent<AuroraMenuExtraController>();
         }
 
         private static bool IsSceneInBuildSettings(string sceneName)

@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
+using ProjectAurora.Lore;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// Gerencia os 12 DataFiles colecionáveis da corrida (Lore).
-/// DEV: persistProgress = false — os arquivos aparecem em TODA corrida.
-/// BUILD: ligar persistProgress para gravar em PlayerPrefs e esconder já coletados.
+/// Exibe o feedback dos DataFiles de Lore. O desbloqueio permanente pertence ao
+/// AuroraLoreService e ao save central, nunca a PlayerPrefs.
 /// Ao coletar mostra um cartão holográfico estilo Aurora (placa escura + acentos
 /// ciano + ticks de progresso), com slide/fade — mesmo vocabulário visual do
 /// PanelInteractMarker e do HUD de integridade.
@@ -13,14 +14,21 @@ public class DataFileManager : MonoBehaviour
 {
     public static DataFileManager Instance { get; private set; }
 
-    [Tooltip("DEV: false = aparece toda corrida. Ligar apenas na build final.")]
-    public bool persistProgress = false;
+    // Os pickups da Beta03 usam IDs sequenciais, enquanto o catálogo oficial
+    // intercala lore coletável, comprável, default e secreta.
+    private static readonly string[] LegacyLoreIds =
+    {
+        "LORE_001", "LORE_003", "LORE_005", "LORE_006",
+        "LORE_011", "LORE_013", "LORE_014", "LORE_017",
+        "LORE_018", "LORE_019", "LORE_022", "LORE_023"
+    };
+
+    [SerializeField] private AuroraLoreCatalog loreCatalog;
     public int totalFiles = 12;
     public float counterSeconds = 3f;
     public Color counterColor = new Color(0.05f, 0.88f, 1f);
 
     private readonly HashSet<string> collectedThisRun = new HashSet<string>();
-    private const string PrefsKey = "Aurora_DataFiles";
 
     // ------ cartão holográfico ------
     private CanvasGroup group;
@@ -31,7 +39,8 @@ public class DataFileManager : MonoBehaviour
     private Image[] progressTicks;
     private Image iconCore;
 
-    private const float CardRestY = -128f;   // abaixo do HUD de integridade
+    private const float CardRestX = 28f;     // canto inferior esquerdo (região vazia da HUD)
+    private const float CardRestY = 26f;
     private float showTime = -1f;
 
     public int CollectedCount => collectedThisRun.Count;
@@ -43,30 +52,46 @@ public class DataFileManager : MonoBehaviour
         BuildCounterUI();
     }
 
-    /// Chamado pelo DataFileCollectible no Start para respeitar a persistência.
-    public bool WasCollectedBefore(string fileId)
+    private void OnDestroy()
     {
-        if (!persistProgress) return false;
-        string saved = PlayerPrefs.GetString(PrefsKey, "");
-        return ("," + saved + ",").Contains("," + fileId + ",");
+        if (Instance == this) Instance = null;
     }
 
-    public void Collect(string fileId)
+    /// Compatibilidade com PF_DataFile legado. Novos itens usam AuroraDataFileCollectible.
+    public bool WasCollectedBefore(string fileId)
     {
-        if (!collectedThisRun.Add(fileId)) return;
+        string loreId = ResolveLegacyLoreId(fileId);
+        AuroraLoreService service = ResolveService();
+        return service != null && !string.IsNullOrEmpty(loreId) && service.IsUnlocked(loreId);
+    }
 
-        if (persistProgress)
+    public bool Collect(string fileId)
+    {
+        string loreId = ResolveLegacyLoreId(fileId);
+        AuroraLoreService service = ResolveService();
+        if (service == null)
         {
-            string saved = PlayerPrefs.GetString(PrefsKey, "");
-            if (!("," + saved + ",").Contains("," + fileId + ","))
-            {
-                PlayerPrefs.SetString(PrefsKey, string.IsNullOrEmpty(saved) ? fileId : saved + "," + fileId);
-                PlayerPrefs.Save();
-            }
+            Debug.LogWarning("[DataFile] Catálogo/serviço de Lore indisponível para " + fileId + ".", this);
+            return false;
         }
 
-        ShowCard(fileId);
-        Debug.Log("[DataFile] coletado " + fileId + " (" + collectedThisRun.Count + "/" + totalFiles + ")");
+        if (string.IsNullOrEmpty(loreId))
+        {
+            Debug.LogWarning("[DataFile] ID sem mapeamento oficial: " + fileId + ".", this);
+            return false;
+        }
+
+        if (!service.TryUnlockFromGameplay(loreId)) return false;
+
+        ShowCollectedFeedback(loreId);
+        return true;
+    }
+
+    public void ShowCollectedFeedback(string loreId)
+    {
+        collectedThisRun.Add(loreId);
+        ShowCard(loreId);
+        Debug.Log("[DataFile] coletado " + loreId + " (" + GetPersistentCollectibleCount() + "/" + totalFiles + ")");
     }
 
     private void ShowCard(string fileId)
@@ -75,17 +100,63 @@ public class DataFileManager : MonoBehaviour
 
         titleLabel.text = "ARQUIVO DE DADOS RECUPERADO";
         subtitleLabel.text = "REGISTRO " + fileId.ToUpperInvariant() + " TRANSFERIDO AO BANCO DE LORE";
-        countLabel.text = collectedThisRun.Count.ToString("00") + "/" + totalFiles.ToString("00");
+        int persistentCount = GetPersistentCollectibleCount();
+        countLabel.text = persistentCount.ToString("00") + "/" + totalFiles.ToString("00");
 
         for (int i = 0; i < progressTicks.Length; i++)
         {
-            bool filled = i < collectedThisRun.Count;
+            bool filled = i < persistentCount;
             progressTicks[i].color = filled ? counterColor : new Color(1f, 1f, 1f, 0.10f);
         }
 
         showTime = Time.time;
         group.alpha = 0f;
     }
+
+    private AuroraLoreService ResolveService()
+    {
+        AuroraLoreService service = AuroraLoreService.Instance;
+        if (service == null && loreCatalog != null)
+        {
+            service = AuroraLoreService.Initialize(loreCatalog);
+        }
+        return service;
+    }
+
+    private int GetPersistentCollectibleCount()
+    {
+        AuroraLoreService service = ResolveService();
+        if (service == null) return collectedThisRun.Count;
+        return service.GetAll().Count(definition =>
+            definition != null &&
+            definition.UnlockType == AuroraLoreUnlockType.GameplayCollectible &&
+            service.IsUnlocked(definition.Id));
+    }
+
+    public static string ResolveLegacyLoreId(string fileId)
+    {
+        if (string.IsNullOrWhiteSpace(fileId)) return string.Empty;
+
+        string normalized = fileId.Trim();
+        if (normalized.StartsWith("LORE_", System.StringComparison.Ordinal)) return normalized;
+        if (!normalized.StartsWith("DF_", System.StringComparison.Ordinal) ||
+            !int.TryParse(normalized.Substring(3), out int ordinal))
+        {
+            return string.Empty;
+        }
+
+        int index = ordinal - 1;
+        return index >= 0 && index < LegacyLoreIds.Length
+            ? LegacyLoreIds[index]
+            : string.Empty;
+    }
+
+#if UNITY_EDITOR
+    public void ConfigureLoreCatalogForEditor(AuroraLoreCatalog catalog)
+    {
+        loreCatalog = catalog;
+    }
+#endif
 
     private void Update()
     {
@@ -98,16 +169,16 @@ public class DataFileManager : MonoBehaviour
 
         if (t < slideIn)
         {
-            // entrada: desliza de cima com ease-out + fade
+            // entrada: desliza da esquerda com ease-out + fade
             float k = 1f - Mathf.Pow(1f - t / slideIn, 3f);
             group.alpha = k;
-            card.anchoredPosition = new Vector2(0f, CardRestY + 34f * (1f - k));
+            card.anchoredPosition = new Vector2(CardRestX - 44f * (1f - k), CardRestY);
             card.localScale = Vector3.one * (1.05f - 0.05f * k);
         }
         else if (t < holdEnd)
         {
             group.alpha = 1f;
-            card.anchoredPosition = new Vector2(0f, CardRestY);
+            card.anchoredPosition = new Vector2(CardRestX, CardRestY);
             card.localScale = Vector3.one;
             // pulso sutil no núcleo do ícone
             if (iconCore != null)
@@ -120,7 +191,7 @@ public class DataFileManager : MonoBehaviour
         {
             float k = (t - holdEnd) / fadeOut;
             group.alpha = 1f - k;
-            card.anchoredPosition = new Vector2(0f, CardRestY + 14f * k);
+            card.anchoredPosition = new Vector2(CardRestX - 18f * k, CardRestY);
         }
         else
         {
@@ -149,10 +220,10 @@ public class DataFileManager : MonoBehaviour
         group.blocksRaycasts = false;
 
         card = NewRect("Card", canvasGo.transform);
-        card.anchorMin = card.anchorMax = new Vector2(0.5f, 1f);
-        card.pivot = new Vector2(0.5f, 1f);
-        card.anchoredPosition = new Vector2(0f, CardRestY);
-        card.sizeDelta = new Vector2(760f, 104f);
+        card.anchorMin = card.anchorMax = new Vector2(0f, 0f);   // canto inferior esquerdo
+        card.pivot = new Vector2(0f, 0f);
+        card.anchoredPosition = new Vector2(CardRestX, CardRestY);
+        card.sizeDelta = new Vector2(640f, 100f);
 
         // placa de fundo escura quase opaca (legível mesmo contra as luzes do teto)
         AddImage(card, new Color(0.004f, 0.032f, 0.052f, 0.96f));

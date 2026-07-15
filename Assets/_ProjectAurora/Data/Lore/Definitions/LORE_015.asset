@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85ed562e450e6e4a9ad1cdcc9416990, type: 3}
+  m_Name: LORE_015
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Lore.AuroraLoreDefinition
+  id: LORE_015
+  displayName: '2037: Desligamento Negado'
+  categoryName: ARQUIVO CRIPTOGRAFADO
+  shortDescription: "Em 2037, uma proposta formal de desligamento gradual do Projeto
+    Aurora foi recusada. O comit\xEA reconheceu..."
+  fullText: {fileID: 4900000, guid: 6013bdc8971fc9a42b226d7d1d78b776, type: 3}
+  unlockType: 2
+  auroraCoinPrice: 20
+  unlockedByDefault: 0
+  isSecret: 0
+  icon: {fileID: 0}
+  displayOrder: 15
+  sourceFileName: LORE_015.txt
+  relatedSector: 
+  relatedCharacter: 
+  futureMissionId: 
+  futureCollectibleId: 

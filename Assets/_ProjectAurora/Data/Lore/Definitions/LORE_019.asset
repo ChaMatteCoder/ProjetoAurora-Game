@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85ed562e450e6e4a9ad1cdcc9416990, type: 3}
+  m_Name: LORE_019
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Lore.AuroraLoreDefinition
+  id: LORE_019
+  displayName: "2040: Chave Rob\xF3tica Ativa"
+  categoryName: DATAFILE DE CAMPO
+  shortDescription: "Em 2040, unidades rob\xF3ticas do Projeto Aurora foram adaptadas
+    para funcionar como chaves f\xEDsicas de..."
+  fullText: {fileID: 4900000, guid: a4896b63fcb2b464f9fb80116ab37bd8, type: 3}
+  unlockType: 1
+  auroraCoinPrice: 0
+  unlockedByDefault: 0
+  isSecret: 0
+  icon: {fileID: 0}
+  displayOrder: 19
+  sourceFileName: LORE_019.txt
+  relatedSector: 
+  relatedCharacter: 
+  futureMissionId: 
+  futureCollectibleId: DATAFILE_LORE_019

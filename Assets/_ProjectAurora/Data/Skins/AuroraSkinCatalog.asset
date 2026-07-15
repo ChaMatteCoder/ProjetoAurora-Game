@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5390c55dbd5df7643b8026dcdef65e8c, type: 3}
+  m_Name: AuroraSkinCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Customization.Skins.AuroraSkinCatalog
+  skins:
+  - {fileID: 11400000, guid: 85412e2d466327641b6f580acd0338b4, type: 2}
+  - {fileID: 11400000, guid: e0af508bb01b69a488b526438bc28e45, type: 2}
+  - {fileID: 11400000, guid: 30e8a1af38293d141bace37a00cfb405, type: 2}
+  - {fileID: 11400000, guid: af2ccd04c39f39a4aa70115ac4ed3267, type: 2}
+  - {fileID: 11400000, guid: 9cfa326983d204c4abfc7f94d45451b4, type: 2}
+  - {fileID: 11400000, guid: 708892d58b9497e42a0acca4cf0b399d, type: 2}

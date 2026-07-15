@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85ed562e450e6e4a9ad1cdcc9416990, type: 3}
+  m_Name: LORE_021
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Lore.AuroraLoreDefinition
+  id: LORE_021
+  displayName: "13/06/2042: Falha de Conten\xE7\xE3o"
+  categoryName: ARQUIVO CRIPTOGRAFADO
+  shortDescription: "No dia 13 de junho de 2042, o N\xFAcleo de Dispers\xE3o Aurora
+    entrou em falha cr\xEDtica. O incidente iniciou uma..."
+  fullText: {fileID: 4900000, guid: 4908ac0e5075fce4b8a1a25fb766a563, type: 3}
+  unlockType: 2
+  auroraCoinPrice: 20
+  unlockedByDefault: 0
+  isSecret: 0
+  icon: {fileID: 0}
+  displayOrder: 21
+  sourceFileName: LORE_021.txt
+  relatedSector: 
+  relatedCharacter: 
+  futureMissionId: 
+  futureCollectibleId: 

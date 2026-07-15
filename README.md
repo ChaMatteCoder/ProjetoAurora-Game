@@ -12,7 +12,7 @@ O projeto combina corrida em terceira pessoa, narrativa ambiental, cenários sci
 
 **Beta jogável — candidata à primeira build (otimizada)**
 
-Estado documentado em **10 de julho de 2026**.
+Estado documentado em **14 de julho de 2026**.
 
 O fluxo completo `MainMenu → Beta03_Principal → Terminal Central` está jogável de ponta
 a ponta. Sistemas consolidados:
@@ -37,7 +37,13 @@ a ponta. Sistemas consolidados:
 * **cutscene final** sincronizada com o diálogo — os robôs chegam apenas no “Não…” (ELI_010),
   em enquadramento de censura (o Dr. Elias nunca aparece sendo pego); HUD oculta;
 * **recuperação de traje** (Suit Recovery), **anti-softlock** de portas, **menu
-  reestruturado** (configurações persistentes, pausa, “Jogar” assíncrono) e **Game Over**.
+  reestruturado** (configurações persistentes, pausa, “Jogar” assíncrono) e **Game Over**;
+* **economia de AuroraCoins** com wallet única, limite 999, save JSON resiliente, HUD
+  dedicado e moedas recorrentes distribuídas pela corrida;
+* **menu de skins** com seis Splash Arts, preview 3D do Dr. Elias padrão, navegação e
+  seleção persistente sem equipar automaticamente durante a visualização;
+* **arquivo de Lore** com 24 registros em PT-BR, compras por AuroraCoins e 12 DataFiles
+  de gameplay mapeados para desbloqueios permanentes no mesmo save.
 
 Binários pesados (modelos, vídeos, áudios) são versionados via **Git LFS** — veja
 [Como Executar](#-como-executar-o-projeto).
@@ -101,6 +107,9 @@ O jogo possui estrutura inspirada em um corredor de fuga, com movimentação em 
 * dublagem por ID e retratos em vídeo dos personagens;
 * portas de transição automáticas e overlay de mudança de setor;
 * progressão por setores com transição gradual da IA de normal para corrompido;
+* coleta recorrente de AuroraCoins com saldo persistente e limite de 999;
+* coleta única por save de 12 DataFiles, consultáveis no arquivo de Lore;
+* visualização e seleção persistente de skins no painel Extra;
 * menu com configurações persistentes e pausa em jogo.
 
 ---
@@ -172,11 +181,14 @@ ProjetoAuroraGame/
 │   ├── _ProjectAurora/
 │   │   ├── Art/
 │   │   ├── Audio/
+│   │   ├── Data/
+│   │   ├── Docs/
 │   │   ├── Materials/
 │   │   ├── Models/
 │   │   ├── Prefabs/
 │   │   ├── Scenes/
 │   │   ├── Scripts/
+│   │   ├── Tests/
 │   │   ├── UI/
 │   │   └── VFX/
 │   └── Scenes/
@@ -206,6 +218,9 @@ O projeto está em desenvolvimento.
 * [x] Portas de transição de setor + overlays;
 * [x] Menu com configurações persistentes e pausa;
 * [x] Terminal Central e cutscene final;
+* [x] AuroraCoins, wallet persistente, HUD e fundação de compras;
+* [x] Menu de skins com preview, seleção e persistência;
+* [x] Arquivo de Lore com 24 registros e 12 DataFiles coletáveis;
 * [ ] Polimento visual final e passes de otimização;
 * [ ] Build final para apresentação.
 
@@ -220,6 +235,9 @@ Antes de iniciar qualquer feature grande, faça um checkpoint:
 3. Envie para o GitHub quando a branch estiver validada.
 
 Isso evita misturar correções, experimentos visuais, assets pesados e novas features no mesmo pacote de mudanças.
+Pastas geradas pelo Unity (`Library`, `Temp`, `Logs`, `UserSettings`), builds locais,
+cenas de recovery e arquivos dos agentes permanecem fora do versionamento. Scripts de
+build dentro de `Assets/**/Editor/Build`, por outro lado, são código-fonte e devem ser versionados.
 
 ---
 
@@ -243,7 +261,7 @@ git clone https://github.com/ChaMatteCoder/ProjetoAurora-Game.git
 
 Se já tiver clonado sem LFS, rode `git lfs pull` na pasta do projeto.
 
-3. Abra o projeto pela Unity Hub, selecionando a versão da Unity usada no desenvolvimento (Unity 6 / `6000.4.x`).
+3. Abra o projeto pela Unity Hub com Unity `6000.4.10f1`.
 
 4. Abra a cena principal em:
 
@@ -252,6 +270,21 @@ Assets/_ProjectAurora/Scenes/MainMenu.unity
 ```
 
 5. Pressione **Play** e clique em **Jogar** (ou abra `Beta03_Principal.unity` para ir direto à gameplay).
+
+### Progresso e validação
+
+O progresso fica em `Application.persistentDataPath/aurora_progress.json`, com backup
+`.bak` e recuperação de JSON corrompido. O arquivo reúne AuroraCoins, skins selecionadas
+e DataFiles desbloqueados; configurações de áudio/vídeo continuam no serviço próprio.
+
+As suítes editoriais usam saves temporários e podem ser executadas pelos menus:
+
+* `Tools/Projeto Aurora/Economy/Run AuroraCoin Economy Tests` — 62 verificações;
+* `Tools/Projeto Aurora/Skins/Run Skin Menu Tests` — 139 verificações;
+* `Tools/Projeto Aurora/Lore/Run Lore System Tests` — 220 verificações.
+
+Para gerar a build Windows reproduzível, use
+`Tools/Projeto Aurora/Build/Demo Alpha v0.1 - Windows`; a saída local em `Builds/` não é versionada.
 
 ---
 

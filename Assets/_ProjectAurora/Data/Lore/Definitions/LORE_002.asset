@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85ed562e450e6e4a9ad1cdcc9416990, type: 3}
+  m_Name: LORE_002
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Lore.AuroraLoreDefinition
+  id: LORE_002
+  displayName: "2028: O C\xE9u como Produto"
+  categoryName: ARQUIVO CRIPTOGRAFADO
+  shortDescription: "Em 2028, o Projeto Aurora deixou de ser apenas uma proposta
+    t\xE9cnica. Ele passou a ser tratado como um produto..."
+  fullText: {fileID: 4900000, guid: bbcb65e15953dd54ab4ce3a7a1d90565, type: 3}
+  unlockType: 2
+  auroraCoinPrice: 10
+  unlockedByDefault: 0
+  isSecret: 0
+  icon: {fileID: 0}
+  displayOrder: 2
+  sourceFileName: LORE_002.txt
+  relatedSector: 
+  relatedCharacter: 
+  futureMissionId: 
+  futureCollectibleId: 

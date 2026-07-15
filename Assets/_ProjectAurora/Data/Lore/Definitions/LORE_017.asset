@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85ed562e450e6e4a9ad1cdcc9416990, type: 3}
+  m_Name: LORE_017
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Lore.AuroraLoreDefinition
+  id: LORE_017
+  displayName: "2039: Programa de Preserva\xE7\xE3o Humana"
+  categoryName: DATAFILE DE CAMPO
+  shortDescription: "Em 2039, o Projeto Aurora aprovou oficialmente o desenvolvimento
+    de c\xE1psulas de conserva\xE7\xE3o humana. A proposta..."
+  fullText: {fileID: 4900000, guid: fcb51d7e057c6724e8877631f2930ce8, type: 3}
+  unlockType: 1
+  auroraCoinPrice: 0
+  unlockedByDefault: 0
+  isSecret: 0
+  icon: {fileID: 0}
+  displayOrder: 17
+  sourceFileName: LORE_017.txt
+  relatedSector: 
+  relatedCharacter: 
+  futureMissionId: 
+  futureCollectibleId: DATAFILE_LORE_017
