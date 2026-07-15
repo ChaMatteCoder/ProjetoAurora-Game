@@ -9,11 +9,13 @@ using UnityEngine;
 /// Implementação por MaterialPropertyBlock: NUNCA altera os materiais compartilhados.
 public class TerminalLightsAwakening : MonoBehaviour
 {
-    [Tooltip("Faixa de z do jogador que dirige a ignição dos bancos.")]
+    [Tooltip("LEGADO (não mais usado): a ignição agora acompanha a travessia real do corredor.")]
     public float playerZStart = 2596f;
     public float playerZEnd = 2678f;
     public int bankCount = 6;
     public float igniteFlickerSeconds = 0.55f;
+    [Tooltip("Metros à frente do jogador em que o banco já começa a acender.")]
+    public float igniteLeadMeters = 22f;
     [Tooltip("Nomes de grupos cujos emissivos participam do despertar.")]
     public string[] groupNames = { "Fase05 - Terminal Central", "Terminal_Rework_R15" };
     [Tooltip("Grupos ignorados (cutscene/gate da perseguição).")]
@@ -40,6 +42,8 @@ public class TerminalLightsAwakening : MonoBehaviour
     private readonly List<Lamp> lamps = new List<Lamp>();
     private MaterialPropertyBlock mpb;
     private int banksLit;
+    private float bankZMin;
+    private float bankSpan = 1f;
     private Transform player;
     private static readonly int EmissionId = Shader.PropertyToID("_EmissionColor");
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
@@ -89,7 +93,16 @@ public class TerminalLightsAwakening : MonoBehaviour
             return;
         }
 
+        // inclui as lâmpadas no alcance dos bancos para cobrir TODO o corredor,
+        // não só o trecho com emissivos (senão a aproximação nunca acende progressiva)
+        foreach (Lamp lamp in lamps)
+        {
+            zMin = Mathf.Min(zMin, lamp.light.transform.position.z);
+            zMax = Mathf.Max(zMax, lamp.light.transform.position.z);
+        }
         float span = Mathf.Max(1f, zMax - zMin);
+        bankZMin = zMin;
+        bankSpan = span;
         foreach (Renderer r in collected)
         {
             var piece = new Piece
@@ -149,8 +162,10 @@ public class TerminalLightsAwakening : MonoBehaviour
             player = gm.player.transform;
         }
 
-        // progresso do jogador dispara bancos (sempre acende, nunca apaga)
-        float progress = Mathf.Clamp01((player.position.z - playerZStart) / Mathf.Max(1f, playerZEnd - playerZStart));
+        // progresso do jogador dispara bancos (sempre acende, nunca apaga).
+        // Acompanha a travessia real do corredor (1º ao último banco), acendendo
+        // ~igniteLeadMeters à frente do Dr. Elias conforme ele passa.
+        float progress = Mathf.Clamp01((player.position.z - bankZMin + igniteLeadMeters) / bankSpan);
         int targetBanks = Mathf.Clamp(Mathf.CeilToInt(progress * bankCount), 0, bankCount);
         if (targetBanks > banksLit)
         {

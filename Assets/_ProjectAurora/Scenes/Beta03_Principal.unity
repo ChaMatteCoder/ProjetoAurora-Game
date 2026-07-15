@@ -69463,7 +69463,6 @@ GameObject:
   m_Component:
   - component: {fileID: 265671312}
   - component: {fileID: 265671313}
-  - component: {fileID: 265671314}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -69551,20 +69550,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &265671314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265671311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &265791834
 GameObject:
   m_ObjectHideFlags: 0
@@ -76675,7 +76660,6 @@ GameObject:
   m_Component:
   - component: {fileID: 294337355}
   - component: {fileID: 294337356}
-  - component: {fileID: 294337357}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -76763,20 +76747,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &294337357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 294337354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &294486542
 GameObject:
   m_ObjectHideFlags: 0
@@ -104523,7 +104493,6 @@ GameObject:
   m_Component:
   - component: {fileID: 393654632}
   - component: {fileID: 393654633}
-  - component: {fileID: 393654634}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -104611,20 +104580,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &393654634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393654631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &393663557
 GameObject:
   m_ObjectHideFlags: 0
@@ -124068,7 +124023,6 @@ GameObject:
   m_Component:
   - component: {fileID: 473028918}
   - component: {fileID: 473028919}
-  - component: {fileID: 473028920}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -124156,20 +124110,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &473028920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473028917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &473806619
 GameObject:
   m_ObjectHideFlags: 0
@@ -170199,7 +170139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.231789
+      value: -0.036558986
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -200206,7 +200146,6 @@ GameObject:
   m_Component:
   - component: {fileID: 755672988}
   - component: {fileID: 755672989}
-  - component: {fileID: 755672990}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -200294,20 +200233,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &755672990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755672987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &755684679
 GameObject:
   m_ObjectHideFlags: 0
@@ -206620,7 +206545,6 @@ GameObject:
   m_Component:
   - component: {fileID: 777501457}
   - component: {fileID: 777501458}
-  - component: {fileID: 777501459}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -206708,20 +206632,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &777501459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777501456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &777804115
 GameObject:
   m_ObjectHideFlags: 0
@@ -211237,7 +211147,6 @@ GameObject:
   m_Component:
   - component: {fileID: 792496405}
   - component: {fileID: 792496406}
-  - component: {fileID: 792496407}
   m_Layer: 0
   m_Name: Integrated Chamber Fill
   m_TagString: Untagged
@@ -211325,20 +211234,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &792496407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792496404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &792633922
 GameObject:
   m_ObjectHideFlags: 0
@@ -219450,6 +219345,7 @@ MonoBehaviour:
   playerZEnd: 2678
   bankCount: 6
   igniteFlickerSeconds: 0.55
+  igniteLeadMeters: 22
   groupNames:
   - Fase05 - Terminal Central
   - Terminal_Rework_R15
@@ -236255,7 +236151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.231789
+      value: -0.036558986
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -239649,7 +239545,6 @@ GameObject:
   m_Component:
   - component: {fileID: 904291233}
   - component: {fileID: 904291234}
-  - component: {fileID: 904291235}
   m_Layer: 0
   m_Name: Integrated Chamber Fill
   m_TagString: Untagged
@@ -239737,20 +239632,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &904291235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904291232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &904536296
 GameObject:
   m_ObjectHideFlags: 0
@@ -294127,7 +294008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.231789
+      value: -0.036558986
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -368287,7 +368168,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1363906442}
   - component: {fileID: 1363906443}
-  - component: {fileID: 1363906444}
   m_Layer: 0
   m_Name: Integrated Chamber Fill
   m_TagString: Untagged
@@ -368375,20 +368255,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &1363906444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363906441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &1363918383
 GameObject:
   m_ObjectHideFlags: 0
@@ -389312,7 +389178,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1444538424}
   - component: {fileID: 1444538425}
-  - component: {fileID: 1444538426}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -389400,20 +389265,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &1444538426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444538423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &1444602908
 GameObject:
   m_ObjectHideFlags: 0
@@ -395853,7 +395704,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1467858306}
   - component: {fileID: 1467858307}
-  - component: {fileID: 1467858308}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -395941,20 +395791,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &1467858308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1467858305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &1467897328
 GameObject:
   m_ObjectHideFlags: 0
@@ -421741,7 +421577,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1556735940}
   - component: {fileID: 1556735941}
-  - component: {fileID: 1556735942}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -421829,20 +421664,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &1556735942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1556735939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1001 &1556845225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -463997,7 +463818,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1704171548}
   - component: {fileID: 1704171549}
-  - component: {fileID: 1704171550}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -464085,20 +463905,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &1704171550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704171547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!1 &1705620676
 GameObject:
   m_ObjectHideFlags: 0
@@ -466979,7 +466785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.231789
+      value: -0.036558986
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -549965,7 +549771,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2012810734}
   - component: {fileID: 2012810735}
-  - component: {fileID: 2012810736}
   m_Layer: 0
   m_Name: Terminal Route Light
   m_TagString: Untagged
@@ -550053,20 +549858,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &2012810736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012810733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf8a1ec860294d4ea7c64cdae0ebbcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressiveLight
-  activateDistance: 16
-  fadeInSeconds: 0.6
 --- !u!21 &2012814227
 Material:
   serializedVersion: 8
@@ -555993,7 +555784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.231789
+      value: -0.036558986
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -556743,7 +556534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.231789
+      value: -0.036558986
       objectReference: {fileID: 0}
     - target: {fileID: 6593767186826537251, guid: 52740aaa11761ba4d9ba82a2206bb277, type: 3}
       propertyPath: m_LocalPosition.z
