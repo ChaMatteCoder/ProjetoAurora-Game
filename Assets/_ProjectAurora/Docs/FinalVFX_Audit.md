@@ -13,7 +13,7 @@
 |---|---|---|
 | Particle Systems na cena | **0** | Todo o VFX de partículas é greenfield |
 | Volumes | **2**, ambos **globais**, sem collider | Não existe infraestrutura de Volume local |
-| Luzes | **124 — todas realtime** (121 point, 3 directional) | **Risco de performance pré-existente** |
+| Luzes | **124 — todas realtime** (121 point, 3 directional) | ⚠️ **CORRIGIDO** — ver `FinalVFX_PerformanceBaseline.md`: o URP capa em 8 luzes adicionais e apenas ~5 ficam perto da câmera em gameplay. **Não é gargalo.** |
 | Luzes com sombra | 3 | OK |
 | Materiais em `_ProjectAurora` | 82 (28 com `_EMISSION`) | Base emissiva já existe e é reaproveitável |
 | Shader Graphs próprios | **0** (só os do TMP) | Shader Graph disponível, mas nada customizado |
@@ -85,8 +85,9 @@ Nenhum dos itens abaixo existe hoje:
 
 Ordenados por gravidade:
 
-1. **124 luzes realtime (121 point lights) — CRÍTICO e PRÉ-EXISTENTE.**
-   URP com forward rendering limita luzes por objeto; esse volume já pressiona o frame. **Regra derivada:** nenhum VFX novo pode adicionar Point Light por partícula/instância. Efeitos usam **material emissivo + Bloom**, não luz.
+1. ~~**124 luzes realtime (121 point lights) — CRÍTICO e PRÉ-EXISTENTE.**~~
+   ⚠️ **ESTA AVALIAÇÃO ESTAVA ERRADA.** Medição posterior (ver `FinalVFX_PerformanceBaseline.md`) mostrou: URP capa em **8 luzes adicionais**, **nenhuma point light projeta sombra**, e apenas **5 ficam perto da câmera** em gameplay real (range médio 11,2 m espalhado por 3000 m de pista). **As luzes não são o gargalo.** O custo real está nos **6277 Renderers ativos**.
+   A regra "nenhum Point Light novo por VFX" **permanece válida** — mas como boa prática (o cap de 8 é recurso escasso e compartilhado), não por uma crise inexistente.
 2. **Overdraw de partículas transparentes.** Em runner, a câmera vê a pista inteira; partículas grandes na tela custam caro. Limitar tamanho e `maxParticles`.
 3. **Ausência de culling por setor.** Hoje não há ativação por setor para VFX; sem isso, todos os sistemas rodariam desde o início.
 4. **Instanciar/destruir efeitos por coleta.** Com 186 AuroraCoins na cena, coleta rápida exige **pooling** (Etapa 25).
