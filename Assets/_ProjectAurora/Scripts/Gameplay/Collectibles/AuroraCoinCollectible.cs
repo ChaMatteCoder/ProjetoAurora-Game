@@ -87,6 +87,12 @@ public sealed class AuroraCoinCollectible : MonoBehaviour
         {
             collectionBurst.Play(true);
         }
+        else
+        {
+            // As 186 moedas da cena nao tem burst proprio: usa o pool compartilhado.
+            // Sem pool na cena -> no-op (a coleta e o saldo seguem funcionando).
+            ProjectAurora.VFX.AuroraVFXController.CoinCollect(transform.position);
+        }
 
         // At the cap this returns false, but the pickup still resolves visually for this run.
         wallet.TryAddCoins(CoinValue);

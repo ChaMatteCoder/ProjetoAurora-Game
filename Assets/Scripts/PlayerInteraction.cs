@@ -51,6 +51,13 @@ public class PlayerInteraction : MonoBehaviour
 
         current = target;
         target.Interact(gameObject);
+        // VFX de confirmacao no proprio alvo (painel), nao na UI — assim nunca cobre
+        // texto nem bloqueia raycast do prompt.
+        Component targetComponent = target as Component;
+        if (targetComponent != null)
+        {
+            ProjectAurora.VFX.AuroraVFXController.InteractionConfirm(targetComponent.transform.position);
+        }
         Gate.NotifyInteract();
         RemoveUnavailableInteractables();
         RefreshPrompt();

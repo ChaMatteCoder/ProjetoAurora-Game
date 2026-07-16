@@ -112,6 +112,12 @@ public class DataFileManager : MonoBehaviour
     {
         collectedThisRun.Add(loreId);
         AuroraSfx.PlayDataFilePickup();
+        // VFX proprio do DataFile (scan digital) — deliberadamente diferente do burst
+        // da moeda: leitura de dado, nao recompensa. No-op sem AuroraVFXController.
+        if (playerTf != null)
+        {
+            ProjectAurora.VFX.AuroraVFXController.DataFileCollect(playerTf.position + Vector3.up * 1.1f);
+        }
         ShowCard(loreId);
         Debug.Log("[DataFile] coletado " + loreId + " (" + GetPersistentCollectibleCount() + "/" + totalFiles + ")");
     }

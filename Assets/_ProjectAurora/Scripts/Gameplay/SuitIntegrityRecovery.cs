@@ -18,6 +18,7 @@ public class SuitIntegrityRecovery : MonoBehaviour
     public AudioSource recoveryCompleteSfx;
 
     private bool startSfxPlayed;
+    private ParticleSystem recoveryVfx; // instancia viva do efeito de recuperacao
 
     private PlayerHealth health;
     private float lastDamageTime;
@@ -52,6 +53,21 @@ public class SuitIntegrityRecovery : MonoBehaviour
         {
             health.IntegrityChanged -= OnIntegrityChanged;
         }
+
+        StopRecoveryVfx(); // nunca deixar particulas presas ao desligar/trocar de estado
+    }
+
+    /// Interrompe o efeito continuo de recuperacao e limpa as particulas ja emitidas.
+    /// Chamado no cancelamento (dano), na conclusao e no OnDisable.
+    private void StopRecoveryVfx()
+    {
+        if (recoveryVfx == null)
+        {
+            return;
+        }
+
+        recoveryVfx.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        recoveryVfx = null; // o pool recolhe sozinho quando o sistema morre
     }
 
     private void OnIntegrityChanged(int current, int max)
@@ -65,6 +81,7 @@ public class SuitIntegrityRecovery : MonoBehaviour
                 chargeProgress = 0f;
                 startSfxPlayed = false;
                 HideHudProgress();
+                StopRecoveryVfx(); // CANCELAR: nao deixar particulas presas no personagem
             }
         }
 
@@ -105,6 +122,8 @@ public class SuitIntegrityRecovery : MonoBehaviour
             {
                 recoveryStartSfx.Play();
             }
+            // START: energia ciano presa ao corpo (sobe junto com o Dr. Elias)
+            recoveryVfx = ProjectAurora.VFX.AuroraVFXController.SuitRecoveryStart(transform);
         }
         chargeProgress += Time.deltaTime / Mathf.Max(1f, recoveryDurationPerSegment);
 
@@ -114,6 +133,9 @@ public class SuitIntegrityRecovery : MonoBehaviour
             startSfxPlayed = false;
             lastDamageTime = Time.time; // proximo segmento exige novo delay completo
             HideHudProgress();
+            // COMPLETE: encerra o efeito continuo e solta um flash curto no lugar
+            StopRecoveryVfx();
+            ProjectAurora.VFX.AuroraVFXController.SuitRecoveryComplete(transform.position + Vector3.up * 1f);
             if (recoveryCompleteSfx != null && recoveryCompleteSfx.clip != null)
             {
                 recoveryCompleteSfx.Play();

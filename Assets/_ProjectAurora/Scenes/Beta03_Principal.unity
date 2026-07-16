@@ -568248,6 +568248,70 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &2083520016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083520019}
+  - component: {fileID: 2083520018}
+  - component: {fileID: 2083520017}
+  m_Layer: 0
+  m_Name: Aurora VFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2083520017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083520016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdf3338fa2ce424c918f24efc961bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.VFX.AuroraVFXController
+  playerDamage: {fileID: 3744752828085338933, guid: 61d49430e34f22549a1ff66a8539f2a7, type: 3}
+  suitRecovery: {fileID: 4068505444615766924, guid: 09781ebb361828446ba7fd80474de4dc, type: 3}
+  collectBurst: {fileID: 5014049968245191123, guid: 5f014e15333808c428f6ea73de516d4e, type: 3}
+  digitalScan: {fileID: 5356594658978091359, guid: 0a6331963fe438841835dcfda84132c6, type: 3}
+  interactionPulse: {fileID: 7641973436302690366, guid: e75c48dc9fb90a247a6715cd0e92ea5b, type: 3}
+--- !u!114 &2083520018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083520016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb23962216f78e4489231635a97a1a8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.VFX.AuroraVFXPool
+  initialPerPrefab: 4
+  maxPerPrefab: 24
+--- !u!4 &2083520019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083520016}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2083682483
 GameObject:
   m_ObjectHideFlags: 0
@@ -586644,3 +586708,4 @@ SceneRoots:
   - {fileID: 1596022397}
   - {fileID: 240266273}
   - {fileID: 115680681}
+  - {fileID: 2083520019}

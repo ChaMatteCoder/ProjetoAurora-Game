@@ -64,6 +64,9 @@ public class PlayerHealth : MonoBehaviour
         Lives--;
         GameManager.Instance.ui.SetLives(Lives);
         IntegrityChanged?.Invoke(Lives, startingLives);
+        // VFX: faiscas no traje + shake discreto. No-op se nao houver AuroraVFXController
+        // na cena — o gameplay nunca depende do VFX para funcionar.
+        ProjectAurora.VFX.AuroraVFXController.PlayerDamage(transform.position + Vector3.up * 1f);
         if (!VoiceLinePlayer.TryPlayQueued("CEL_045", new VoicePlaybackOptions
         {
             group = VoiceGroup.Suit,
