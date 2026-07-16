@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Customization.Skins.AuroraSkinDefinition
   id: aurora-ceremonial
   displayName: Cerimonial Aurora
-  description: Uniforme cerimonial do Projeto Aurora. Conteudo visual em preparacao.
+  description: "Uniforme cerimonial do Projeto Aurora. Conte\xFAdo visual em prepara\xE7\xE3o."
   splashArt: {fileID: 21300000, guid: 8e1527e8d58a0ec4dbeecc724fde71a6, type: 3}
   previewPrefab: {fileID: 0}
   gameplayPrefab: {fileID: 0}

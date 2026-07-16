@@ -178,7 +178,7 @@ namespace ProjectAurora.UI.Menu.Skins
             if (previewUnavailableText != null)
             {
                 previewUnavailableText.gameObject.SetActive(!previewAvailable);
-                previewUnavailableText.text = "MODELO 3D\nINDISPONIVEL";
+                previewUnavailableText.text = "MODELO 3D\nINDISPONÍVEL";
             }
 
             ApplyActionState(isEquipped, isUnlocked, hasSelectableModel);
@@ -226,7 +226,7 @@ namespace ProjectAurora.UI.Menu.Skins
             }
             else if (!hasSelectableModel)
             {
-                label = "INDISPONIVEL";
+                label = "INDISPONÍVEL";
                 interactable = false;
             }
             else
@@ -241,7 +241,7 @@ namespace ProjectAurora.UI.Menu.Skins
 
         private void ApplyEmptyState()
         {
-            if (skinNameText != null) skinNameText.text = "CATALOGO INDISPONIVEL";
+            if (skinNameText != null) skinNameText.text = "CATÁLOGO INDISPONÍVEL";
             if (skinDescriptionText != null) skinDescriptionText.text = "Nenhuma skin foi cadastrada.";
             if (skinCounterText != null) skinCounterText.text = "00 / 00";
             if (splashImage != null) splashImage.enabled = false;

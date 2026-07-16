@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Customization.Skins.AuroraSkinDefinition
   id: corrupted
   displayName: Corrompido
-  description: Versao afetada pela instabilidade da contencao. Modelo pendente.
+  description: "Vers\xE3o afetada pela instabilidade da conten\xE7\xE3o. Modelo pendente."
   splashArt: {fileID: 21300000, guid: fd33854a305e13948bfb545d0a937c00, type: 3}
   previewPrefab: {fileID: 0}
   gameplayPrefab: {fileID: 0}

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Customization.Skins.AuroraSkinDefinition
   id: brazil
   displayName: Brasil
-  description: Variacao visual inspirada nas cores brasileiras. Modelo 3D ainda nao
-    disponivel.
+  description: "Varia\xE7\xE3o visual inspirada nas cores brasileiras. Modelo 3D
+    ainda n\xE3o dispon\xEDvel."
   splashArt: {fileID: 21300000, guid: 4846547e8fc57c746a38f5a15fb89297, type: 3}
   previewPrefab: {fileID: 0}
   gameplayPrefab: {fileID: 0}

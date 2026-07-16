@@ -360,7 +360,7 @@ namespace ProjectAurora.Editor.Skins
                 case "aurora-ceremonial": return "Cerimonial Aurora";
                 case "celestia-theme": return "Tema CelestIA";
                 case "corrupted": return "Corrompido";
-                case "post-collapse-survivor": return "Sobrevivente Pos-Colapso";
+                case "post-collapse-survivor": return "Sobrevivente Pós-Colapso";
                 default: return CultureInfo.InvariantCulture.TextInfo.ToTitleCase(id.Replace('-', ' '));
             }
         }
@@ -369,13 +369,13 @@ namespace ProjectAurora.Editor.Skins
         {
             switch (id)
             {
-                case "default": return "Traje cientifico original usado pelo Dr. Elias durante a falha de contencao.";
-                case "brazil": return "Variacao visual inspirada nas cores brasileiras. Modelo 3D ainda nao disponivel.";
-                case "aurora-ceremonial": return "Uniforme cerimonial do Projeto Aurora. Conteudo visual em preparacao.";
-                case "celestia-theme": return "Traje conceitual vinculado a identidade da CelestIA. Modelo pendente.";
-                case "corrupted": return "Versao afetada pela instabilidade da contencao. Modelo pendente.";
-                case "post-collapse-survivor": return "Equipamento improvisado para o periodo apos o colapso. Modelo pendente.";
-                default: return "Skin do Dr. Elias em preparacao.";
+                case "default": return "Traje científico original usado pelo Dr. Elias durante a falha de contenção.";
+                case "brazil": return "Variação visual inspirada nas cores brasileiras. Modelo 3D ainda não disponível.";
+                case "aurora-ceremonial": return "Uniforme cerimonial do Projeto Aurora. Conteúdo visual em preparação.";
+                case "celestia-theme": return "Traje conceitual vinculado à identidade da CelestIA. Modelo pendente.";
+                case "corrupted": return "Versão afetada pela instabilidade da contenção. Modelo pendente.";
+                case "post-collapse-survivor": return "Equipamento improvisado para o período após o colapso. Modelo pendente.";
+                default: return "Skin do Dr. Elias em preparação.";
             }
         }
 

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Customization.Skins.AuroraSkinDefinition
   id: default
   displayName: Dr. Elias
-  description: Traje cientifico original usado pelo Dr. Elias durante a falha de
-    contencao.
+  description: "Traje cient\xEDfico original usado pelo Dr. Elias durante a falha
+    de conten\xE7\xE3o."
   splashArt: {fileID: 21300000, guid: 4353dccb056aa4645892a708667e8174, type: 3}
   previewPrefab: {fileID: 1510551905658922456, guid: 48b4caa4053a969409ad1c680e7e521d, type: 3}
   gameplayPrefab: {fileID: 3997628915463969064, guid: 2f3e9d33e263d1c4099d420a071944db, type: 3}

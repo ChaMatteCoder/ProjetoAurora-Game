@@ -98,7 +98,7 @@ namespace ProjectAurora.Editor.Skins
             ButtonParts back = CreateButton("Button_Retornar_SkinMenu", header, font, "<  VOLTAR", 19f);
             AnchorMiddleLeft(back.Rect, 58f, 0f, 158f, 52f);
 
-            TMP_Text title = CreateText("Title", header, font, "SELECAO DE SKINS", 34f,
+            TMP_Text title = CreateText("Title", header, font, "SELEÇÃO DE SKINS", 34f,
                 FontStyles.Bold, TextAlignmentOptions.MidlineLeft, White);
             AnchorMiddleLeft(title.rectTransform, 250f, 4f, 560f, 52f);
 
@@ -167,7 +167,7 @@ namespace ProjectAurora.Editor.Skins
             Center(loading.rectTransform, 0f, 0f, 420f, 56f);
 
             TMP_Text unavailable = CreateText("PreviewUnavailableText", previewFrame, font,
-                "MODELO 3D\nINDISPONIVEL", 20f, FontStyles.Bold, TextAlignmentOptions.Center, Muted);
+                "MODELO 3D\nINDISPONÍVEL", 20f, FontStyles.Bold, TextAlignmentOptions.Center, Muted);
             Center(unavailable.rectTransform, 0f, 0f, 440f, 100f);
 
             RectTransform actionArea = CreateUiRect("ActionArea", previewArea, previewArea.gameObject.layer);

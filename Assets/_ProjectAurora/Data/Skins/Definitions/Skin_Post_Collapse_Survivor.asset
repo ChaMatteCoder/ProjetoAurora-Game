@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Skin_Post_Collapse_Survivor
   m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Customization.Skins.AuroraSkinDefinition
   id: post-collapse-survivor
-  displayName: Sobrevivente Pos-Colapso
-  description: Equipamento improvisado para o periodo apos o colapso. Modelo pendente.
+  displayName: "Sobrevivente P\xF3s-Colapso"
+  description: "Equipamento improvisado para o per\xEDodo ap\xF3s o colapso. Modelo
+    pendente."
   splashArt: {fileID: 21300000, guid: 5b8c005b8a9b1a64db1f41e40ebc1017, type: 3}
   previewPrefab: {fileID: 0}
   gameplayPrefab: {fileID: 0}

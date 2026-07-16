@@ -302,10 +302,14 @@ namespace ProjectAurora.UI.Menu
             }
 
             panel.SetActive(true);
-            Selectable first = panel.GetComponentInChildren<Selectable>(true);
-            if (first != null && EventSystem.current != null)
+            // NÃO pré-selecionar o primeiro Selectable: um Button selecionado fica preso
+            // no estado "Selected", que tem prioridade sobre "Highlighted" e impede o card
+            // de destacar no hover do mouse (era o bug do card SKIN não destacar ao passar
+            // o mouse — ele era o primeiro Selectable e ficava selecionado ao abrir o EXTRA).
+            // O menu é mouse-first; limpar a seleção deixa o hover funcionar em todos os cards.
+            if (EventSystem.current != null)
             {
-                EventSystem.current.SetSelectedGameObject(first.gameObject);
+                EventSystem.current.SetSelectedGameObject(null);
             }
         }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectAurora.Customization.Skins.AuroraSkinDefinition
   id: celestia-theme
   displayName: Tema CelestIA
-  description: Traje conceitual vinculado a identidade da CelestIA. Modelo pendente.
+  description: "Traje conceitual vinculado \xE0 identidade da CelestIA. Modelo pendente."
   splashArt: {fileID: 21300000, guid: 5f162f950ab0ebd469c10ad5daa77f41, type: 3}
   previewPrefab: {fileID: 0}
   gameplayPrefab: {fileID: 0}
