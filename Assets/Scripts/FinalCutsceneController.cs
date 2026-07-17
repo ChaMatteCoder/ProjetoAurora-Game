@@ -43,6 +43,9 @@ public class FinalCutsceneController : MonoBehaviour
         VoiceLinePlayer voice = VoiceLinePlayer.Instance;
         if (voice != null && voice.HasLines(FinalVoiceIds))
         {
+            // Onda 3: escurecimento sincronizado com o "Não..." (ELI_010) — roda em
+            // paralelo observando CurrentLineId, sem alterar o sistema de voz.
+            StartCoroutine(DimOnFinalNao());
             voice.ClearQueue();
             voice.StopCurrent(0.1f);
             yield return voice.PlaySequence(FinalVoiceIds, true, null, new VoicePlaybackOptions
@@ -79,6 +82,58 @@ public class FinalCutsceneController : MonoBehaviour
         }
 
         GameManager.Instance.FinishGame();
+    }
+
+    /// Onda 3 (Etapa 22): no momento do "Não..." do Dr. Elias, o mundo esmorece —
+    /// luz ambiente cai, o núcleo do tubo apaga devagar e as partículas de energia
+    /// param de emitir. Nada é refeito na cutscene; só polish em cima dela.
+    private IEnumerator DimOnFinalNao()
+    {
+        VoiceLinePlayer voice = VoiceLinePlayer.Instance;
+        if (voice == null)
+        {
+            yield break;
+        }
+
+        // espera o ELI_010 comecar (com teto de seguranca para nunca travar a cena)
+        float safety = 120f;
+        while (safety > 0f && voice.CurrentLineId != "ELI_010")
+        {
+            safety -= Time.deltaTime;
+            yield return null;
+        }
+        if (safety <= 0f)
+        {
+            yield break;
+        }
+
+        TubeCorePulse pulse = FindAnyObjectByType<TubeCorePulse>();
+        float coreLight0 = 0f;
+        if (pulse != null)
+        {
+            if (pulse.coreEnergy != null)
+            {
+                pulse.coreEnergy.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
+            coreLight0 = pulse.coreLight != null ? pulse.coreLight.intensity : 0f;
+            pulse.enabled = false; // congela o pulso para o fade manual nao ser sobrescrito
+        }
+
+        Color amb0 = RenderSettings.ambientLight;
+        Color amb1 = amb0 * 0.25f;
+        float t = 0f;
+        const float duration = 2.2f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float k = Mathf.SmoothStep(0f, 1f, t / duration);
+            RenderSettings.ambientLight = Color.Lerp(amb0, amb1, k);
+            if (pulse != null && pulse.coreLight != null)
+            {
+                pulse.coreLight.intensity = Mathf.Lerp(coreLight0, coreLight0 * 0.2f, k);
+            }
+            yield return null;
+        }
     }
 
     private static DialogueLine C(string message) => new DialogueLine("CELESTIA", message, 1.7f);

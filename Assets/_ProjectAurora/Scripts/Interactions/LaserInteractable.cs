@@ -14,6 +14,21 @@ public class LaserInteractable : InteractableBase
 
     protected override void HandleInteraction(GameObject interactor)
     {
+        // VFX de desligamento ANTES de desativar (precisa da posicao dos feixes vivos).
+        // Uma faisca por feixe, com teto de 3 para paineis que desligam muitos lasers.
+        if (lasersToDisable != null)
+        {
+            int burstsSpawned = 0;
+            for (int i = 0; i < lasersToDisable.Length && burstsSpawned < 3; i++)
+            {
+                if (lasersToDisable[i] != null && lasersToDisable[i].activeInHierarchy)
+                {
+                    ProjectAurora.VFX.AuroraVFXController.LaserShutdown(lasersToDisable[i].transform.position);
+                    burstsSpawned++;
+                }
+            }
+        }
+
         SetGameObjectsActive(lasersToDisable, false);
         SetCollidersEnabled(damageCollidersToDisable, false);
         SetLightsEnabled(laserLightsToDisable, false);

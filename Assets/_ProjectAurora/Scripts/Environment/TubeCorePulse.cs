@@ -19,6 +19,8 @@ public class TubeCorePulse : MonoBehaviour
     public Renderer innerCore;
     [Tooltip("Luz pontual dentro do núcleo (opcional).")]
     public Light coreLight;
+    [Tooltip("Partículas de energia dentro do núcleo (opcional, Onda 3). A cor de emissão\ndas NOVAS partículas acompanha o pulso ciano↔vermelho — sincronizado por construção.")]
+    public ParticleSystem coreEnergy;
 
     [Header("Cores de estado")]
     public Color stableColor = new Color(0.15f, 1.1f, 1.7f);   // ciano — contenção ativa
@@ -61,6 +63,16 @@ public class TubeCorePulse : MonoBehaviour
         {
             coreLight.color = c;
             coreLight.intensity = Mathf.Lerp(lightBaseIntensity, lightFaultIntensity, t);
+        }
+
+        if (coreEnergy != null)
+        {
+            // startColor tinge apenas particulas NOVAS — a transicao fica gradual de graca.
+            // Instabilidade sobe com t: mais particulas por segundo perto do vermelho.
+            var main = coreEnergy.main;
+            main.startColor = c;
+            var emission = coreEnergy.emission;
+            emission.rateOverTime = Mathf.Lerp(10f, 22f, t);
         }
     }
 

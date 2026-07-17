@@ -9,6 +9,7 @@ public sealed class AuroraProgressSaveService
 
     private readonly string savePath;
     private readonly string backupPath;
+    private readonly bool devSession;
 
     public AuroraProgressSaveData Data { get; private set; }
     public string SavePath => savePath;
@@ -17,12 +18,26 @@ public sealed class AuroraProgressSaveService
     public bool LastLoadRecoveredFromBackup { get; private set; }
     public bool LastLoadUsedDefaults { get; private set; }
 
+    /// SESSAO DE DESENVOLVIMENTO (Editor + caminho padrao):
+    /// O Editor e a build compartilham o mesmo persistentDataPath no Windows, entao
+    /// testar no Editor ate 999 moedas / todos os DataFiles contaminava o save que a
+    /// build depois lia — a build abria maximizada e sem nenhum DataFile visivel.
+    ///
+    /// Nesta sessao o servico passa a:
+    ///   - zerar moedas e DataFiles a cada Play (corrida sempre "limpa" para teste);
+    ///   - NUNCA escrever no arquivo (a build mantem o progresso dela intacto).
+    ///
+    /// O gate exige caminho PADRAO de proposito: os testes de Editor instanciam o
+    /// servico com caminho customizado e dependem de Load/Save reais — eles seguem
+    /// com o comportamento normal.
     public AuroraProgressSaveService(string customSavePath = null)
     {
-        savePath = string.IsNullOrWhiteSpace(customSavePath)
+        bool usingDefaultPath = string.IsNullOrWhiteSpace(customSavePath);
+        savePath = usingDefaultPath
             ? Path.Combine(Application.persistentDataPath, DefaultFileName)
             : customSavePath;
         backupPath = savePath + ".bak";
+        devSession = usingDefaultPath && Application.isEditor;
     }
 
     public AuroraProgressSaveData Load()
@@ -35,13 +50,13 @@ public sealed class AuroraProgressSaveService
         {
             Data = CreateDefault();
             LastLoadUsedDefaults = true;
-            return Data;
+            return ApplyDevSessionReset(Data);
         }
 
         try
         {
             Data = ReadData(savePath);
-            return Data;
+            return ApplyDevSessionReset(Data);
         }
         catch (Exception exception)
         {
@@ -55,8 +70,11 @@ public sealed class AuroraProgressSaveService
             {
                 Data = ReadData(backupPath);
                 LastLoadRecoveredFromBackup = true;
-                WriteAtomic(Data, false);
-                return Data;
+                if (!devSession)
+                {
+                    WriteAtomic(Data, false);
+                }
+                return ApplyDevSessionReset(Data);
             }
             catch (Exception exception)
             {
@@ -66,8 +84,26 @@ public sealed class AuroraProgressSaveService
 
         Data = CreateDefault();
         LastLoadUsedDefaults = true;
-        WriteAtomic(Data, false);
-        return Data;
+        if (!devSession)
+        {
+            WriteAtomic(Data, false);
+        }
+        return ApplyDevSessionReset(Data);
+    }
+
+    /// No Editor (caminho padrao), zera moedas e DataFiles em memoria a cada Load.
+    /// Nao toca em skins/selecao — o pedido foi especificamente moedas e DataFiles.
+    private AuroraProgressSaveData ApplyDevSessionReset(AuroraProgressSaveData data)
+    {
+        if (!devSession || data == null)
+        {
+            return data;
+        }
+
+        data.auroraCoins = 0;
+        data.unlockedDataFiles?.Clear();
+        data.Sanitize();
+        return data;
     }
 
     public bool Save(AuroraProgressSaveData data)
@@ -80,8 +116,22 @@ public sealed class AuroraProgressSaveService
 
         data.Sanitize();
         Data = data;
+
+        if (devSession)
+        {
+            // Dev: mantem o progresso apenas em memoria durante o Play. Escrever aqui
+            // contaminaria o save que a build le (era a causa da build abrir com 999
+            // moedas e sem DataFiles).
+            return true;
+        }
+
         return WriteAtomic(data, true);
     }
+
+    /// True quando rodando no Editor com o save padrao: progresso nao persiste e
+    /// moedas/DataFiles sao zerados a cada Play. Falso em build e nos testes
+    /// (que usam caminho customizado).
+    public bool IsDevSession => devSession;
 
     public bool ResetTestEconomyData()
     {

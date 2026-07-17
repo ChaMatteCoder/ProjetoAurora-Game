@@ -176,6 +176,8 @@ public class RobotPursuitDirector : MonoBehaviour
         health?.SetExternalInvulnerability(true);
 
         SpawnRobots();
+        // shake leve na ativacao dos robos (cutscene da perseguicao)
+        ProjectAurora.VFX.AuroraCameraFeedbackController.RobotActivation();
 
         // pre-carrega historico com a posicao atual (robos nascem no rastro do player)
         history.Clear();
@@ -266,6 +268,16 @@ public class RobotPursuitDirector : MonoBehaviour
             robot.ResetInitialization();
             robots.Add(robot);
 
+            // Pulso de emissao vermelha (Onda 2). Material dos robos ja tem _EMISSION
+            // serializada; MPB por Renderer — Lead Pursuer um pouco mais forte, como
+            // manda a spec, sem poluir a tela.
+            var pulse = go.AddComponent<ProjectAurora.VFX.AuroraMaterialPulseController>();
+            pulse.emissionColor = new Color(2.2f, 0.22f, 0.1f);
+            pulse.minIntensity = robot.isLeadPursuer ? 0.5f : 0.3f;
+            pulse.maxIntensity = robot.isLeadPursuer ? 1.3f : 0.85f;
+            pulse.speed = robot.isLeadPursuer ? 1.1f : 0.75f;
+            pulse.activeRange = 0f; // perseguidores estao sempre perto do player
+
             Animator anim = go.GetComponentInChildren<Animator>();
             if (anim != null)
             {
@@ -337,6 +349,7 @@ public class RobotPursuitDirector : MonoBehaviour
             stopTargets.Add(new Vector3(robots[i].lateralOffset * 0.6f, 0f, gateZ - 2.2f - (i % 2) * 1.6f));
         }
 
+        bool gateImpactFired = false;
         while (t < total)
         {
             t += Time.deltaTime;
@@ -346,6 +359,16 @@ public class RobotPursuitDirector : MonoBehaviour
             {
                 float gt = Mathf.SmoothStep(0f, 1f, Mathf.Min(1f, t / gateCloseDuration));
                 terminalGateSlab.localPosition = Vector3.Lerp(slabOpen, slabClosed, gt);
+
+                // impacto UNICO no momento em que a porta assenta: shake + poeira + faiscas
+                if (!gateImpactFired && t >= gateCloseDuration)
+                {
+                    gateImpactFired = true;
+                    ProjectAurora.VFX.AuroraCameraFeedbackController.DoorImpact();
+                    Vector3 basePoint = terminalGateSlab.position + Vector3.down * (gateCloseDrop * 0.5f);
+                    ProjectAurora.VFX.AuroraVFXController.DoorOpen(basePoint);           // poeira
+                    ProjectAurora.VFX.AuroraVFXController.LaserShutdown(basePoint + Vector3.up * 0.4f); // faiscas
+                }
             }
 
             // robos correm ate a porta e desaceleram (loop defensivo contra mutacao das listas)

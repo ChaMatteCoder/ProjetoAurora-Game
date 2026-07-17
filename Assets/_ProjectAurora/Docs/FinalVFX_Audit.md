@@ -137,13 +137,19 @@ Ordenado por **valor percebido ÷ risco**. As ondas 1–2 entregam a maior parte
 
 ## 8. Regras derivadas da auditoria (obrigatórias)
 
-1. **Zero Point Light nova por efeito** — o orçamento já está em 124 realtime.
+1. **Zero Point Light nova por efeito** — o cap do URP (8 adicionais) é recurso escasso e compartilhado.
 2. Emissão + Bloom no lugar de luz.
-3. `MaterialPropertyBlock` sempre; nunca `Renderer.material`.
+3. **Política de materiais (OFICIAL — substitui a regra absoluta anterior "MPB sempre / nunca Renderer.material"):**
+   - **A. Particle Systems:** materiais emissivos **serializados** e compartilhados; variação via módulos do Particle System (Start Color, Color over Lifetime); nenhuma instância por partícula. *(Caminho usado na Onda 1 — funciona sem depender de emissão em runtime.)*
+   - **B. Objetos repetidos** (moedas, robôs comuns, painéis, emissores de laser): **preferir `MaterialPropertyBlock`**, validando antes `Material.HasProperty` e o shader real. MPB **não é "ignorado"** — ele altera propriedades por Renderer, mas tira aquele Renderer do caminho do SRP Batcher; aceitar essa perda e **medir** antes de aplicar em grande quantidade.
+   - **C. Objetos hero únicos** (núcleo do Terminal, painel principal, Lead Pursuer): **instância de material permitida** — criada uma única vez em Awake/Start, cacheada, destruída em `OnDestroy`, nunca acessada via `renderer.material` em Update. *(Padrão já validado pelo `TubeCorePulse`.)*
+   - **D. Fallback comprovado:** animar `_BaseColor` HDR (>1) e deixar o Bloom fazer o halo — somente em materiais próprios de VFX, nunca alterando `sharedMaterial` globalmente.
 4. Pooling para efeitos recorrentes (moeda, faísca, impacto).
 5. Antes de controlar emissão/intensidade de um alvo, verificar se outro sistema já o controla (lição do conflito `ProgressiveLight`×`TerminalLightsAwakening`).
 6. VFX ativado por setor/distância; nada rodando desde o frame 0.
 7. Nenhum efeito pode reduzir a legibilidade de obstáculos ou HUD.
+
+> Nota (2026-07-16): a afirmação anterior de que "emissão em runtime não renderiza / MPB é ignorado pelo SRP Batcher" **não está comprovada** — as tentativas de validação empírica falharam por harness (MainMenu, `Camera.Render()` manual no URP), não por comportamento do produto. Teste definitivo pendente (gate da Onda 2 para objetos repetidos).
 
 ---
 

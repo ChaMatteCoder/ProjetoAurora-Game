@@ -83,6 +83,8 @@ public class AuroraDoorController : MonoBehaviour
 
         IsOpen = true;
         PlayStatusLight();
+        // poeira leve no vao central; no-op sem AuroraVFXController na cena
+        ProjectAurora.VFX.AuroraVFXController.DoorOpen(transform.position + Vector3.up * 1.4f);
         if (sfxSource != null && openClip != null)
         {
             sfxSource.PlayOneShot(openClip);

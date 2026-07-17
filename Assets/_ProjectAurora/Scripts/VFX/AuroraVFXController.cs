@@ -27,8 +27,13 @@ namespace ProjectAurora.VFX
         public GameObject digitalScan;
         [Tooltip("Pulso do prompt de interacao E.")]
         public GameObject interactionPulse;
+        [Tooltip("Faiscas curtas nos emissores quando um laser e desativado (Onda 2).")]
+        public GameObject laserShutdown;
+        [Tooltip("Poeira/vapor leve na abertura de portas (Onda 2).")]
+        public GameObject doorDust;
 
         private AuroraVFXPool pool;
+        private PlayerHealth boundHealth;
 
         private void Awake()
         {
@@ -41,8 +46,32 @@ namespace ProjectAurora.VFX
             pool = GetComponent<AuroraVFXPool>();
         }
 
+        private void Start()
+        {
+            // StopAll na morte: efeitos vivos nao podem sobrar na cinematica de morte.
+            // Restart de corrida recarrega a cena, entao o pool ja morre junto.
+            GameManager gm = GameManager.Instance;
+            if (gm != null && gm.player != null)
+            {
+                boundHealth = gm.player.GetComponent<PlayerHealth>();
+                if (boundHealth != null)
+                {
+                    boundHealth.OnDeath += HandlePlayerDeath;
+                }
+            }
+        }
+
+        private void HandlePlayerDeath()
+        {
+            StopAll();
+        }
+
         private void OnDestroy()
         {
+            if (boundHealth != null)
+            {
+                boundHealth.OnDeath -= HandlePlayerDeath;
+            }
             if (Instance == this)
             {
                 Instance = null;
@@ -100,6 +129,18 @@ namespace ProjectAurora.VFX
         public static void InteractionConfirm(Vector3 position)
         {
             Instance?.Spawn(Instance.interactionPulse, position, null);
+        }
+
+        /// Faiscas nos emissores ao desativar um laser (Onda 2).
+        public static void LaserShutdown(Vector3 position)
+        {
+            Instance?.Spawn(Instance.laserShutdown, position, null);
+        }
+
+        /// Poeira leve na abertura de porta (Onda 2).
+        public static void DoorOpen(Vector3 position)
+        {
+            Instance?.Spawn(Instance.doorDust, position, null);
         }
 
         /// Recolhe todos os efeitos vivos (morte, restart, troca de estado).

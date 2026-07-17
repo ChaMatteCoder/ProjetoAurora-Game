@@ -46,6 +46,7 @@ public class CelestIACommPanel : MonoBehaviour
         }
 
         float time = Time.unscaledTime * 4.5f;
+        bool corrupted = currentState == CelestIAState.Corrupted;
         for (int i = 0; i < waveformBars.Length; i++)
         {
             Image bar = waveformBars[i];
@@ -57,6 +58,16 @@ public class CelestIACommPanel : MonoBehaviour
             float wave = Mathf.Sin(time + i * 0.73f) * 0.5f + 0.5f;
             float secondary = Mathf.Sin(time * 0.63f - i * 0.39f) * 0.5f + 0.5f;
             float height = Mathf.Lerp(5f, 25f, wave * secondary);
+            if (corrupted)
+            {
+                // waveform irregular (Etapa 17): picos e quedas bruscas por ruido em degraus
+                // de ~1/20s — sinal "falhando", sem tocar em layout nem na mensagem.
+                float step = Mathf.Floor(Time.unscaledTime * 20f);
+                float noise = Mathf.PerlinNoise(step * 0.37f + i * 1.31f, 5.1f);
+                if (noise > 0.78f) height = 25f;               // pico subito
+                else if (noise < 0.22f) height = 2.5f;         // dropout
+                else height = Mathf.Lerp(height, height * noise * 1.6f, 0.7f);
+            }
             bar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
             Color color = accentColor;
             color.a = Mathf.Lerp(0.45f, 1f, wave);
