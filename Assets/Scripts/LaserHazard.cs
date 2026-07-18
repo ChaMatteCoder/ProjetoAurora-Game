@@ -51,6 +51,11 @@ public class LaserHazard : MonoBehaviour
 
         SetColor(inactiveColor);
         PlayRandom(deactivateClips);
+        // Faiscas de desligamento AQUI (e nao nos paineis): todo caminho que desativa
+        // um laser — InteractableObject.DisableLaser, LaserInteractable, scripts —
+        // ganha o mesmo feedback. No-op se o AuroraVFXController nao estiver na cena.
+        ProjectAurora.VFX.AuroraVFXController.LaserShutdown(
+            visual != null ? visual.transform.position : transform.position);
     }
 
     public void Activate()

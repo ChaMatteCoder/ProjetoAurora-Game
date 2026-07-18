@@ -19,10 +19,10 @@ public class AuroraSfx : MonoBehaviour
     public AudioClip dataFileNear;
     [Tooltip("Distância (m) a partir da qual o som de proximidade começa a ser ouvido.")]
     public float nearRange = 30f;
-    [Range(0f, 1f)] public float nearMaxVolume = 0.7f;
+    [Range(0f, 1f)] public float nearMaxVolume = 1.0f;
 
     [Header("Volumes")]
-    [Range(0f, 1f)] public float coinVolume = 0.55f;
+    [Range(0f, 1f)] public float coinVolume = 0.22f; // sutil: nao rouba trilha/dublagem
     [Range(0f, 1f)] public float uiVolume = 0.9f;
 
     private AudioSource oneShot;

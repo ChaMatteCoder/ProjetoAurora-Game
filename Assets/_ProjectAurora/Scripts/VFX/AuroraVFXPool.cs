@@ -5,7 +5,7 @@ namespace ProjectAurora.VFX
 {
     /// Pool simples de efeitos one-shot (Etapa 25 / Onda 1).
     ///
-    /// Por que existe: ha 186 AuroraCoins na cena. Instanciar/destruir um efeito por
+    /// Por que existe: ha centenas de AuroraCoins na cena. Instanciar/destruir um efeito por
     /// coleta geraria lixo constante durante a corrida. O pool reusa por prefab.
     ///
     /// Escopo deliberadamente pequeno: sem generics elaborados, sem interfaces, sem

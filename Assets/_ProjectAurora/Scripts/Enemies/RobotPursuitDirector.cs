@@ -267,16 +267,8 @@ public class RobotPursuitDirector : MonoBehaviour
             }
             robot.ResetInitialization();
             robots.Add(robot);
-
-            // Pulso de emissao vermelha (Onda 2). Material dos robos ja tem _EMISSION
-            // serializada; MPB por Renderer — Lead Pursuer um pouco mais forte, como
-            // manda a spec, sem poluir a tela.
-            var pulse = go.AddComponent<ProjectAurora.VFX.AuroraMaterialPulseController>();
-            pulse.emissionColor = new Color(2.2f, 0.22f, 0.1f);
-            pulse.minIntensity = robot.isLeadPursuer ? 0.5f : 0.3f;
-            pulse.maxIntensity = robot.isLeadPursuer ? 1.3f : 0.85f;
-            pulse.speed = robot.isLeadPursuer ? 1.1f : 0.75f;
-            pulse.activeRange = 0f; // perseguidores estao sempre perto do player
+            // (Pulso vermelho removido a pedido do cliente: perseguidores mantem o
+            // visual normal do material.)
 
             Animator anim = go.GetComponentInChildren<Animator>();
             if (anim != null)

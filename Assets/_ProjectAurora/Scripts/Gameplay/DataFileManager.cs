@@ -285,28 +285,34 @@ public class DataFileManager : MonoBehaviour
         core.sizeDelta = new Vector2(12f, 12f);
         iconCore = AddImage(core, counterColor);
 
-        // título
-        titleLabel = NewText("Title", card, 22f, FontStyles.Bold, counterColor, TextAlignmentOptions.BottomLeft);
+        // título — Ellipsis em vez de Overflow: com Overflow, o texto longo
+        // ("ARQUIVO DE DADOS RECUPERADO" a 22px + spacing) invadia o contador.
+        titleLabel = NewText("Title", card, 20f, FontStyles.Bold, counterColor, TextAlignmentOptions.BottomLeft);
         var trt = titleLabel.rectTransform;
         trt.anchorMin = new Vector2(0f, 0.5f); trt.anchorMax = new Vector2(1f, 1f);
-        trt.offsetMin = new Vector2(104f, 2f); trt.offsetMax = new Vector2(-150f, -10f);
-        titleLabel.characterSpacing = 4f;
+        trt.offsetMin = new Vector2(104f, 2f); trt.offsetMax = new Vector2(-118f, -10f);
+        titleLabel.characterSpacing = 2f;
         titleLabel.enableWordWrapping = false;
-        titleLabel.overflowMode = TextOverflowModes.Overflow;
+        titleLabel.overflowMode = TextOverflowModes.Ellipsis;
 
         // subtítulo
         subtitleLabel = NewText("Subtitle", card, 14f, FontStyles.Normal, new Color(0.72f, 0.9f, 1f, 0.85f), TextAlignmentOptions.TopLeft);
         var srt = subtitleLabel.rectTransform;
         srt.anchorMin = new Vector2(0f, 0f); srt.anchorMax = new Vector2(1f, 0.5f);
-        srt.offsetMin = new Vector2(104f, 26f); srt.offsetMax = new Vector2(-140f, -2f);
+        srt.offsetMin = new Vector2(104f, 26f); srt.offsetMax = new Vector2(-118f, -2f);
         subtitleLabel.characterSpacing = 2f;
+        subtitleLabel.enableWordWrapping = false;
+        subtitleLabel.overflowMode = TextOverflowModes.Ellipsis;
 
-        // contador grande à direita
-        countLabel = NewText("Count", card, 34f, FontStyles.Bold, Color.white, TextAlignmentOptions.Right);
+        // contador — tag discreta no canto superior direito (era 34px branco de altura
+        // cheia, dominava o card e conflitava com o título). Ciano, 16px, faixa propria.
+        countLabel = NewText("Count", card, 16f, FontStyles.Bold, new Color(0.72f, 0.95f, 1f, 0.95f), TextAlignmentOptions.TopRight);
         var crt = countLabel.rectTransform;
-        crt.anchorMin = new Vector2(1f, 0f); crt.anchorMax = new Vector2(1f, 1f);
-        crt.pivot = new Vector2(1f, 0.5f);
-        crt.offsetMin = new Vector2(-130f, 14f); crt.offsetMax = new Vector2(-22f, -14f);
+        crt.anchorMin = new Vector2(1f, 1f); crt.anchorMax = new Vector2(1f, 1f);
+        crt.pivot = new Vector2(1f, 1f);
+        crt.anchoredPosition = new Vector2(-16f, -10f);
+        crt.sizeDelta = new Vector2(96f, 20f);
+        countLabel.characterSpacing = 2f;
 
         // ticks de progresso (1..totalFiles) na base do cartão
         progressTicks = new Image[Mathf.Max(1, totalFiles)];
