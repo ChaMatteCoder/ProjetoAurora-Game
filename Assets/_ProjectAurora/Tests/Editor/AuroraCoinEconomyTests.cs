@@ -1,7 +1,10 @@
 #if UNITY_EDITOR
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ProjectAurora.Customization.Skins;
+using ProjectAurora.Lore;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -10,6 +13,22 @@ using UnityEngine.UI;
 public static class AuroraCoinEconomyTests
 {
     private const string ProbeOriginalBalanceKey = "AuroraCoinProbeOriginalBalance";
+    private const string SkinCatalogPath = "Assets/_ProjectAurora/Data/Skins/AuroraSkinCatalog.asset";
+    private const string LoreCatalogPath = "Assets/_ProjectAurora/Data/Lore/AuroraLoreCatalog.asset";
+    private const int ExpectedCoinsPerRun = 204;
+    private const int ExpectedPaidSkinTotal = 725;
+    private const int ExpectedPaidDataFileTotal = 125;
+
+    private static readonly Dictionary<string, int> ExpectedCoinGroups = new Dictionary<string, int>
+    {
+        { "SectorA_Coins", 72 },
+        { "Containment_Coins", 42 },
+        { "MachineRoom_Coins", 51 },
+        { "RedCorridor_Coins", 12 },
+        { "TechnicalBridge_Coins", 26 },
+        { "FinalApproach_Coins", 1 }
+    };
+
     private static int assertions;
 
     [MenuItem("Tools/Projeto Aurora/Economy/Runtime Probe/Collect First Scene Coin")]
@@ -254,10 +273,13 @@ public static class AuroraCoinEconomyTests
     private static void TestCanonicalSceneIntegration()
     {
         AuroraCoinPlacementTools.ValidationResult placement = AuroraCoinPlacementTools.ValidatePlacement(false);
-        Expect(placement.CoinCount >= 30, "cena canonica preserva ao menos a rodada inicial de moedas");
+        Expect(placement.CoinCount == ExpectedCoinsPerRun,
+            "cena canonica preserva as " + ExpectedCoinsPerRun + " moedas balanceadas");
         Expect(placement.ErrorCount == 0, "posicionamento nao possui erros");
         Debug.Log("[AuroraCoinTests] Placement atual: " + placement.CoinCount +
                   " moedas, " + placement.WarningCount + " avisos de level design.");
+
+        TestCoinDistributionAndFiveRunBalance(placement.CoinCount);
 
         AuroraCoinHudController coinHud = FindOne<AuroraCoinHudController>();
         Expect(coinHud != null, "HUD de AuroraCoins existe");
@@ -295,6 +317,59 @@ public static class AuroraCoinEconomyTests
         {
             Expect(IsInside(labels[i].rectTransform, coinRect), labels[i].name + " respeita os bounds do card");
         }
+    }
+
+    private static void TestCoinDistributionAndFiveRunBalance(int coinsPerRun)
+    {
+        AuroraCoinCollectible[] coins = UnityEngine.Object.FindObjectsByType<AuroraCoinCollectible>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None);
+        Dictionary<string, int> actualGroups = coins
+            .GroupBy(coin => coin.transform.parent == null ? "<root>" : coin.transform.parent.name)
+            .ToDictionary(group => group.Key, group => group.Count(), StringComparer.Ordinal);
+
+        Expect(actualGroups.Count == ExpectedCoinGroups.Count,
+            "moedas permanecem organizadas nos seis grupos economicos oficiais");
+        foreach (KeyValuePair<string, int> expected in ExpectedCoinGroups)
+        {
+            actualGroups.TryGetValue(expected.Key, out int actual);
+            Expect(actual == expected.Value,
+                expected.Key + " preserva " + expected.Value + " moedas");
+        }
+
+        AuroraSkinCatalog skinCatalog = AssetDatabase.LoadAssetAtPath<AuroraSkinCatalog>(SkinCatalogPath);
+        AuroraLoreCatalog loreCatalog = AssetDatabase.LoadAssetAtPath<AuroraLoreCatalog>(LoreCatalogPath);
+        Expect(skinCatalog != null, "catalogo oficial de skins existe para o balanceamento");
+        Expect(loreCatalog != null, "catalogo oficial de DataFiles existe para o balanceamento");
+
+        AuroraSkinDefinition[] paidSkins = skinCatalog.Skins
+            .Where(skin => skin != null && !skin.IsDefaultSkin && skin.FuturePrice > 0)
+            .ToArray();
+        AuroraLoreDefinition[] paidDataFiles = loreCatalog.Entries
+            .Where(entry => entry != null && entry.UnlockType == AuroraLoreUnlockType.AuroraCoinPurchase)
+            .ToArray();
+        int skinTotal = paidSkins.Sum(skin => skin.FuturePrice);
+        int dataFileTotal = paidDataFiles.Sum(entry => entry.AuroraCoinPrice);
+        int combinedTotal = skinTotal + dataFileTotal;
+        int minimumPerfectRuns = Mathf.CeilToInt(combinedTotal / (float)coinsPerRun);
+
+        Expect(paidSkins.Length == 5, "cinco skins pagas participam do balanceamento");
+        Expect(skinTotal == ExpectedPaidSkinTotal,
+            "skins pagas somam " + ExpectedPaidSkinTotal + " AuroraCoins");
+        Expect(paidDataFiles.Length == 8, "oito DataFiles pagos participam do balanceamento");
+        Expect(dataFileTotal == ExpectedPaidDataFileTotal,
+            "DataFiles pagos somam " + ExpectedPaidDataFileTotal + " AuroraCoins");
+        Expect(combinedTotal == 850, "conteudo pago completo custa 850 AuroraCoins");
+        Expect(combinedTotal > coinsPerRun * 4, "quatro corridas perfeitas nao compram todo o conteudo");
+        Expect(minimumPerfectRuns == 5, "todo o conteudo exige no minimo cinco corridas perfeitas");
+        Expect(combinedTotal <= AuroraCoinWallet.MaxBalance,
+            "custo completo cabe no limite de saldo da wallet");
+        Expect(coinsPerRun * minimumPerfectRuns - combinedTotal == 170,
+            "quinta corrida deixa margem de 170 moedas apos todas as compras");
+
+        Debug.Log("[AuroraCoinTests] Balanceamento: " + coinsPerRun + " moedas/run, skins=" +
+                  skinTotal + ", DataFiles=" + dataFileTotal + ", total=" + combinedTotal +
+                  ", minimo=" + minimumPerfectRuns + " runs perfeitas.");
     }
 
     private static RectTransform FindDirectChildRect(Transform root, Transform descendant)
