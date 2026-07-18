@@ -119,7 +119,7 @@ Gerada em `Builds/Development/VFX_Wave1_Windows/` — resultado registrado na co
 | Coleta rápida sem instantiate/destroy contínuo | ✅ (pool, teto 24) |
 | DataFile com efeito próprio, sem moedas | ✅ (scan de linhas, sem tocar em saldo) |
 | Interação E: confirmação no mundo | ✅ · pulso no ícone E da UI: ⚠️ **não implementado** (prompt já tem show/hide; pulso de UI ficou de fora) |
-| Sem Point Light nova / sem idle nas 186 moedas | ✅ |
+| Sem Point Light nova / sem idle nas 204 moedas | ✅ |
 | VFX em repouso = 0 sistemas ativos | ✅ medido |
 | Performance antes/depois registrada | ✅ |
 | Console sem erros novos | ✅ |

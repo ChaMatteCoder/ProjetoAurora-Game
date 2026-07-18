@@ -12,7 +12,7 @@ O projeto combina corrida em terceira pessoa, narrativa ambiental, cenários sci
 
 **Beta jogável — candidata à primeira build (otimizada)**
 
-Estado documentado em **14 de julho de 2026**.
+Estado documentado em **17 de julho de 2026**.
 
 O fluxo completo `MainMenu → Beta03_Principal → Terminal Central` está jogável de ponta
 a ponta. Sistemas consolidados:
@@ -31,7 +31,8 @@ a ponta. Sistemas consolidados:
   flutuante** visível de longe em todos os painéis;
 * **perseguição cinematográfica por robôs** (replay visual, sem física) e **obstáculos
   finais** (lasers desativáveis, robôs, barreiras) com dificuldade justa;
-* **Setor E / Ponte Técnica** com colapso ambiental animado e **sprint final** rumo ao Núcleo;
+* **Setor E / Ponte Térmica** com colapso ambiental animado, **AuroraSky em vídeo 16:9**
+  sem distorção e **sprint final** rumo ao Núcleo;
 * **Terminal Central** reestruturado por referências (núcleo luminoso, cryo-tubes, braços
   robóticos, telas), com **luzes que acendem conforme os passos** do Dr. Elias;
 * **cutscene final** sincronizada com o diálogo — os robôs chegam apenas no “Não…” (ELI_010),
@@ -39,7 +40,8 @@ a ponta. Sistemas consolidados:
 * **recuperação de traje** (Suit Recovery), **anti-softlock** de portas, **menu
   reestruturado** (configurações persistentes, pausa, “Jogar” assíncrono) e **Game Over**;
 * **economia de AuroraCoins** com wallet única, limite 999, save JSON resiliente, HUD
-  dedicado e moedas recorrentes distribuídas pela corrida;
+  dedicado e **204 moedas por corrida**; skins e DataFiles pagos somam 850 moedas e
+  exigem no mínimo cinco corridas perfeitas;
 * **menu de skins** com seis Splash Arts, preview 3D do Dr. Elias padrão, navegação e
   seleção persistente sem equipar automaticamente durante a visualização;
 * **arquivo de Lore** com 24 registros em PT-BR, compras por AuroraCoins e 12 DataFiles
@@ -279,7 +281,7 @@ e DataFiles desbloqueados; configurações de áudio/vídeo continuam no serviç
 
 As suítes editoriais usam saves temporários e podem ser executadas pelos menus:
 
-* `Tools/Projeto Aurora/Economy/Run AuroraCoin Economy Tests` — 62 verificações;
+* `Tools/Projeto Aurora/Economy/Run AuroraCoin Economy Tests` — 80 verificações;
 * `Tools/Projeto Aurora/Skins/Run Skin Menu Tests` — 139 verificações;
 * `Tools/Projeto Aurora/Lore/Run Lore System Tests` — 220 verificações.
 

@@ -63,8 +63,10 @@ Foram verificados trigger, Rigidbody cinemático, controller visual, referência
 
 ## Estado atual após ajustes manuais
 
-Em 14/07/2026, a cena contém 194 moedas mantendo os seis grupos e a hierarquia acima.
-O validador retorna `errors=0` e `warnings=42`: 32 proximidades de DataFiles, 6
-espaçamentos menores que 4 m e 4 alturas de padrões de salto. A rodada de 30 permanece
-documentada como baseline reproduzível; os avisos da expansão são consultivos e devem ser
-reavaliados no próximo playtest de ritmo, sem remoção automática dos ajustes manuais.
+Em 17/07/2026, a cena contém 204 moedas mantendo os seis grupos e a hierarquia acima:
+`SectorA=72`, `Containment=42`, `MachineRoom=51`, `RedCorridor=12`,
+`TechnicalBridge=26` e `FinalApproach=1`.
+
+O validador retorna `errors=0` e `warnings=39`. A rodada de 30 permanece documentada
+como baseline reproduzível; os avisos da expansão são consultivos e devem ser reavaliados
+no próximo playtest de ritmo, sem remoção automática dos ajustes manuais.

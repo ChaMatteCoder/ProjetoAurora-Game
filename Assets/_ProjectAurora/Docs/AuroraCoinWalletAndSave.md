@@ -86,4 +86,4 @@ A ação pede confirmação, zera apenas AuroraCoins e remove somente `Skin_Test
 
 ## Evidência
 
-A suíte Editor passou com 62 assertions. O Play Mode confirmou uma única wallet, coleta `000 -> 001`, persistência após nova execução e restauração do saldo original `001 -> 000`.
+A suíte Editor atual passou com 80 assertions, incluindo a contagem canônica de 204 moedas e o balanceamento de cinco corridas. O Play Mode confirmou uma única wallet, coleta `000 -> 001`, persistência após nova execução e restauração do saldo original `001 -> 000`.

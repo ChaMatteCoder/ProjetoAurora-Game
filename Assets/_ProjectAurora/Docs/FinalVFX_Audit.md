@@ -90,7 +90,7 @@ Ordenados por gravidade:
    A regra "nenhum Point Light novo por VFX" **permanece válida** — mas como boa prática (o cap de 8 é recurso escasso e compartilhado), não por uma crise inexistente.
 2. **Overdraw de partículas transparentes.** Em runner, a câmera vê a pista inteira; partículas grandes na tela custam caro. Limitar tamanho e `maxParticles`.
 3. **Ausência de culling por setor.** Hoje não há ativação por setor para VFX; sem isso, todos os sistemas rodariam desde o início.
-4. **Instanciar/destruir efeitos por coleta.** Com 186 AuroraCoins na cena, coleta rápida exige **pooling** (Etapa 25).
+4. **Instanciar/destruir efeitos por coleta.** Com 204 AuroraCoins na cena canônica, coleta rápida exige **pooling** (Etapa 25).
 5. **`Renderer.material`** cria cópia de material por instância — proibido; usar `MaterialPropertyBlock` (Etapa 24).
 
 ---

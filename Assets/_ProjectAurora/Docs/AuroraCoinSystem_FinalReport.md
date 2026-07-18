@@ -1,6 +1,6 @@
 # Relatório final - sistema de AuroraCoins
 
-Data: 13/07/2026
+Data: 17/07/2026
 
 Cena canônica: `Assets/_ProjectAurora/Scenes/Beta03_Principal.unity`
 
@@ -13,7 +13,7 @@ Cena canônica: `Assets/_ProjectAurora/Scenes/Beta03_Principal.unity`
 5. Fundação de compras para `Skin` e `DataFile`, com custo inteiro e unlock persistente.
 6. Dois itens e um catálogo claramente marcados como conteúdo de teste.
 7. Card `HUD_AuroraCoinCounter` integrado à HUD existente e atualizado por eventos.
-8. Rodada inicial de 30 moedas preservada e expansão manual atual com 194 moedas nos seis grupos da rota principal.
+8. Rodada inicial de 30 moedas preservada como baseline histórico e cena canônica atual com 204 moedas nos seis grupos da rota principal.
 9. Janela Editor para criação, alinhamento, linhas, arcos, renomeação e validação.
 10. Reset Editor isolado para saldo e unlocks de teste.
 
@@ -22,10 +22,11 @@ Cena canônica: `Assets/_ProjectAurora/Scenes/Beta03_Principal.unity`
 - compilação Unity: 0 erros;
 - validação estática dos 13 scripts tocados/criados: 0 erros;
 - cena canônica: 0 problemas, 0 missing scripts e 0 prefabs quebrados;
-- suíte Editor: 62/62 assertions;
-- validador de placement: 194 moedas, 0 erros e 42 avisos consultivos de level design;
-- coleta real: wallet única, `000 -> 001`, 29 moedas ativas e 1 coletada;
-- nova execução: saldo `001`, 30 moedas ativas e 0 coletadas na corrida;
+- suíte Editor: 80/80 assertions;
+- validador de placement: 204 moedas, 0 erros e 39 avisos consultivos de level design;
+- distribuição canônica: `72 + 42 + 51 + 12 + 26 + 1 = 204` moedas;
+- balanceamento: skins pagas = 725, DataFiles pagos = 125, conteúdo completo = 850;
+- progressão: quatro corridas perfeitas rendem 816 e não compram tudo; a quinta eleva o total a 1.020 e deixa margem de 170 após todas as compras;
 - restauração de teste: saldo e HUD retornaram a `000`;
 - limite: 998 + 1 = 999; nova adição recusada; entrada extrema não causa overflow;
 - compras: custo exato, unlock salvo e recompra recusada;
@@ -34,9 +35,9 @@ Cena canônica: `Assets/_ProjectAurora/Scenes/Beta03_Principal.unity`
 - visibilidade: Intro 0, Tutorial 0, Gameplay 1, Pause 1, Game Over 1, Final 0;
 - Play Mode após correção defensiva: 0 erros vermelhos novos.
 
-Os 42 avisos atuais são 32 proximidades de DataFiles, 6 espaçamentos menores que 4 m
-e 4 moedas altas em padrões de salto. Como não há erro estrutural e as posições foram
-expandidas manualmente, o teste preserva o layout e trata esses pontos como revisão de ritmo.
+Os 39 avisos atuais são consultivos de ritmo e posicionamento. Como não há erro estrutural
+e as posições foram expandidas manualmente, o teste preserva o layout e trata esses pontos
+como revisão de level design, sem correção ou remoção automática.
 
 ## ArgumentNullException
 
@@ -52,7 +53,7 @@ Não foram alterados sistemas de intro, dublagem, vida, perseguição, distânci
 
 ## Pendências
 
-- definir preços e conteúdo final com game design;
+- revisar os preços somente após playtests de ritmo; a regra atual garante no mínimo cinco corridas perfeitas;
 - ligar o catálogo à futura interface do painel Extra;
 - atribuir SFX/VFX adicionais somente se houver assets aprovados;
 - fazer playtest humano completo de ritmo, tutorial, perseguição, Game Over e terminal;
