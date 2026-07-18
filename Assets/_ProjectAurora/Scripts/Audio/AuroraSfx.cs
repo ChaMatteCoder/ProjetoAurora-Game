@@ -14,6 +14,7 @@ public class AuroraSfx : MonoBehaviour
     public AudioClip eReady;           // quando o E fica disponível
     public AudioClip coin;             // pegar AuroraCoin
     public AudioClip dataFilePickup;   // pegar DataFile
+    public AudioClip hitDamage;        // impacto ao levar dano (todo dano)
 
     [Header("DataFile — proximidade (loop)")]
     public AudioClip dataFileNear;
@@ -24,6 +25,7 @@ public class AuroraSfx : MonoBehaviour
     [Header("Volumes")]
     [Range(0f, 1f)] public float coinVolume = 0.22f; // sutil: nao rouba trilha/dublagem
     [Range(0f, 1f)] public float uiVolume = 0.9f;
+    [Range(0f, 1f)] public float hitVolume = 0.8f;   // impacto de dano: presente, sem estourar
 
     private AudioSource oneShot;
     private AudioSource near;
@@ -65,6 +67,7 @@ public class AuroraSfx : MonoBehaviour
     public static void PlayDiagnostico() { if (Instance != null) Instance.Shot(Instance.diagnostico, Instance.uiVolume); }
     public static void PlayEReady() { if (Instance != null) Instance.Shot(Instance.eReady, Instance.uiVolume); }
     public static void PlayCoin() { if (Instance != null) Instance.Shot(Instance.coin, Instance.coinVolume); }
+    public static void PlayHit() { if (Instance != null) Instance.Shot(Instance.hitDamage, Instance.hitVolume); }
     public static void PlayDataFilePickup() { if (Instance != null) Instance.Shot(Instance.dataFilePickup, Instance.uiVolume); }
 
     /// Atualiza o loop de proximidade com a distância ao DataFile mais próximo.

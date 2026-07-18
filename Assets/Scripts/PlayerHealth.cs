@@ -64,8 +64,9 @@ public class PlayerHealth : MonoBehaviour
         Lives--;
         GameManager.Instance.ui.SetLives(Lives);
         IntegrityChanged?.Invoke(Lives, startingLives);
-        // VFX: faiscas no traje + shake discreto. No-op se nao houver AuroraVFXController
-        // na cena — o gameplay nunca depende do VFX para funcionar.
+        // SFX de impacto em TODO dano (pedido do cliente) + VFX de faiscas/shake.
+        // Ambos no-op se os servicos nao estiverem na cena.
+        AuroraSfx.PlayHit();
         ProjectAurora.VFX.AuroraVFXController.PlayerDamage(transform.position + Vector3.up * 1f);
         if (!VoiceLinePlayer.TryPlayQueued("CEL_045", new VoicePlaybackOptions
         {
@@ -87,6 +88,9 @@ public class PlayerHealth : MonoBehaviour
             if (!deathRaised)
             {
                 deathRaised = true;
+                // A fala de morte do Dr. Elias (ELI_011/012/013 sorteada) e tocada pelo
+                // GameOverManager, ANTES do CEL_056 — enfileirar aqui nao funciona porque
+                // o fluxo de game over faz ClearQueue+InterruptWith e engoliria a linha.
                 OnDeath?.Invoke();
             }
             return;

@@ -162,6 +162,9 @@ Estas falas podem ocorrer fora das sequências lineares, conforme dano, recupera
 | CEL_048 | Porta/painel liberado | CelestIA | Acesso liberado. | `DoorInteractable.cs` e `Beta03_Principal.unity` |
 | CEL_049 | Lasers desativados | CelestIA | Emissores desativados. | `LaserInteractable.cs` e `Beta03_Principal.unity` |
 | CEL_050 | Bloco móvel acionado | CelestIA | Caminho parcialmente liberado. | `MovingBlockInteractable.cs` |
+| ELI_011 | Morte do Dr. Elias (sorteada entre as três) | Dr. Elias | ... | `Assets/Scripts/PlayerHealth.cs` |
+| ELI_012 | Morte do Dr. Elias (sorteada entre as três) | Dr. Elias | ... | `Assets/Scripts/PlayerHealth.cs` |
+| ELI_013 | Morte do Dr. Elias (sorteada entre as três) | Dr. Elias | ... | `Assets/Scripts/PlayerHealth.cs` |
 | CEL_051 | Barreira móvel acionada | CelestIA | Barreira deslocada. | `Beta03_Principal.unity` |
 | CEL_052 | Interação de rota | CelestIA | Rota recalculada. | `Beta03_Principal.unity` |
 | CEL_053 | Fim do recorte de protótipo | CelestIA | Setor A estabilizado. Primeira passagem concluída. | `PrototypeSliceEndTrigger.cs` |

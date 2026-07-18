@@ -199,6 +199,8 @@ public class RobotPursuitDirector : MonoBehaviour
             Vector3 camStart = cam.transform.position;
             Quaternion rotStart = cam.transform.rotation;
 
+            // (Orbita 360 revertida a pedido do cliente: enquadramento original,
+            // suave e a favor da gameplay — frente-direita olhando para tras.)
             float t = 0f;
             while (t < startCutsceneHold)
             {

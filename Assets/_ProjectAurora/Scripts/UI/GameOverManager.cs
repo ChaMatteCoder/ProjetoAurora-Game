@@ -160,7 +160,7 @@ public class GameOverManager : MonoBehaviour
             VoiceLinePlayer voice = VoiceLinePlayer.Instance;
             voice.ClearQueue();
             voice.StopCurrent(0.08f);
-            voice.InterruptWith(voiceLineId, new VoicePlaybackOptions
+            var options = new VoicePlaybackOptions
             {
                 group = voiceLineId == "CEL_056" ? VoiceGroup.GameOver : VoiceGroup.Final,
                 priority = VoicePriority.Critical,
@@ -170,7 +170,20 @@ public class GameOverManager : MonoBehaviour
                 blockGameplay = true,
                 fadeOutTime = 0.08f,
                 ownerStateId = voiceLineId == "CEL_056" ? "GameOver" : "GameCompleted"
-            });
+            };
+
+            if (voiceLineId == "CEL_056")
+            {
+                // Morte: reacao do Dr. Elias PRIMEIRO (uma de tres, sorteada), depois a
+                // CelestIA. Sequencia unica — nada e engolido pelo ClearQueue acima.
+                string[] deathLines = { "ELI_011", "ELI_012", "ELI_013" };
+                string eliasLine = deathLines[Random.Range(0, deathLines.Length)];
+                voice.PlaySequence(new[] { eliasLine, voiceLineId }, false, null, options);
+            }
+            else
+            {
+                voice.InterruptWith(voiceLineId, options);
+            }
         }
         sequenceRoutine = StartCoroutine(SequenceRoutine(accent));
     }

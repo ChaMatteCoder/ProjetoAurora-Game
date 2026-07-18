@@ -1,10 +1,10 @@
 # Voice Integration — Audit
 
-- Gerado em: 2026-07-12 14:30:38
+- Gerado em: 2026-07-18 19:49:47
 - Documento analisado: `Assets/_ProjectAurora/Docs/AURORA_Direcao_ElevenLabs.md`
-- MP3 encontrados: **67**
-- Entradas de roteiro: **67**
-- Clipes associados: **67**
+- MP3 encontrados: **70**
+- Entradas de roteiro: **70**
+- Clipes associados: **70**
 - IDs duplicados no banco: **0**
 - Faltantes obrigatórios: nenhum
 - Faltantes opcionais: nenhum

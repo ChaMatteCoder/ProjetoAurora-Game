@@ -1,8 +1,8 @@
 # Voice Integration — Final Report
 
 - Banco: `Assets/_ProjectAurora/Audio/Voice/Database/VoiceLineDatabase.asset`
-- Entradas: **67**
-- Áudios integrados: **67**
+- Entradas: **70**
+- Áudios integrados: **70**
 - Áudios ausentes obrigatórios: nenhum
 - Áudios ausentes opcionais: nenhum
 - Duração: `AudioClip.length + postDelay`, respeitando `minDisplayTime`.

@@ -1021,3 +1021,48 @@ MonoBehaviour:
     canBeSkipped: 1
     drEliasMood: 1
     celestIAStateHint: 0
+  - id: ELI_011
+    speaker: 1
+    sceneUse: "Morte do Dr. Elias (sorteada entre as tr\xEAs)"
+    subtitleText: ...
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 5fb6c7f8a4a6c554d92fcac6fd68d614, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: ELI_012
+    speaker: 1
+    sceneUse: "Morte do Dr. Elias (sorteada entre as tr\xEAs)"
+    subtitleText: ...
+    originalDirection: 
+    clip: {fileID: 8300000, guid: e3446f2b31549a347947d21cbae14181, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0
+  - id: ELI_013
+    speaker: 1
+    sceneUse: "Morte do Dr. Elias (sorteada entre as tr\xEAs)"
+    subtitleText: ...
+    originalDirection: 
+    clip: {fileID: 8300000, guid: 02e043eb14123f14aac31fbe79abb713, type: 3}
+    priority: 5
+    minDisplayTime: 1.5
+    postDelay: 0.15
+    cooldownSeconds: 0
+    optional: 0
+    interruptCurrent: 0
+    canBeSkipped: 1
+    drEliasMood: 0
+    celestIAStateHint: 0

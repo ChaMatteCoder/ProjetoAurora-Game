@@ -10,6 +10,15 @@ public sealed class AuroraSkyVideoController : MonoBehaviour
     [SerializeField] private Camera targetCamera;
     [SerializeField] private VideoClip skyClip;
 
+    [Header("Skybox (mundo-preso — corrige a 'arena deslizando')")]
+    [Tooltip("RenderTexture que recebe os frames do vídeo (720p, igual ao clip).")]
+    [SerializeField] private RenderTexture skyRenderTexture;
+    [Tooltip("Material Skybox/Panoramic da cena (MAT_AuroraSky).")]
+    [SerializeField] private Material skyboxMaterial;
+    [Tooltip("Imagem estática exibida até o primeiro frame do vídeo (AuroraSky.png).")]
+    [SerializeField] private Texture fallbackTexture;
+
+    private static readonly int MainTexId = Shader.PropertyToID("_MainTex");
     private bool eventsBound;
 
     public bool IsPrepared => videoPlayer != null && videoPlayer.isPrepared;
@@ -27,6 +36,8 @@ public sealed class AuroraSkyVideoController : MonoBehaviour
     {
         ResolveReferences();
         ConfigurePlayer();
+        // ate o video preparar, o skybox mostra a imagem estatica (sem frame preto)
+        ApplySkyboxTexture(fallbackTexture);
         BindEvents();
         PrepareAndPlay();
     }
@@ -37,6 +48,16 @@ public sealed class AuroraSkyVideoController : MonoBehaviour
         if (videoPlayer != null)
         {
             videoPlayer.Stop();
+        }
+        // devolve a estatica: nao deixar o material apontando para uma RT congelada
+        ApplySkyboxTexture(fallbackTexture);
+    }
+
+    private void ApplySkyboxTexture(Texture texture)
+    {
+        if (skyboxMaterial != null && texture != null)
+        {
+            skyboxMaterial.SetTexture(MainTexId, texture);
         }
     }
 
@@ -78,10 +99,12 @@ public sealed class AuroraSkyVideoController : MonoBehaviour
 
         videoPlayer.source = VideoSource.VideoClip;
         videoPlayer.clip = skyClip;
-        videoPlayer.renderMode = VideoRenderMode.CameraFarPlane;
-        videoPlayer.targetCamera = targetCamera;
-        videoPlayer.aspectRatio = VideoAspectRatio.FitInside;
-        videoPlayer.targetCameraAlpha = 1f;
+        // RenderTexture -> material do skybox: o céu fica preso ao MUNDO, como a
+        // imagem estática original. CameraFarPlane grudava o quadro na TELA, então
+        // trocar de lane fazia o cenário "deslizar" sobre um fundo imóvel.
+        videoPlayer.renderMode = VideoRenderMode.RenderTexture;
+        videoPlayer.targetTexture = skyRenderTexture;
+        videoPlayer.aspectRatio = VideoAspectRatio.Stretch; // RT tem o mesmo aspect do clip
         videoPlayer.audioOutputMode = VideoAudioOutputMode.None;
         videoPlayer.controlledAudioTrackCount = 0;
         videoPlayer.playOnAwake = false;
@@ -94,14 +117,15 @@ public sealed class AuroraSkyVideoController : MonoBehaviour
 
     private void PrepareAndPlay()
     {
-        if (videoPlayer == null || skyClip == null || targetCamera == null)
+        if (videoPlayer == null || skyClip == null || skyRenderTexture == null || skyboxMaterial == null)
         {
-            Debug.LogWarning("[AuroraSky] Video, clip ou camera principal nao configurados.", this);
+            Debug.LogWarning("[AuroraSky] Video, clip, RenderTexture ou material do skybox nao configurados.", this);
             return;
         }
 
         if (videoPlayer.isPrepared)
         {
+            ApplySkyboxTexture(skyRenderTexture);
             videoPlayer.Play();
         }
         else
@@ -144,8 +168,10 @@ public sealed class AuroraSkyVideoController : MonoBehaviour
         eventsBound = false;
     }
 
-    private static void HandlePrepared(VideoPlayer source)
+    private void HandlePrepared(VideoPlayer source)
     {
+        // primeiro frame pronto: o skybox passa a ler a RT do vídeo
+        ApplySkyboxTexture(skyRenderTexture);
         source.Play();
     }
 
