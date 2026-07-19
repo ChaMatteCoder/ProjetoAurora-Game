@@ -6,18 +6,30 @@ public class NarrativeEventManager : MonoBehaviour
     public CelestIAHudController celestIAHud;
     public AudioSource sirenSource;
 
-    private readonly float[] triggerDistances = { 100f, 450f, 900f, 1350f, 1800f, 2250f };
+    // Ritmo do Setor A (pedido do cliente): o tutorial termina ~z96 e antes as falas
+    // CEL_001 (StartFullRun) + CEL_020/021 (gatilho unico aos 100m) caiam todas em ~5m
+    // de corrida. Agora cada fala tem o proprio gatilho, distribuido ao longo do setor.
+    private readonly float[] triggerDistances = { 150f, 230f, 320f, 450f, 900f, 1350f, 1800f, 2250f };
+
+    [Tooltip("Intervalo minimo (s) entre eventos narrativos — impede falas encavaladas " +
+        "quando varios gatilhos de distancia ja foram ultrapassados (ex.: pos-skip).")]
+    public float minSecondsBetweenEvents = 5f;
+
     private int nextEvent;
+    private float lastTriggerTime = float.NegativeInfinity;
 
     public void ResetEvents()
     {
         nextEvent = 0;
+        lastTriggerTime = float.NegativeInfinity;
     }
 
     public void UpdateDistance(float distance)
     {
-        if (nextEvent < triggerDistances.Length && distance >= triggerDistances[nextEvent])
+        if (nextEvent < triggerDistances.Length && distance >= triggerDistances[nextEvent] &&
+            Time.time - lastTriggerTime >= minSecondsBetweenEvents)
         {
+            lastTriggerTime = Time.time;
             Trigger(nextEvent++);
         }
     }
@@ -26,17 +38,24 @@ public class NarrativeEventManager : MonoBehaviour
     {
         switch (index)
         {
-            case 0:
-                Queue(CelestIAState.Normal, new[] { "CEL_020", "CEL_021" },
-                    C("Setor A comprometido. Rotas secundárias indisponíveis."),
+            case 0: // ~150m: primeira orientacao da corrida (antes vinha colada no fim do tutorial)
+                Queue(CelestIAState.Normal, new[] { "CEL_001" },
+                    C("Doutor Elias, mantenha a rota. Detectando obstáculos à frente."));
+                break;
+            case 1: // ~230m
+                Queue(CelestIAState.Normal, new[] { "CEL_020" },
+                    C("Setor A comprometido. Rotas secundárias indisponíveis."));
+                break;
+            case 2: // ~320m: metade jogavel do Setor A
+                Queue(CelestIAState.Normal, new[] { "CEL_021" },
                     C("Mantenha-se no corredor principal."));
                 break;
-            case 1:
+            case 3:
                 Queue(CelestIAState.Normal, new[] { "CEL_022", "CEL_023" },
                     C("Portas de contenção instáveis à frente."),
                     C("Alguns sistemas de laser ainda podem ser desativados manualmente."));
                 break;
-            case 2:
+            case 4:
                 ActivateRobots();
                 Queue(CelestIAState.Normal, new[] { "CEL_024", "CEL_025", "ELI_004", "CEL_026" },
                     C("Unidades autônomas detectadas na Sala de Máquinas."),
@@ -44,7 +63,7 @@ public class NarrativeEventManager : MonoBehaviour
                     E("Isso não deveria ser possível."),
                     C("Concordo. Isso não deveria ser possível."));
                 break;
-            case 3:
+            case 5:
                 SetRedLighting();
                 if (sirenSource != null && sirenSource.clip != null)
                 {
@@ -56,7 +75,7 @@ public class NarrativeEventManager : MonoBehaviour
                     E("CelestIA, mantenha o foco na contenção."),
                     C("Foco... redefinido."));
                 break;
-            case 4:
+            case 6:
                 Queue(CelestIAState.Corrupted,
                     new[] { "CEL_030", "CEL_031", "ELI_006", "CEL_032", "CEL_033" },
                     C("Estrutura instável."),
@@ -65,7 +84,7 @@ public class NarrativeEventManager : MonoBehaviour
                     C("Continue correndo, Dr. Elias."),
                     C("O Terminal precisa de você."));
                 break;
-            case 5:
+            case 7:
                 Queue(CelestIAState.Corrupted, new[] { "CEL_034", "CEL_035" },
                     C("Terminal Central alcançado."),
                     C("Aproxime-se do painel principal."));

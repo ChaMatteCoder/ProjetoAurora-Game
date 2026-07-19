@@ -44,6 +44,20 @@ public class RobotPursuitDirector : MonoBehaviour
     [Tooltip("Suavizacao extra do lead (mais alto = gruda no clamp, sem lag atras da camera).")]
     public float leadFollowSharpness = 22f;
 
+    [Header("Arrancada pos-dano (Round 16 — perigo ao bater em obstaculo)")]
+    [Tooltip("Distancia atras do player que o LEAD atinge na arrancada (quase nos calcanhares).")]
+    public float surgeLeadBehind = 2.2f;
+    [Tooltip("Tempo (s) para os robos fecharem a distancia apos o impacto.")]
+    public float surgeAttack = 0.35f;
+    [Tooltip("Tempo (s) colados no player antes de comecarem a recuar.")]
+    public float surgeHold = 1.2f;
+    [Tooltip("Tempo (s) para voltarem a formacao normal (player ja re-acelerou).")]
+    public float surgeRelease = 1.9f;
+    [Tooltip("Escala do backOffset dos demais robos no pico da arrancada (0.45 = fecham 55%).")]
+    [Range(0.2f, 1f)] public float surgeBackOffsetScale = 0.45f;
+    [Tooltip("Boost de velocidade de animacao no pico da arrancada.")]
+    public float surgeAnimSpeedBoost = 0.3f;
+
     [Header("Silhueta pos-porta")]
     public float robotsLingerSeconds = 8f;
 
@@ -65,6 +79,12 @@ public class RobotPursuitDirector : MonoBehaviour
     private Camera cam;
     private CameraFollow camFollow;
 
+    // Arrancada pos-dano: 0 = formacao normal, 1 = colados no player.
+    private float surge;
+    private Coroutine surgeRoutine;
+    private PlayerHealth playerHealth;
+    private int lastKnownLives = -1;
+
     private void Start()
     {
         if (player == null && GameManager.Instance != null)
@@ -73,6 +93,94 @@ public class RobotPursuitDirector : MonoBehaviour
         }
         cam = Camera.main;
         camFollow = cam != null ? cam.GetComponent<CameraFollow>() : null;
+
+        if (player != null)
+        {
+            playerHealth = player.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                lastKnownLives = playerHealth.Lives;
+                playerHealth.IntegrityChanged += OnPlayerIntegrityChanged;
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (playerHealth != null)
+        {
+            playerHealth.IntegrityChanged -= OnPlayerIntegrityChanged;
+        }
+    }
+
+    /// Dano DURANTE a perseguicao = robos arrancam para cima do player (quase alcancam)
+    /// enquanto ele esta lento, e recuam quando ele re-acelera. Punicao visceral sem
+    /// dano extra — os perseguidores continuam 100% visuais (sem colliders).
+    private void OnPlayerIntegrityChanged(int lives, int max)
+    {
+        bool tookDamage = lastKnownLives >= 0 && lives < lastKnownLives;
+        lastKnownLives = lives;
+
+        if (!tookDamage || !PursuitActive || endSequenceRunning || lives <= 0)
+        {
+            return;
+        }
+
+        if (surgeRoutine != null)
+        {
+            StopCoroutine(surgeRoutine);
+        }
+        surgeRoutine = StartCoroutine(SurgeRoutine());
+    }
+
+    private IEnumerator SurgeRoutine()
+    {
+        GameManager.Instance?.celestIA?.ShowTemporary(
+            "CELESTIA: Unidades ganhando terreno. Não pare!", 2f, DialogueManager.PriorityLow);
+
+        float t = 0f;
+        while (t < surgeAttack)   // fecha rapido
+        {
+            if (!PursuitActive) { surge = 0f; ApplySurgeAnimSpeed(); yield break; }
+            t += Time.deltaTime;
+            surge = Mathf.SmoothStep(0f, 1f, t / surgeAttack);
+            ApplySurgeAnimSpeed();
+            yield return null;
+        }
+
+        t = 0f;
+        while (t < surgeHold)     // colado nos calcanhares
+        {
+            if (!PursuitActive) { surge = 0f; ApplySurgeAnimSpeed(); yield break; }
+            t += Time.deltaTime;
+            surge = 1f;
+            yield return null;
+        }
+
+        t = 0f;
+        while (t < surgeRelease)  // recua conforme o player re-acelera
+        {
+            if (!PursuitActive) { surge = 0f; ApplySurgeAnimSpeed(); yield break; }
+            t += Time.deltaTime;
+            surge = 1f - Mathf.SmoothStep(0f, 1f, t / surgeRelease);
+            ApplySurgeAnimSpeed();
+            yield return null;
+        }
+
+        surge = 0f;
+        ApplySurgeAnimSpeed();
+        surgeRoutine = null;
+    }
+
+    private void ApplySurgeAnimSpeed()
+    {
+        for (int i = 0; i < robotAnimators.Count; i++)
+        {
+            if (robotAnimators[i] != null)
+            {
+                robotAnimators[i].speed = animatorSpeedPursuit * (1f + surgeAnimSpeedBoost * surge);
+            }
+        }
     }
 
     private void Update()
@@ -125,19 +233,24 @@ public class RobotPursuitDirector : MonoBehaviour
             }
 
             Vector3 sample = SampleHistory(Time.time - robot.delay);
+            // arrancada pos-dano: backOffset encolhe no pico do surge (robos fecham a distancia)
+            float effectiveBack = robot.backOffset * Mathf.Lerp(1f, surgeBackOffsetScale, surge);
             Vector3 target = new Vector3(
                 sample.x + robot.lateralOffset,
                 Mathf.Max(0f, sample.y) + robot.verticalOffset,
-                sample.z - robot.backOffset);
+                sample.z - effectiveBack);
 
             // LEAD PURSUER: clamp de distancia para permanecer visivel no frustum da camera
             // (camera de runner fica ~8 atras do player; o lead vive entre min e max atras,
             // entao esta sempre A FRENTE da camera e dentro do quadro, sem nunca alcancar
             // o player nem bloquear a leitura da pista — offset lateral o tira do centro).
+            // Durante o surge o clamp fecha ate surgeLeadBehind (quase nos calcanhares).
             if (robot.isLeadPursuer)
             {
                 float playerZ = player.transform.position.z;
-                target.z = Mathf.Clamp(target.z, playerZ - leadMaxBehind, playerZ - leadMinBehind);
+                float minBehind = Mathf.Lerp(leadMinBehind, surgeLeadBehind, surge);
+                float maxBehind = Mathf.Lerp(leadMaxBehind, surgeLeadBehind + 1f, surge);
+                target.z = Mathf.Clamp(target.z, playerZ - maxBehind, playerZ - minBehind);
             }
 
             robot.ApplyTarget(target, Time.deltaTime);

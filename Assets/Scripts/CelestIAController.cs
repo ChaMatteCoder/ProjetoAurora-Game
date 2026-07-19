@@ -6,23 +6,9 @@ public class CelestIAController : MonoBehaviour
 
     public void Begin()
     {
-        var options = new VoicePlaybackOptions
-        {
-            group = VoiceGroup.Gameplay,
-            priority = VoicePriority.Gameplay,
-            interruptCurrent = false,
-            clearQueueOfSameGroup = false,
-            cancelOnStateExit = false,
-            blockGameplay = false,
-            fadeOutTime = 0.08f,
-            ownerStateId = "FullRun_Start"
-        };
-        if (!VoiceLinePlayer.TryPlay("CEL_001", options))
-        {
-            ui.SetDialogue(
-                "CELESTIA",
-                "Doutor Elias, mantenha a rota. Detectando obstáculos à frente.");
-        }
+        // CEL_001 ("Doutor Elias, mantenha a rota...") saiu daqui: colada no fim do
+        // tutorial (CEL_019 "Acesso liberado"), encavalava com CEL_020/021. Agora e o
+        // NarrativeEventManager que a dispara por distancia (~150m), espacada das demais.
     }
 
     public void SetTutorialMessage(string message)
