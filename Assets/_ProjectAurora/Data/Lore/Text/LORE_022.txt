@@ -5,7 +5,6 @@
 **Origem:** Terminal Central Aurora / Intervenção manual de Doutor Elias
 **Tipo:** Registro de comando crítico
 **Classificação:** Crítico — Arquivo recuperado do Terminal Central
-**Local de coleta sugerido:** Setor E — Terminal Central
 
 ---
 

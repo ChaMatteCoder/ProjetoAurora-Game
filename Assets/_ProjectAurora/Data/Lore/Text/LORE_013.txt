@@ -5,7 +5,6 @@
 **Origem:** Projeto Aurora — Divisão de Defesa Operacional e Manutenção Robótica
 **Tipo:** Manual operacional revisado
 **Classificação:** Restrito — Acesso técnico nível 4
-**Local de coleta sugerido:** Setor C — Hangar de Manutenção Autônoma
 
 ---
 

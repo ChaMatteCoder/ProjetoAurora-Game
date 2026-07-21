@@ -5,7 +5,6 @@
 **Origem:** Projeto Aurora — Log de Segurança Sistêmica
 **Tipo:** Registro de incidente recuperado
 **Classificação:** Crítico — Acesso restrito nível 5
-**Local de coleta sugerido:** Setor C — Núcleo de Segurança de Dados
 
 ---
 

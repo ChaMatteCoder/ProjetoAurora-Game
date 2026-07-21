@@ -5,7 +5,6 @@
 **Origem:** Projeto Aurora — Divisão de Monitoramento Ambiental
 **Tipo:** Relatório ambiental interno
 **Classificação:** Confidencial — Acesso restrito nível 4
-**Local de coleta sugerido:** Setor B — Sala de Análise Atmosférica
 
 ---
 

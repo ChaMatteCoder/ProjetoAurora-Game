@@ -5,7 +5,6 @@
 **Origem:** Projeto Aurora — Divisão de Autenticação Física e Robótica
 **Tipo:** Manual técnico de integração
 **Classificação:** Ultra restrito — Acesso nível 5
-**Local de coleta sugerido:** Setor E — Plataforma de Autenticação Robótica
 
 ---
 

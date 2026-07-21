@@ -5,7 +5,6 @@
 **Origem:** Projeto Aurora — Log do Núcleo de Dispersão
 **Tipo:** Registro automático de incidente
 **Classificação:** Crítico — Arquivo parcialmente corrompido
-**Local de coleta sugerido:** Setor A — Laboratório de Dispersão
 
 ---
 

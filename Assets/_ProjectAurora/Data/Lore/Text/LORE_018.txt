@@ -5,7 +5,6 @@
 **Origem:** Projeto Aurora — Divisão de Arquitetura Subterrânea e Continuidade
 **Tipo:** Planta técnica comentada
 **Classificação:** Ultra restrito — Acesso nível 5
-**Local de coleta sugerido:** Setor E — Ponte Técnica / Painel de Estrutura Inferior
 
 ---
 

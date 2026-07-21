@@ -5,7 +5,6 @@
 **Origem:** CelestIA — Análise de Risco Sistêmico
 **Tipo:** Relatório automático de recomendação
 **Classificação:** Restrito — Revisão executiva obrigatória
-**Local de coleta sugerido:** Setor D — Corredor Vermelho / Terminal de Contenção
 
 ---
 

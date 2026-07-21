@@ -5,7 +5,6 @@
 **Origem:** Projeto Aurora — Divisão de Infraestrutura Atmosférica
 **Tipo:** Manual de implantação técnica
 **Classificação:** Interno — Acesso restrito nível 3
-**Local de coleta sugerido:** Setor B — Galeria de Manutenção das Torres
 
 ---
 

@@ -5,7 +5,6 @@
 **Origem:** Projeto Aurora — Divisão de Sistemas Inteligentes
 **Tipo:** Documento de ativação de sistema
 **Classificação:** Confidencial — Acesso restrito nível 4
-**Local de coleta sugerido:** Setor B — Núcleo de Processamento Atmosférico
 
 ---
 
