@@ -1,0 +1,1001 @@
+fileFormatVersion: 2
+guid: 63aa87dfe09dd8849bbf39e42d5e19a5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4592696516646909484
+    second: MenuLogo_0
+  - first:
+      213: 7238643892930805996
+    second: MenuLogo_1
+  - first:
+      213: -9024673687003917842
+    second: MenuLogo_2
+  - first:
+      213: 6749589086704308376
+    second: MenuLogo_3
+  - first:
+      213: 4384571390095228115
+    second: MenuLogo_4
+  - first:
+      213: -4648825575141179780
+    second: MenuLogo_5
+  - first:
+      213: 3724074481824935342
+    second: MenuLogo_6
+  - first:
+      213: 1496529290740475282
+    second: MenuLogo_7
+  - first:
+      213: -8744433342748451498
+    second: MenuLogo_8
+  - first:
+      213: 3955539821800320179
+    second: MenuLogo_9
+  - first:
+      213: -2349274360577579883
+    second: MenuLogo_10
+  - first:
+      213: 896546774181606179
+    second: MenuLogo_11
+  - first:
+      213: 2747735111464016489
+    second: MenuLogo_12
+  - first:
+      213: -3357276504401969696
+    second: MenuLogo_13
+  - first:
+      213: 7849714405358487155
+    second: MenuLogo_14
+  - first:
+      213: 7023580766611002705
+    second: MenuLogo_15
+  - first:
+      213: 3671805620163952064
+    second: MenuLogo_16
+  - first:
+      213: -3948719698217764636
+    second: MenuLogo_17
+  - first:
+      213: 4336886540187882864
+    second: MenuLogo_18
+  - first:
+      213: 8485136839218126675
+    second: MenuLogo_19
+  - first:
+      213: -5558166387796650679
+    second: MenuLogo_20
+  - first:
+      213: 6860053516071696877
+    second: MenuLogo_21
+  - first:
+      213: 5373149119809166375
+    second: MenuLogo_22
+  - first:
+      213: 7462867234775192354
+    second: MenuLogo_23
+  - first:
+      213: 135580007557854498
+    second: MenuLogo_24
+  - first:
+      213: -7467914893384792518
+    second: MenuLogo_25
+  - first:
+      213: -1874610112566038280
+    second: MenuLogo_26
+  - first:
+      213: -7572146558128484755
+    second: MenuLogo_27
+  - first:
+      213: 901620151135020479
+    second: MenuLogo_28
+  - first:
+      213: -7894069955994126834
+    second: MenuLogo_29
+  - first:
+      213: -148348363401024545
+    second: MenuLogo_30
+  - first:
+      213: -534454855816351719
+    second: MenuLogo_31
+  - first:
+      213: 2260298287689763564
+    second: MenuLogo_32
+  - first:
+      213: -8065185390337364495
+    second: MenuLogo_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MenuLogo_0
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 171
+        width: 192
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c26b9e316298cbf30800000000000000
+      internalID: 4592696516646909484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 117
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce001b5c444d47460800000000000000
+      internalID: 7238643892930805996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_2
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 117
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee11150b81be1c280800000000000000
+      internalID: -9024673687003917842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_3
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 117
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8901dd4738b5bad50800000000000000
+      internalID: 6749589086704308376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_4
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 117
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc77f6e27029dc30800000000000000
+      internalID: 4384571390095228115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_5
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 145
+        width: 33
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7e75fa15cd0c7fb0800000000000000
+      internalID: -4648825575141179780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_6
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 117
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eada54e92029ea330800000000000000
+      internalID: 3724074481824935342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_7
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 117
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 295ad82067db4c410800000000000000
+      internalID: 1496529290740475282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_8
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 137
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65d956b643885a680800000000000000
+      internalID: -8744433342748451498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_9
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 117
+        width: 40
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bce155b286e4e630800000000000000
+      internalID: 3955539821800320179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_10
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 117
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59427d18a63b56fd0800000000000000
+      internalID: -2349274360577579883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_11
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 117
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 323fd9f7a8c217c00800000000000000
+      internalID: 896546774181606179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_12
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 117
+        width: 38
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96a5ea7968ae12620800000000000000
+      internalID: 2747735111464016489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_13
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 117
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0edfa5e8ece8861d0800000000000000
+      internalID: -3357276504401969696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_14
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 117
+        width: 40
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 376c8af79a9cfec60800000000000000
+      internalID: 7849714405358487155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_15
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 117
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1555d15ae75c87160800000000000000
+      internalID: 7023580766611002705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_16
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 120
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cdb72ae1cfd4f230800000000000000
+      internalID: 3671805620163952064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_17
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 95
+        width: 474
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8742e0b545339c0800000000000000
+      internalID: -3948719698217764636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_18
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 78
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 075521b9457bf2c30800000000000000
+      internalID: 4336886540187882864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_19
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 78
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f5d24cff241c570800000000000000
+      internalID: 8485136839218126675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_20
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 78
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9455dd46e1d6dd2b0800000000000000
+      internalID: -5558166387796650679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_21
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 78
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de97f95a35ec33f50800000000000000
+      internalID: 6860053516071696877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_22
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 78
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72c9d6308a2419a40800000000000000
+      internalID: 5373149119809166375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_23
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 78
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2235da6c53e619760800000000000000
+      internalID: 7462867234775192354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_24
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 78
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 225712d6c4da1e100800000000000000
+      internalID: 135580007557854498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_25
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 78
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3643fe98f2ac5890800000000000000
+      internalID: -7467914893384792518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_26
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 78
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f07524e80c0cf5e0800000000000000
+      internalID: -1874610112566038280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_27
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 78
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e0e8703d45ae690800000000000000
+      internalID: -7572146558128484755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_28
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 78
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb5acbe10c2338c00800000000000000
+      internalID: 901620151135020479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_29
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 78
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e06f2e81331a27290800000000000000
+      internalID: -7894069955994126834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_30
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 78
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdba87013f5f0fdf0800000000000000
+      internalID: -148348363401024545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_31
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 75
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 910759ae32c3598f0800000000000000
+      internalID: -534454855816351719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_32
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 78
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea0c2c21513e5f10800000000000000
+      internalID: 2260298287689763564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuLogo_33
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 78
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fd65416e94b21090800000000000000
+      internalID: -8065185390337364495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MenuLogo_0: 4592696516646909484
+      MenuLogo_1: 7238643892930805996
+      MenuLogo_10: -2349274360577579883
+      MenuLogo_11: 896546774181606179
+      MenuLogo_12: 2747735111464016489
+      MenuLogo_13: -3357276504401969696
+      MenuLogo_14: 7849714405358487155
+      MenuLogo_15: 7023580766611002705
+      MenuLogo_16: 3671805620163952064
+      MenuLogo_17: -3948719698217764636
+      MenuLogo_18: 4336886540187882864
+      MenuLogo_19: 8485136839218126675
+      MenuLogo_2: -9024673687003917842
+      MenuLogo_20: -5558166387796650679
+      MenuLogo_21: 6860053516071696877
+      MenuLogo_22: 5373149119809166375
+      MenuLogo_23: 7462867234775192354
+      MenuLogo_24: 135580007557854498
+      MenuLogo_25: -7467914893384792518
+      MenuLogo_26: -1874610112566038280
+      MenuLogo_27: -7572146558128484755
+      MenuLogo_28: 901620151135020479
+      MenuLogo_29: -7894069955994126834
+      MenuLogo_3: 6749589086704308376
+      MenuLogo_30: -148348363401024545
+      MenuLogo_31: -534454855816351719
+      MenuLogo_32: 2260298287689763564
+      MenuLogo_33: -8065185390337364495
+      MenuLogo_4: 4384571390095228115
+      MenuLogo_5: -4648825575141179780
+      MenuLogo_6: 3724074481824935342
+      MenuLogo_7: 1496529290740475282
+      MenuLogo_8: -8744433342748451498
+      MenuLogo_9: 3955539821800320179
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

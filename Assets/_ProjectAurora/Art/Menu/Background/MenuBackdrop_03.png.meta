@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 163044e69c29f0945a19475aa9f58330
+guid: 2f54ff37f115a664db9381d29cf79dea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -526266821174162274
-    second: Dr.Elias_Menu_0
+      213: 450729297617262453
+    second: MenuBackdrop_03_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dr.Elias_Menu_0
+      name: MenuBackdrop_03_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9c07da4d1352b8f0800000000000000
-      internalID: -526266821174162274
+      spriteID: 577965a78ef414600800000000000000
+      internalID: 450729297617262453
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dr.Elias_Menu_0: -526266821174162274
+      MenuBackdrop_03_0: 450729297617262453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
