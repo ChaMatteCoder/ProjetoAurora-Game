@@ -270,7 +270,9 @@ public static class AuroraPhase01EnvironmentBuilder
             bayIndex++;
         }
 
-        for (float z = -202.5f; z < 225f; z += 45f)
+        // Cadencia regular de 15m (Round 17): antes eram grupos de 3 fileiras a cada 45m,
+        // o que criava rajadas seguidas de longos vazios e lia como padrao aleatorio.
+        for (float z = -217.5f; z < 225f; z += 15f)
         {
             CreateFloorChevrons(sector.transform, z, palette);
         }
@@ -362,18 +364,30 @@ public static class AuroraPhase01EnvironmentBuilder
         CreateFloorChevrons(parent, z, palette);
     }
 
+    /// Marcador direcional de piso.
+    ///
+    /// ATENCAO A DIRECAO (bug corrigido no Round 17): o player corre para +Z, entao as
+    /// barras precisam CONVERGIR em +Z. Uma barra alongada em Z girada por theta leva a
+    /// ponta da frente para x += sin(theta)*len/2 — logo a barra da ESQUERDA (x<0) precisa
+    /// de theta POSITIVO e a da DIREITA (x>0) de theta NEGATIVO. Os valores antigos
+    /// (L=-34 / R=+34) faziam o oposto: a seta apontava para tras.
+    ///
+    /// Glifo em duas camadas (externo largo + interno estreito) para leitura em velocidade.
+    /// A animacao do pulso fica por conta de AuroraTrackGuidance.
     private static void CreateFloorChevrons(Transform parent, float z, Palette palette)
     {
-        for (int i = 0; i < 3; i++)
-        {
-            float rowZ = z + i * 0.72f;
-            Box("Floor Chevron L", parent, new Vector3(-0.28f, 0.11f, rowZ),
-                new Vector3(0.18f, 0.025f, 0.92f), Quaternion.Euler(0f, -34f, 0f),
-                palette.CyanEmission, false, false);
-            Box("Floor Chevron R", parent, new Vector3(0.28f, 0.11f, rowZ),
-                new Vector3(0.18f, 0.025f, 0.92f), Quaternion.Euler(0f, 34f, 0f),
-                palette.CyanEmission, false, false);
-        }
+        ChevronBar(parent, "Track Chevron Outer L", -0.44f, z, 0.13f, 1.30f, +34f, palette);
+        ChevronBar(parent, "Track Chevron Outer R", +0.44f, z, 0.13f, 1.30f, -34f, palette);
+        ChevronBar(parent, "Track Chevron Inner L", -0.21f, z, 0.105f, 0.74f, +34f, palette);
+        ChevronBar(parent, "Track Chevron Inner R", +0.21f, z, 0.105f, 0.74f, -34f, palette);
+    }
+
+    private static void ChevronBar(Transform parent, string name, float x, float z,
+        float width, float length, float angleY, Palette palette)
+    {
+        Box(name, parent, new Vector3(x, 0.11f, z),
+            new Vector3(width, 0.024f, length), Quaternion.Euler(0f, angleY, 0f),
+            palette.CyanEmission, false, false);
     }
 
     private static void CreateArchFrame(Transform parent, float z, Palette palette)

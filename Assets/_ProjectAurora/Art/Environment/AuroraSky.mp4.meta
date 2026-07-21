@@ -14,13 +14,13 @@ VideoClipImporter:
   importAudio: 0
   targetSettings:
     :
-      enableTranscoding: 0
-      codec: 1
+      enableTranscoding: 1
+      codec: 2
       resizeFormat: 7
       aspectRatio: 0
       customWidth: 1280
       customHeight: 720
-      bitrateMode: 1
+      bitrateMode: 2
       spatialQuality: 2
   userData: 
   assetBundleName: 

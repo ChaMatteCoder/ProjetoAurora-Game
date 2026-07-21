@@ -6,13 +6,45 @@ Cena canônica: `Assets/_ProjectAurora/Scenes/Beta03_Principal.unity`
 
 ## Implementação
 
-O fundo está no objeto `AuroraSky Video Background`, com `VideoPlayer` e
-`AuroraSkyVideoController`. O vídeo é desenhado diretamente no `CameraFarPlane` da
-`Main Camera`, usa `VideoAspectRatio.FitInside`, loop, `waitForFirstFrame` e
-`skipOnDrop`. Não há áudio nem `RenderTexture` intermediária.
+> **Atualizado em 21/07/2026.** A descrição anterior (`CameraFarPlane`) ficou obsoleta:
+> o `CameraFarPlane` prendia o quadro à TELA, então trocar de faixa fazia o cenário
+> "deslizar" sobre um fundo imóvel. O caminho atual prende o céu ao MUNDO.
 
-Essa composição mantém o quadro 16:9 inteiro atrás da geometria e evita a projeção
-esférica que curvava e recortava a imagem estática anterior.
+O fundo está no objeto `AuroraSky Video Background`, com `VideoPlayer` e
+`AuroraSkyVideoController`. O caminho de renderização real é:
+
+```
+VideoClip → RT_AuroraSky (RenderTexture) → MAT_AuroraSky (Skybox/Panoramic) → domo do céu
+```
+
+O `VideoPlayer` usa `renderMode = RenderTexture`, `aspectRatio = Stretch`, loop,
+`waitForFirstFrame` e `skipOnDrop`, sem áudio. O material é `Skybox/Panoramic` com
+`_Mapping = Latitude Longitude` e `_ImageType = 360°`.
+
+### Consequência de resolução (importante)
+
+Por ser um panorama **360°×180°**, a textura é esticada pela esfera inteira. A densidade
+de pixels resultante é MUITO menor que a resolução nominal do clipe — panoramas lat-long
+normalmente pedem 4096x2048 ou mais. **O clipe de 1280x720 é o teto de qualidade atual e
+a causa da pixelização.** Aumentar apenas a `RenderTexture` não resolve: ela já casa com
+o clipe, e ampliar acima da fonte só interpola.
+
+Testado e descartado: `_ImageType = 180°` (dobraria a densidade) deixa o céu preto na
+área visível com a orientação atual (`_Rotation = 180`).
+
+## Compatibilidade de plataforma (codec)
+
+O importador **precisa** de `enableTranscoding = true` com `codec = VP8`.
+
+O player Linux do Unity não tem decodificador H.264 garantido (depende de bibliotecas do
+sistema). Com o `.mp4` H.264 embarcado cru (`enableTranscoding = false`), o vídeo não
+decodifica no Linux, nada é escrito na `RT_AuroraSky`, e o skybox exibe a RenderTexture
+vazia — **céu preto**. Foi o bug reportado na build Linux de 21/07/2026.
+
+Além do codec, o campo `fallbackTexture` do controller deve estar preenchido
+(`AuroraSky_Fallback.png`). Ele estava nulo, então `ApplySkyboxTexture(fallback)` era
+no-op e não havia rede de proteção: qualquer falha do vídeo virava céu preto em vez de
+uma imagem estática.
 
 ## Asset definitivo
 
